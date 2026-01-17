@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Юридическая компания "Консультант. По праву." - профессиональные юридические услуги</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" Профессиональный юрист в Ижевске. Уголовные, семейные, жилищные дела. Защита в суде, банкротство, споры с банками. Бесплатная первая консультация. Опыт 15 лет. Звоните +7 (912) 767-55-53">
+    <meta name="keywords" content="юрист Ижевск, адвокат Ижевск, юридические услуги Ижевск, юрист консультация Ижевск, адвокат по уголовным делам Ижевск, банкротство Ижевск, семейный юрист Ижевск, жилищный юрист Ижевск, автоюрист Ижевск, защита прав потребителей Ижевск, юрист бесплатная консультация Ижевск">
+    <meta name="author" content="Юридическая компания Консультант. По праву.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/000000/balance.png">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Юридическая компания 'Консультант. По праву.'",
+      "description": "Профессиональные юридические услуги для физических и юридических лиц",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ижевск",
+        "streetAddress": "ул. Максима Горького, д. 43"
+      },
+      "telephone": "+7 (912) 767-55-53",
+      "email": "pravok18@list.ru",
+      "openingHours": "Mo-Fr 09:00-19:00, Sa 10:00-16:00",
+      "priceRange": "$$",
+      "areaServed": "Ижевск и Удмуртская Республика"
+    }
+    </script>
+    
     <style>
         :root {
             --primary: #0A2342; /* Глубокий синий */
@@ -212,6 +245,16 @@
             width: 100%;
         }
         
+        /* Активное состояние меню */
+        .nav a.active {
+            color: var(--secondary);
+            text-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .nav a.active::after {
+            width: 100%;
+        }
+        
         .header-actions {
             display: flex;
             align-items: center;
@@ -288,6 +331,8 @@
             cursor: pointer;
             transition: var(--transition);
             border-radius: var(--border-radius);
+            align-items: center;
+            justify-content: center;
         }
         
         .mobile-menu-btn:hover {
@@ -379,7 +424,7 @@
             text-transform: uppercase;
         }
         
-        /* Floating Elements (как в диз.html) */
+        /* Floating Elements */
         .floating-elements {
             position: absolute;
             top: 0;
@@ -930,6 +975,15 @@
             resize: vertical;
         }
         
+        /* Anti-spam поле */
+        .form-honey {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+        }
+        
         /* Footer */
         .footer {
             background: rgba(10, 10, 10, 0.95);
@@ -1069,8 +1123,6 @@
             
             .mobile-menu-btn {
                 display: flex;
-                align-items: center;
-                justify-content: center;
             }
             
             .hero-title {
@@ -1191,6 +1243,9 @@
             font-size: 1.2rem;
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .mobile-menu-close:hover {
@@ -1253,9 +1308,33 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Success/Error сообщения */
+        .form-message {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+            display: none;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .form-message.success {
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            display: block;
+        }
+        
+        .form-message.error {
+            background-color: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+            display: block;
+        }
     </style>
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/LegalService">
     <!-- Cyber Particles Background -->
     <div class="cyber-particles" id="cyberParticles"></div>
     
@@ -1263,9 +1342,9 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-container">
-                <a href="#" class="logo">
+                <a href="#" class="logo" aria-label="На главную страницу">
                     <div class="logo-icon">
-                        <i class="fas fa-balance-scale"></i>
+                        <i class="fas fa-balance-scale" aria-hidden="true"></i>
                     </div>
                     <div class="logo-text">
                         <h1>Консультант. По праву.</h1>
@@ -1273,7 +1352,7 @@
                     </div>
                 </a>
                 
-                <nav class="nav">
+                <nav class="nav" aria-label="Основная навигация">
                     <a href="#services">Услуги</a>
                     <a href="#about">О нас</a>
                     <a href="#cases">Кейсы</a>
@@ -1282,8 +1361,8 @@
                 
                 <div class="header-actions">
                     <a href="#contact" class="btn btn-primary">Консультация</a>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn">
-                        <i class="fas fa-bars"></i>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false">
+                        <i class="fas fa-bars" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -1294,410 +1373,356 @@
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Мобильное меню">
         <div class="mobile-menu-header">
             <div class="logo">
                 <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.3rem;">
-                    <i class="fas fa-balance-scale"></i>
+                    <i class="fas fa-balance-scale" aria-hidden="true"></i>
                 </div>
                 <div class="logo-text">
                     <h1 style="font-size: 1.3rem;">Консультант. По праву.</h1>
                 </div>
             </div>
-            <button class="mobile-menu-close" id="mobileMenuClose">
-                <i class="fas fa-times"></i>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
         </div>
         
-        <nav class="mobile-nav">
+        <div class="mobile-nav">
             <a href="#services">Услуги</a>
             <a href="#about">О нас</a>
             <a href="#cases">Кейсы</a>
             <a href="#contact">Контакты</a>
-        </nav>
+        </div>
         
         <a href="#contact" class="btn btn-primary" style="margin-top: auto;">Получить консультацию</a>
-    </div>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1 class="hero-title">Профессиональная юридическая помощь</h1>
-                <p class="hero-subtitle">Комплексные юридические услуги для физических и юридических лиц. Защита ваших интересов в суде и за его пределами. Более 15 лет успешной практики.</p>
-                <a href="#contact" class="btn btn-secondary">Получить консультацию</a>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Лет опыта</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">2000+</span>
-                        <span class="stat-label">Довольных клиентов</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">Успешных дел</span>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h1 class="hero-title">Профессиональная юридическая помощь</h1>
+                    <p class="hero-subtitle">Комплексные юридические услуги для физических и юридических лиц. Защита ваших интересов в суде и за его пределами. Более 15 лет успешной практики.</p>
+                    <a href="#contact" class="btn btn-secondary">Получить консультацию</a>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Лет опыта</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2000+</span>
+                            <span class="stat-label">Довольных клиентов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Успешных дел</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Floating Elements (как в диз.html) -->
-        <div class="floating-elements">
-            <div class="float-element float-1"></div>
-            <div class="float-element float-2"></div>
-            <div class="float-element float-3"></div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Наши услуги</h2>
-                <p class="section-subtitle">Мы предоставляем полный спектр юридических услуг по различным направлениям права</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-gavel"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Уголовное право</h3>
-                        <p class="service-text">Защита на следствии и в суде, обжалование приговоров, условно-досрочное освобождение, помощь осужденным.</p>
-                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Жилищное право</h3>
-                        <p class="service-text">Споры с застройщиками, раздел имущества, выселение, признание права собственности, приватизация.</p>
-                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Семейное право</h3>
-                        <p class="service-text">Расторжение брака, раздел имущества, алименты, определение порядка общения с детьми, брачные договоры.</p>
-                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Гражданское право</h3>
-                        <p class="service-text">Договорные споры, защита прав потребителей, возмещение ущерба, наследственные дела, земельные споры.</p>
-                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Арбитражные споры</h3>
-                        <p class="service-text">Банкротство, корпоративные споры, налоговые дела, защита в отношениях с контрагентами и госорганами.</p>
-                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-passport"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Авторское право</h3>
-                        <p class="service-text">Защита интеллектуальной собственности, регистрация товарных знаков, патентование, лицензионные договоры.</p>
-                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+            <!-- Floating Elements -->
+            <div class="floating-elements">
+                <div class="float-element float-1"></div>
+                <div class="float-element float-2"></div>
+                <div class="float-element float-3"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="about-container">
-                <div class="about-terminal fade-in">
-                    <h2 class="about-title">О нашей компании</h2>
-                    <p class="about-text">Юридическая компания "Консультант. По праву." работает на рынке юридических услуг с 2008 года. За это время мы помогли тысячам клиентов решить их правовые проблемы.</p>
-                    <p class="about-text">Наша команда состоит из опытных юристов и адвокатов, специализирующихся в различных областях права. Мы постоянно повышаем квалификацию и следим за изменениями в законодательстве.</p>
-                    <p class="about-text">Мы гордимся нашим подходом к каждому клиенту - индивидуальное рассмотрение дела, разработка стратегии и сопровождение до получения результата.</p>
-                    
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <span class="about-stat-number">15+</span>
-                            <span class="about-stat-text">Лет опыта</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="about-stat-number">2000+</span>
-                            <span class="about-stat-text">Довольных клиентов</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="about-stat-number">95%</span>
-                            <span class="about-stat-text">Успешных дел</span>
-                        </div>
-                    </div>
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Наши услуги</h2>
+                    <p class="section-subtitle">Мы предоставляем полный спектр юридических услуг по различным направлениям права</p>
                 </div>
                 
-                <div class="about-image fade-in">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Команда юристов">
-                    <div class="image-overlay">
-                        <p>Наша команда — ваш надежный партнер в решении юридических вопросов</p>
-                    </div>
+                <div class="services-grid">
+                    <article class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-gavel" aria-hidden="true"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Уголовное право</h3>
+                            <p class="service-text">Защита на следствии и в суде, обжалование приговоров, условно-досрочное освобождение, помощь осужденным.</p>
+                            <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Жилищное право</h3>
+                            <p class="service-text">Споры с застройщиками, раздел имущества, выселение, признание права собственности, приватизация.</p>
+                            <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Семейное право</h3>
+                            <p class="service-text">Расторжение брака, раздел имущества, алименты, определение порядка общения с детьми, брачные договоры.</p>
+                            <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-file-contract" aria-hidden="true"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Гражданское право</h3>
+                            <p class="service-text">Договорные споры, защита прав потребителей, возмещение ущерба, наследственные дела, земельные споры.</p>
+                            <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase" aria-hidden="true"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Арбитражные споры</h3>
+                            <p class="service-text">Банкротство, корпоративные споры, налоговые дела, защита в отношениях с контрагентами и госорганами.</p>
+                            <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-passport" aria-hidden="true"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Авторское право</h3>
+                            <p class="service-text">Защита интеллектуальной собственности, регистрация товарных знаков, патентование, лицензионные договоры.</p>
+                            <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Cases Section -->
-    <section class="section" id="cases">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Кейсы из практики</h2>
-                <p class="section-subtitle">Реальные ситуации, в которых мы помогли нашим клиентам</p>
-            </div>
-            
-            <div class="cases-grid">
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-car"></i>
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-terminal fade-in">
+                        <h2 class="about-title">О нашей компании</h2>
+                        <p class="about-text">Юридическая компания "Консультант. По праву." работает на рынке юридических услуг с 2008 года. За это время мы помогли тысячам клиентов решить их правовые проблемы.</p>
+                        <p class="about-text">Наша команда состоит из опытных юристов и адвокатов, специализирующихся в различных областях права. Мы постоянно повышаем квалификацию и следим за изменениями в законодательстве.</p>
+                        <p class="about-text">Мы гордимся нашим подходом к каждому клиенту - индивидуальное рассмотрение дела, разработка стратегии и сопровождение до получения результата.</p>
+                        
+                        <div class="about-stats">
+                            <div class="about-stat">
+                                <span class="about-stat-number">15+</span>
+                                <span class="about-stat-text">Лет опыта</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="about-stat-number">2000+</span>
+                                <span class="about-stat-text">Довольных клиентов</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="about-stat-number">95%</span>
+                                <span class="about-stat-text">Успешных дел</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="terminal-title">Автоюрист: спор со страховой</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> После ДТП страховая компания отказалась выплачивать полную сумму за поврежденный автомобиль, оценив ущерб значительно ниже рыночной стоимости ремонта.</p>
-                        <p><strong>Решение:</strong> Мы собрали независимую экспертизу, подготовили исковое заявление и представляли интересы клиента в суде. В результате взыскали со страховой полную стоимость ремонта + неустойку + моральный вред.</p>
-                        <a href="#contact" class="terminal-link">Решить похожую ситуацию</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3 class="terminal-title">Банкротство физического лица</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Клиент накопил долги по кредитам на сумму 1,8 млн рублей. Зарплаты хватало только на проценты, коллекторы постоянно звонили родственникам.</p>
-                        <p><strong>Решение:</strong> Подготовили документы для процедуры банкротства, полностью сопровождали дело в арбитражном суде. Через 8 месяцев долги в размере 1,5 млн рублей были списаны законно.</p>
-                        <a href="#contact" class="terminal-link">Консультация по банкротству</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3 class="terminal-title">Спор с застройщиком</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Застройщик переносил срок сдачи квартиры трижды. Клиент внёс 70% стоимости, но строительство практически остановилось.</p>
-                        <p><strong>Решение:</strong> Направили претензию, а затем иск в суд. Добились не только возврата всей суммы с процентами, но и взыскания неустойки за каждый день просрочки.</p>
-                        <a href="#contact" class="terminal-link">Помощь с дольщиком</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="terminal-title">Спор при разводе</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Супруги при разводе не могли договориться о разделе квартиры, купленной в браке, и совместного бизнеса.</p>
-                        <p><strong>Решение:</strong> Мы представляли интересы жены. В результате переговоров и судебных заседаний достигли соглашения: клиентка получила квартиру, а муж — бизнес с компенсацией разницы в стоимости.</p>
-                        <a href="#contact" class="terminal-link">Раздел имущества</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="terminal-title">Восстановление на работе</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Клиента уволили "по собственному желанию" под давлением работодателя, хотя он не писал заявление.</p>
-                        <p><strong>Решение:</strong> Подготовили иск о восстановлении на работе и взыскании заработной платы за время вынужденного прогула. Суд признал увольнение незаконным — клиент восстановлен с выплатой компенсации.</p>
-                        <a href="#contact" class="terminal-link">Защита трудовых прав</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3 class="terminal-title">Спор с банком</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Банк начислял скрытые комиссии и страховки по потребительскому кредиту, увеличив переплату на 40%.</p>
-                        <p><strong>Решение:</strong> Проанализировали договор, направили претензию, затем подали иск. Суд признал комиссии необоснованными и уменьшил сумму долга на 25%.</p>
-                        <a href="#contact" class="terminal-link">Оспорить условия кредита</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3 class="terminal-title">Защита прав потребителей</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Клиент купил дорогую бытовую технику, которая сломалась через неделю. Магазин отказался принимать товар, ссылаясь на "неправильную эксплуатацию".</p>
-                        <p><strong>Решение:</strong> Провели независимую экспертизу, доказали производственный брак. Через суд обязали магазин принять товар, вернуть деньги и выплатить штраф в пользу клиента.</p>
-                        <a href="#contact" class="terminal-link">Защитить свои права</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fab fa-bitcoin"></i>
-                    </div>
-                    <h3 class="terminal-title">Неосновательное обогащение при продаже криптовалюты</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Клиента, продавшего криптовалюту на бирже Binance, обвинили в неосновательном обогащении. Покупатель утверждал, что стал жертвой мошенников.</p>
-                        <p><strong>Решение:</strong> Мы доказали, что сделка была законной: клиент получил оплату и сразу перевел покупателю криптовалюту. Суд установил встречное предоставление и отказал в иске полностью.</p>
-                        <a href="#contact" class="terminal-link">Защита в спорах по криптовалюте</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3 class="terminal-title">Блокировка карт по 115-ФЗ</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> У клиента были заблокированы карты и счета банком по подозрению в переводе средств в пользу сомнительных организаций. Банк требовал предоставить документы, подтверждающие происхождение средств.</p>
-                        <p><strong>Решение:</strong> Мы подготовили полный пакет документов, объясняющих происхождение средств, и направили в банк. Также были поданы жалобы в ЦБ на неправомерные действия банка. В результате блокировка была снята, доступ к средствам восстановлен.</p>
-                        <a href="#contact" class="terminal-link">Снять блокировку карт</a>
-                    </div>
-                </div>
-                
-                <div class="case-terminal fade-in">
-                    <div class="terminal-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3 class="terminal-title">Оспаривание закупки по 44-ФЗ</h3>
-                    <div class="terminal-content">
-                        <p><strong>Ситуация:</strong> Заказчик допустил нарушения при проведении закупки, что привело к необоснованному отклонению заявки нашего клиента. Закупка была проведена с нарушением требований закона.</p>
-                        <p><strong>Решение:</strong> Мы подготовили жалобу в Федеральную антимонопольную службу (ФАС) и доказали нарушения. ФАС признала жалобу обоснованной и обязала заказчика отменить результаты закупки и провести ее заново с соблюдением закона.</p>
-                        <a href="#contact" class="terminal-link">Оспорить закупку</a>
+                    
+                    <div class="about-image fade-in">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Команда юристов за работой в современном офисе">
+                        <div class="image-overlay">
+                            <p>Наша команда — ваш надежный партнер в решении юридических вопросов</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title" style="color: white;">Свяжитесь с нами</h2>
-                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Запишитесь на консультацию к нашему юристу прямо сейчас</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-terminal fade-in">
-                    <h2 class="contact-title">Наши контакты</h2>
-                    
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-item-content">
-                            <h3>Адрес офиса</h3>
-                            <p>г. Ижевск, ул. Максима Горького, д. 43</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-item-content">
-                            <h3>Телефон</h3>
-                            <p>+7 (912) 767-55-53</p>
-                            <p>+7 (980) 042-81-09</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-item-content">
-                            <h3>Email</h3>
-                            <p>pravok18@list.ru</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-item-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-item-content">
-                            <h3>График работы</h3>
-                            <p>Пн-Пт: 9:00 - 19:00</p>
-                            <p>Сб: 10:00 - 16:00 (по предварительной записи)</p>
-                        </div>
-                    </div>
+        <!-- Cases Section -->
+        <section class="section" id="cases">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Кейсы из практики</h2>
+                    <p class="section-subtitle">Реальные ситуации, в которых мы помогли нашим клиентам</p>
                 </div>
                 
-                <div class="contact-terminal fade-in">
-                    <form id="consultationForm">
-                        <div class="cyber-form">
-                            <div class="form-group">
-                                <label class="form-label" for="name">Ваше имя</label>
-                                <input type="text" id="name" class="cyber-input" placeholder="Введите ваше имя" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="phone">Телефон</label>
-                                <input type="tel" id="phone" class="cyber-input" placeholder="Введите ваш телефон" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="email" id="email" class="cyber-input" placeholder="Введите ваш email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="service">Интересующая услуга</label>
-                                <select id="service" class="cyber-select" required>
-                                    <option value="">Выберите услугу</option>
-                                    <option value="уголовное право">Уголовное право</option>
-                                    <option value="жилищное право">Жилищное право</option>
-                                    <option value="семейное право">Семейное право</option>
-                                    <option value="гражданское право">Гражданское право</option>
-                                    <option value="арбитражные споры">Арбитражные споры</option>
-                                    <option value="авторское право">Авторское право</option>
-                                    <option value="защита прав потребителей">Защита прав потребителей</option>
-                                    <option value="другое">Другое</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="message">Сообщение</label>
-                                <textarea id="message" class="cyber-input" placeholder="Опишите вашу ситуацию"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem;">Отправить заявку</button>
+                <div class="cases-grid">
+                    <article class="case-terminal fade-in">
+                        <div class="terminal-icon">
+                            <i class="fas fa-car" aria-hidden="true"></i>
                         </div>
-                    </form>
+                        <h3 class="terminal-title">Автоюрист: спор со страховой</h3>
+                        <div class="terminal-content">
+                            <p><strong>Ситуация:</strong> После ДТП страховая компания отказалась выплачивать полную сумму за поврежденный автомобиль, оценив ущерб значительно ниже рыночной стоимости ремонта.</p>
+                            <p><strong>Решение:</strong> Мы собрали независимую экспертизу, подготовили исковое заявление и представляли интересы клиента в суде. В результате взыскали со страховой полную стоимость ремонта + неустойку + моральный вред.</p>
+                            <a href="#contact" class="terminal-link">Решить похожую ситуацию</a>
+                        </div>
+                    </article>
+                    
+                    <article class="case-terminal fade-in">
+                        <div class="terminal-icon">
+                            <i class="fas fa-credit-card" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="terminal-title">Банкротство физического лица</h3>
+                        <div class="terminal-content">
+                            <p><strong>Ситуация:</strong> Клиент накопил долги по кредитам на сумму 1,8 млн рублей. Зарплаты хватало только на проценты, коллекторы постоянно звонили родственникам.</p>
+                            <p><strong>Решение:</strong> Подготовили документы для процедуры банкротства, полностью сопровождали дело в арбитражном суде. Через 8 месяцев долги в размере 1,5 млн рублей были списаны законно.</p>
+                            <a href="#contact" class="terminal-link">Консультация по банкротству</a>
+                        </div>
+                    </article>
+                    
+                    <article class="case-terminal fade-in">
+                        <div class="terminal-icon">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="terminal-title">Спор с застройщиком</h3>
+                        <div class="terminal-content">
+                            <p><strong>Ситуация:</strong> Застройщик переносил срок сдачи квартиры трижды. Клиент внёс 70% стоимости, но строительство практически остановилось.</p>
+                            <p><strong>Решение:</strong> Направили претензию, а затем иск в суд. Добились не только возврата всей суммы с процентами, но и взыскания неустойки за каждый день просрочки.</p>
+                            <a href="#contact" class="terminal-link">Помощь с дольщиком</a>
+                        </div>
+                    </article>
+                    
+                    <article class="case-terminal fade-in">
+                        <div class="terminal-icon">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="terminal-title">Спор при разводе</h3>
+                        <div class="terminal-content">
+                            <p><strong>Ситуация:</strong> Супруги при разводе не могли договориться о разделе квартиры, купленной в браке, и совместного бизнеса.</p>
+                            <p><strong>Решение:</strong> Мы представляли интересы жены. В результате переговоров и судебных заседаний достигли соглашения: клиентка получила квартитиру, а муж — бизнес с компенсацией разницы в стоимости.</p>
+                            <a href="#contact" class="terminal-link">Раздел имущества</a>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="section-title" style="color: white;">Свяжитесь с нами</h2>
+                    <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Запишитесь на консультацию к нашему юристу прямо сейчас</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-terminal fade-in">
+                        <h2 class="contact-title">Наши контакты</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h3>Адрес офиса</h3>
+                                <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                    <span itemprop="addressLocality">г. Ижевск</span>, 
+                                    <span itemprop="streetAddress">ул. Максима Горького, д. 43</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h3>Телефон</h3>
+                                <p><a href="tel:+79127675553" itemprop="telephone">+7 (912) 767-55-53</a></p>
+                                <p><a href="tel:+79800428109">+7 (980) 042-81-09</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h3>Email</h3>
+                                <p><a href="mailto:pravok18@list.ru" itemprop="email">pravok18@list.ru</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h3>График работы</h3>
+                                <p><span itemprop="openingHours" content="Mo-Fr 09:00-19:00">Пн-Пт: 9:00 - 19:00</span></p>
+                                <p>Сб: 10:00 - 16:00 (по предварительной записи)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-terminal fade-in">
+                        <form id="consultationForm">
+                            <div class="cyber-form">
+                                <!-- Анти-спам поле (honeypot) -->
+                                <input type="text" class="form-honey" name="honeypot" id="honeypot" placeholder="Не заполняйте это поле" autocomplete="off">
+                                
+                                <!-- Защита от слишком быстрой отправки -->
+                                <input type="hidden" name="timestamp" id="timestamp" value="">
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="name">Ваше имя *</label>
+                                    <input type="text" id="name" class="cyber-input" placeholder="Введите ваше имя" required minlength="2" maxlength="50">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Телефон *</label>
+                                    <input type="tel" id="phone" class="cyber-input" placeholder="Введите ваш телефон" required pattern="[\+\-\d\s\(\)]{10,20}">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Email *</label>
+                                    <input type="email" id="email" class="cyber-input" placeholder="Введите ваш email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="service">Интересующая услуга *</label>
+                                    <select id="service" class="cyber-select" required>
+                                        <option value="">Выберите услугу</option>
+                                        <option value="уголовное право">Уголовное право</option>
+                                        <option value="жилищное право">Жилищное право</option>
+                                        <option value="семейное право">Семейное право</option>
+                                        <option value="гражданское право">Гражданское право</option>
+                                        <option value="арбитражные споры">Арбитражные споры</option>
+                                        <option value="авторское право">Авторское право</option>
+                                        <option value="защита прав потребителей">Защита прав потребителей</option>
+                                        <option value="другое">Другое</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="message">Сообщение</label>
+                                    <textarea id="message" class="cyber-input" placeholder="Опишите вашу ситуацию" maxlength="1000"></textarea>
+                                </div>
+                                
+                                <div id="formMessage" class="form-message"></div>
+                                
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem;">Отправить заявку</button>
+                                
+                                <p style="color: var(--medium-gray); font-size: 0.85rem; margin-top: 15px;">
+                                    Нажимая кнопку, вы соглашаетесь с 
+                                    <a href="#" style="color: var(--secondary);">политикой конфиденциальности</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1707,47 +1732,47 @@
                     <h3>Консультант. По праву.</h3>
                     <p class="footer-text">Профессиональные юридические услуги для физических и юридических лиц. Защита ваших интересов - наша основная задача.</p>
                     <div class="social-links">
-                        <a href="https://vk.com/ваша_страница" target="_blank" class="social-icon"><i class="fab fa-vk"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://vk.com/ваша_страница" target="_blank" class="social-icon" aria-label="ВКонтакте"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Услуги</h3>
                     <ul class="footer-links">
-                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Уголовное право</a></li>
-                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Жилищное право</a></li>
-                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Семейное право</a></li>
-                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Гражданское право</a></li>
-                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Арбитражные споры</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right" aria-hidden="true"></i> Уголовное право</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right" aria-hidden="true"></i> Жилищное право</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right" aria-hidden="true"></i> Семейное право</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right" aria-hidden="true"></i> Гражданское право</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right" aria-hidden="true"></i> Арбитражные споры</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Быстрые ссылки</h3>
                     <ul class="footer-links">
-                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Услуги</a></li>
-                        <li><a href="#about"><i class="fas fa-arrow-right"></i> О нас</a></li>
-                        <li><a href="#cases"><i class="fas fa-arrow-right"></i> Кейсы</a></li>
-                        <li><a href="#contact"><i class="fas fa-arrow-right"></i> Контакты</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right" aria-hidden="true"></i> Услуги</a></li>
+                        <li><a href="#about"><i class="fas fa-arrow-right" aria-hidden="true"></i> О нас</a></li>
+                        <li><a href="#cases"><i class="fas fa-arrow-right" aria-hidden="true"></i> Кейсы</a></li>
+                        <li><a href="#contact"><i class="fas fa-arrow-right" aria-hidden="true"></i> Контакты</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> г. Ижевск, ул. Максима Горького, д. 43</a></li>
-                        <li><a href="tel:+79127675553"><i class="fas fa-phone"></i> +7 (912) 767-55-53</a></li>
-                        <li><a href="tel:+79800428109"><i class="fas fa-phone"></i> +7 (980) 042-81-09</a></li>
-                        <li><a href="mailto:pravok18@list.ru"><i class="fas fa-envelope"></i> pravok18@list.ru</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> г. Ижевск, ул. Максима Горького, д. 43</a></li>
+                        <li><a href="tel:+79127675553"><i class="fas fa-phone" aria-hidden="true"></i> +7 (912) 767-55-53</a></li>
+                        <li><a href="tel:+79800428109"><i class="fas fa-phone" aria-hidden="true"></i> +7 (980) 042-81-09</a></li>
+                        <li><a href="mailto:pravok18@list.ru"><i class="fas fa-envelope" aria-hidden="true"></i> pravok18@list.ru</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Юридическая компания "Консультант. По праву.". Все права защищены.</p>
+                <p>&copy; <span id="currentYear">2023</span> Юридическая компания "Консультант. По праву.". Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -1763,12 +1788,14 @@
             mobileMenu.classList.add('active');
             mobileMenuOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
         }
         
         function closeMobileMenu() {
             mobileMenu.classList.remove('active');
             mobileMenuOverlay.classList.remove('active');
             document.body.style.overflow = 'auto';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
         
         mobileMenuBtn.addEventListener('click', openMobileMenu);
@@ -1791,6 +1818,9 @@
             }
         });
         
+        // Обновление года в футере
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
         // Плавная прокрутка для ссылок меню
         document.querySelectorAll('.nav a, .mobile-nav a, .btn, .service-link, .terminal-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -1805,13 +1835,45 @@
                             top: targetElement.offsetTop - 90,
                             behavior: 'smooth'
                         });
+                        
+                        // Обновление активного состояния меню
+                        document.querySelectorAll('.nav a, .mobile-nav a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
                     }
                 }
             });
         });
         
-        // Обработка формы - отправка в Telegram группу
+        // Автоматическое обновление активного состояния меню при скролле
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav a, .mobile-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Обработка формы с защитой от спама
         const consultationForm = document.getElementById('consultationForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        // Установка timestamp для защиты от быстрой отправки
+        document.getElementById('timestamp').value = Date.now();
         
         // Данные из вашего файла Токен.docx и группы
         const BOT_TOKEN = '8272220539:AAEpX3wqpyOKZB9p-OZ_R0lsbCClVuHQ-K8';
@@ -1819,6 +1881,21 @@
         
         consultationForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Проверка honeypot поля
+            const honeypot = document.getElementById('honeypot').value;
+            if (honeypot) {
+                console.log('Спам-бот обнаружен');
+                return;
+            }
+            
+            // Проверка на слишком быструю отправку (менее 3 секунд)
+            const timestamp = parseInt(document.getElementById('timestamp').value);
+            const now = Date.now();
+            if (now - timestamp < 3000) {
+                showFormMessage('Пожалуйста, подождите несколько секунд перед повторной отправкой', 'error');
+                return;
+            }
             
             // Показываем сообщение о загрузке
             const submitButton = this.querySelector('button[type="submit"]');
@@ -1828,12 +1905,21 @@
             
             // Собираем данные формы
             const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim(),
                 service: document.getElementById('service').value,
-                message: document.getElementById('message').value || 'Не указано'
+                message: document.getElementById('message').value.trim() || 'Не указано',
+                timestamp: new Date().toLocaleString('ru-RU')
             };
+            
+            // Валидация данных
+            if (!formData.name || !formData.phone || !formData.email || !formData.service) {
+                showFormMessage('Пожалуйста, заполните все обязательные поля', 'error');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                return;
+            }
             
             // Формируем сообщение для Telegram
             const text = `📋 *Новая заявка с сайта pravo-18.ru*\n\n` +
@@ -1842,7 +1928,7 @@
                          `📧 *Email:* ${formData.email}\n` +
                          `⚖️ *Услуга:* ${formData.service}\n` +
                          `📝 *Сообщение:* ${formData.message}\n\n` +
-                         `⏰ *Получено:* ${new Date().toLocaleString('ru-RU')}`;
+                         `⏰ *Получено:* ${formData.timestamp}`;
             
             try {
                 // Отправляем сообщение в группу
@@ -1862,21 +1948,35 @@
                 
                 if (response.ok && result.ok) {
                     // Успешная отправка
-                    alert(`✅ Спасибо, ${formData.name}! Ваша заявка на консультацию по "${formData.service}" принята. Мы свяжемся с вами в течение 15 минут.`);
+                    showFormMessage(`✅ Спасибо, ${formData.name}! Ваша заявка на консультацию по "${formData.service}" принята. Мы свяжемся с вами в течение 15 минут.`, 'success');
                     consultationForm.reset();
+                    // Обновляем timestamp
+                    document.getElementById('timestamp').value = Date.now();
                 } else {
                     // Ошибка от Telegram API
                     throw new Error(result.description || 'Ошибка отправки в Telegram');
                 }
             } catch (error) {
                 console.error('Ошибка при отправке в Telegram:', error);
-                alert('⚠️ Ошибка при отправке заявки. Пожалуйста, позвоните нам напрямую: +7 (912) 767-55-53');
+                showFormMessage('⚠️ Ошибка при отправке заявки. Пожалуйста, позвоните нам напрямую: +7 (912) 767-55-53', 'error');
             } finally {
                 // Восстанавливаем кнопку
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
             }
         });
+        
+        // Функция для показа сообщений формы
+        function showFormMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+            
+            // Автоматическое скрытие сообщения через 10 секунд
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 10000);
+        }
         
         // Анимация появления элементов при скролле
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -1906,13 +2006,14 @@
             });
         });
         
-        // Создание частиц (как в диз.html)
+        // Создание частиц
         const cyberParticles = document.getElementById('cyberParticles');
         const colors = ['#00A8E8', '#FF6B35', '#D4AF37'];
         
         for (let i = 0; i < 50; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
+            particle.setAttribute('aria-hidden', 'true');
             particle.style.width = `${Math.random() * 10 + 2}px`;
             particle.style.height = particle.style.width;
             particle.style.left = `${Math.random() * 100}%`;
@@ -1923,6 +2024,16 @@
             particle.style.animationDelay = `${Math.random() * 5}s`;
             cyberParticles.appendChild(particle);
         }
+        
+        // Форматирование телефона
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                value = '+7' + value.substring(1);
+            }
+            this.value = value;
+        });
     </script>
 </body>
 </html>
