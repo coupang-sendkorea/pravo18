@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Юридическая компания "Консультант. По праву." - все виды юридических услуг</title>
+    <title>Юридическая компания "Консультант. По праву." - профессиональные юридические услуги</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0A2342;
-            --secondary: #8B5A2B;
-            --accent: #C19A6B;
-            --accent-glow: rgba(193, 154, 107, 0.4);
-            --cyber-blue: #00A8E8;
-            --cyber-glow: rgba(0, 168, 232, 0.3);
-            --light: #F5F7FA;
-            --dark: #1A1A2E;
-            --gray: #6C757D;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --border: rgba(139, 90, 43, 0.15);
+            --primary: #0A2342; /* Глубокий синий */
+            --primary-light: #1A365D;
+            --secondary: #00A8E8; /* Неоново-синий для эффектов */
+            --accent: #FF6B35; /* Акцентный оранжевый */
+            --gold: #D4AF37; /* Золотой для акцентов */
+            --light: #F8F9FA;
+            --light-gray: #E9ECEF;
+            --medium-gray: #6C757D;
+            --dark: #0A0A0A;
             --cyber-grid: rgba(0, 168, 232, 0.05);
+            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --container-width: 1200px;
         }
         
         * {
@@ -30,22 +34,43 @@
         
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px;
+            scroll-padding-top: 90px;
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--light);
+            font-family: 'Montserrat', sans-serif;
             color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
             overflow-x: hidden;
-            line-height: 1.7;
             background-image: 
                 linear-gradient(var(--cyber-grid) 1px, transparent 1px),
                 linear-gradient(90deg, var(--cyber-grid) 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-size: 50px 50px;
             background-position: 0 0;
         }
         
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .cyber-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Cyber Particles Background */
         .cyber-particles {
             position: fixed;
             top: 0;
@@ -57,139 +82,161 @@
             opacity: 0.03;
         }
         
-        .container {
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 30px;
+        .particle {
+            position: absolute;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
         }
         
-        /* Fusion Header */
-        .fusion-header {
+        /* Header */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
+            background-color: rgba(10, 35, 66, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 168, 232, 0.2);
             z-index: 1000;
-            padding: 18px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 30px rgba(10, 35, 66, 0.08);
+            padding: 15px 0;
+            box-shadow: 0 0 30px rgba(0, 168, 232, 0.1);
+            transition: var(--transition);
         }
         
-        .header-fusion {
+        .header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 0 40px rgba(0, 168, 232, 0.2);
+        }
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 0;
+            transition: var(--transition);
         }
         
-        .logo-fusion {
+        .header.scrolled .header-container {
+            padding: 5px 0;
+        }
+        
+        .logo {
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none;
             position: relative;
         }
         
-        .logo-fusion::after {
+        .logo::after {
             content: '';
             position: absolute;
             bottom: -8px;
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, var(--secondary), var(--cyber-blue));
-            box-shadow: 0 0 10px var(--accent-glow);
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            box-shadow: 0 0 10px var(--secondary);
         }
         
-        .logo-icon-fusion {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            position: relative;
-            text-shadow: 0 0 10px var(--accent-glow);
-            animation: pulse 3s infinite;
-        }
-        
-        .logo-text-fusion h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-        }
-        
-        .logo-text-fusion p {
-            font-size: 0.8rem;
-            color: var(--gray);
-            letter-spacing: 1px;
-            margin-top: 3px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 500;
-        }
-        
-        .nav-fusion {
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
             display: flex;
-            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-shadow: 0 0 15px var(--secondary);
+            animation: pulse 3s infinite;
+            box-shadow: 0 0 20px rgba(0, 168, 232, 0.3);
+            border: 1px solid rgba(0, 168, 232, 0.3);
         }
         
-        .nav-fusion a {
-            color: var(--primary);
-            text-decoration: none;
+        .logo-text h1 {
+            font-size: 1.9rem;
+            color: white;
+            margin-bottom: 0;
+            line-height: 1.1;
+            text-shadow: 0 0 10px rgba(0, 168, 232, 0.5);
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
             font-size: 1.05rem;
             position: relative;
             padding: 8px 0;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 0.5px;
         }
         
-        .nav-fusion a::after {
+        .nav a::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--secondary), var(--cyber-blue));
-            transition: width 0.3s ease;
-            box-shadow: 0 0 8px var(--cyber-glow);
+            background: var(--secondary);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px var(--secondary);
         }
         
-        .nav-fusion a:hover {
-            color: var(--cyber-blue);
-            text-shadow: 0 0 5px var(--cyber-glow);
+        .nav a:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 10px var(--secondary);
         }
         
-        .nav-fusion a:hover::after {
+        .nav a:hover::after {
             width: 100%;
         }
         
-        .header-cta-fusion {
+        .header-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
         
-        .fusion-button {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            font-family: 'Orbitron', sans-serif;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
             font-weight: 600;
             font-size: 1rem;
+            border-radius: var(--border-radius);
+            border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            border-radius: 2px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(10, 35, 66, 0.2);
         }
         
-        .fusion-button::before {
+        .btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -200,29 +247,58 @@
             transition: left 0.7s;
         }
         
-        .fusion-button:hover {
-            background: linear-gradient(135deg, var(--secondary), var(--cyber-blue));
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(139, 90, 43, 0.3), 0 0 15px var(--cyber-glow);
+        .btn-primary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: 0 0 15px rgba(0, 168, 232, 0.2);
         }
         
-        .fusion-button:hover::before {
+        .btn-primary:hover {
+            background: rgba(0, 168, 232, 0.1);
+            box-shadow: 0 0 20px var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary:hover::before {
             left: 100%;
         }
         
-        .menu-toggle-fusion {
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent), #FF8C5A);
+            color: white;
+            border: none;
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #FF8C5A, var(--accent));
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255, 107, 53, 0.5);
+        }
+        
+        .mobile-menu-btn {
             display: none;
             background: none;
-            border: none;
-            color: var(--primary);
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            width: 50px;
+            height: 50px;
             font-size: 1.5rem;
             cursor: pointer;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+        }
+        
+        .mobile-menu-btn:hover {
+            background-color: rgba(0, 168, 232, 0.1);
+            box-shadow: 0 0 10px var(--secondary);
         }
         
         /* Hero Section */
-        .fusion-hero {
+        .hero {
             padding: 200px 0 150px;
-            background: linear-gradient(135deg, rgba(10, 35, 66, 0.95) 0%, rgba(26, 26, 46, 0.9) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(10, 35, 66, 0.9), rgba(10, 35, 66, 0.85)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -231,100 +307,142 @@
             overflow: hidden;
         }
         
-        .hero-container-fusion {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 168, 232, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
             max-width: 800px;
             position: relative;
             z-index: 2;
         }
         
-        .hero-title-fusion {
-            font-family: 'Playfair Display', serif;
+        .hero-title {
             font-size: 3.8rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
             color: white;
-            text-shadow: 0 0 20px rgba(0, 168, 232, 0.3);
+            text-shadow: 0 0 30px rgba(0, 168, 232, 0.5);
         }
         
-        .hero-subtitle-fusion {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 400;
+            line-height: 1.7;
         }
         
-        .hero-stats-fusion {
+        .hero-stats {
             display: flex;
-            gap: 60px;
+            gap: 50px;
             margin-top: 70px;
             flex-wrap: wrap;
         }
         
-        .stat-fusion {
+        .stat {
             text-align: center;
             position: relative;
             padding: 20px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            border: 1px solid rgba(193, 154, 107, 0.3);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0, 168, 232, 0.3);
             backdrop-filter: blur(5px);
+            min-width: 150px;
         }
         
-        .stat-number-fusion {
+        .stat-number {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.2rem;
+            font-size: 3rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--secondary);
             display: block;
             line-height: 1;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px var(--accent-glow);
+            text-shadow: 0 0 15px var(--secondary);
         }
         
-        .stat-label-fusion {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
             letter-spacing: 1px;
             font-weight: 500;
             font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
         }
         
-        .hero-pattern-fusion {
+        /* Floating Elements (как в диз.html) */
+        .floating-elements {
             position: absolute;
             top: 0;
             right: 0;
-            width: 40%;
+            width: 50%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2300a8e8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .float-element {
+            position: absolute;
+            background: rgba(0, 168, 232, 0.1);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .float-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+        
+        .float-2 {
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+        
+        .float-3 {
+            width: 120px;
+            height: 120px;
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 4s;
         }
         
         /* Services Section */
-        .fusion-services {
-            padding: 140px 0;
-            background-color: white;
-            position: relative;
+        .section {
+            padding: 120px 0;
         }
         
-        .section-header-fusion {
+        .section-header {
             text-align: center;
             margin-bottom: 80px;
             position: relative;
         }
         
-        .section-title-fusion {
-            font-family: 'Playfair Display', serif;
+        .section-title {
             font-size: 3.2rem;
-            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 20px;
             position: relative;
             display: inline-block;
+            margin-bottom: 1.5rem;
         }
         
-        .section-title-fusion::after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -332,39 +450,39 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, var(--secondary), var(--cyber-blue));
-            box-shadow: 0 0 10px var(--cyber-glow);
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            box-shadow: 0 0 10px var(--secondary);
         }
         
-        .section-subtitle-fusion {
-            font-size: 1.2rem;
-            color: var(--gray);
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
             max-width: 700px;
             margin: 0 auto;
         }
         
-        .services-grid-fusion {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            perspective: 1000px;
         }
         
-        .service-card-fusion {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 40px;
-            position: relative;
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 168, 232, 0.2);
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(10, 35, 66, 0.05);
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: var(--transition);
             height: 100%;
             display: flex;
             flex-direction: column;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            position: relative;
         }
         
-        .service-card-fusion::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -376,151 +494,193 @@
             transition: transform 0.6s;
         }
         
-        .service-card-fusion:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(10, 35, 66, 0.1), 0 0 20px var(--cyber-glow);
-            border-color: var(--cyber-blue);
+        .service-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 168, 232, 0.2),
+                        0 0 0 1px rgba(0, 168, 232, 0.3);
         }
         
-        .service-card-fusion:hover::before {
+        .service-card:hover::before {
             transform: translateX(100%);
         }
         
-        .service-icon-fusion {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 25px;
-            display: inline-block;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(139, 90, 43, 0.1), rgba(0, 168, 232, 0.1));
-            border-radius: 50%;
+        .service-icon {
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(139, 90, 43, 0.2);
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px var(--secondary);
+            position: relative;
         }
         
-        .service-title-fusion {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.7rem;
-            font-weight: 600;
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+            box-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .service-content {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-title {
+            font-size: 1.6rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .service-text-fusion {
-            color: var(--gray);
-            line-height: 1.7;
+        .service-text {
+            color: var(--medium-gray);
             margin-bottom: 25px;
             flex-grow: 1;
         }
         
-        .service-link-fusion {
-            color: var(--cyber-blue);
+        .service-link {
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             align-self: flex-start;
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
         
-        .service-link-fusion:hover {
-            color: var(--secondary);
+        .service-link:hover {
+            color: var(--accent);
             gap: 15px;
-            text-shadow: 0 0 5px var(--cyber-glow);
+            text-shadow: 0 0 5px rgba(0, 168, 232, 0.3);
         }
         
         /* About Section */
-        .fusion-about {
-            padding: 140px 0;
+        .about {
             background-color: var(--light);
             position: relative;
         }
         
-        .about-container-fusion {
+        .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
         }
         
-        .about-content-fusion {
+        .about-terminal {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: var(--border-radius-lg);
+            padding: 50px;
             position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
         
-        .about-title-fusion {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            font-weight: 700;
+        .about-terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--accent);
+        }
+        
+        .about-terminal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 168, 232, 0.05) 50%, transparent 70%);
+            animation: scan 20s linear infinite;
+        }
+        
+        .about-title {
+            font-size: 2.8rem;
             color: var(--primary);
-            margin-bottom: 30px;
-            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
         }
         
-        .about-text-fusion {
+        .about-text {
             color: var(--dark);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 1.1rem;
             line-height: 1.8;
+            position: relative;
+            z-index: 2;
         }
         
-        .about-stats-fusion {
+        .about-stats {
             display: flex;
             justify-content: space-between;
             margin-top: 40px;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid rgba(0, 168, 232, 0.2);
             padding-top: 40px;
-        }
-        
-        .stat-box-fusion {
-            text-align: center;
-            padding: 0 20px;
             position: relative;
+            z-index: 2;
         }
         
-        .stat-number-fusion-box {
+        .about-stat {
+            text-align: center;
+            padding: 0 15px;
+        }
+        
+        .about-stat-number {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--cyber-blue);
+            color: var(--secondary);
             display: block;
             line-height: 1;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px var(--cyber-glow);
+            text-shadow: 0 0 10px var(--secondary);
         }
         
-        .stat-text-fusion-box {
-            color: var(--gray);
-            font-weight: 500;
+        .about-stat-text {
+            color: var(--primary);
+            font-weight: 600;
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 0.5px;
         }
         
-        .about-image-container-fusion {
-            position: relative;
-            border-radius: 10px;
+        .about-image {
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(10, 35, 66, 0.1);
-            border: 1px solid rgba(139, 90, 43, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 168, 232, 0.2);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            position: relative;
         }
         
-        .about-image-fusion {
+        .about-image img {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 0.5s ease;
         }
         
-        .about-image-container-fusion:hover .about-image-fusion {
-            transform: scale(1.03);
+        .about-image:hover img {
+            transform: scale(1.05);
         }
         
-        .image-overlay-fusion {
+        .image-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -530,226 +690,227 @@
             padding: 30px;
         }
         
-        .image-overlay-fusion p {
+        .image-overlay p {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             font-style: italic;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         
         /* Cases Section */
-        .fusion-cases {
-            padding: 140px 0;
-            background-color: white;
-            position: relative;
-        }
-        
-        .cases-grid-fusion {
+        .cases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
         }
         
-        .case-card-fusion {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+        .case-terminal {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: var(--border-radius);
             padding: 35px;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(10, 35, 66, 0.05);
-            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px var(--shadow);
+            backdrop-filter: blur(10px);
         }
         
-        .case-card-fusion::before {
+        .case-terminal::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--secondary), var(--cyber-blue));
-            box-shadow: 0 0 10px var(--cyber-glow);
+            background: var(--secondary);
+            box-shadow: 0 0 20px var(--secondary);
         }
         
-        .case-card-fusion:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(10, 35, 66, 0.1), 0 0 15px var(--cyber-glow);
-        }
-        
-        .case-icon-fusion {
+        .terminal-icon {
             font-size: 2.5rem;
-            color: var(--cyber-blue);
-            margin-bottom: 25px;
-            display: inline-block;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, rgba(139, 90, 43, 0.1), rgba(0, 168, 232, 0.1));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 168, 232, 0.2);
-            text-shadow: 0 0 10px var(--cyber-glow);
+            color: var(--secondary);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--secondary);
         }
         
-        .case-title-fusion {
+        .terminal-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
-            font-weight: 600;
             color: var(--primary);
             margin-bottom: 20px;
         }
         
-        .case-content-fusion {
+        .terminal-content {
             color: var(--dark);
             line-height: 1.7;
         }
         
-        .case-content-fusion strong {
-            color: var(--cyber-blue);
+        .terminal-content strong {
+            color: var(--secondary);
             font-weight: 600;
         }
         
-        .case-link-fusion {
+        .terminal-link {
             display: inline-block;
             margin-top: 20px;
-            color: var(--cyber-blue);
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
             position: relative;
             padding-bottom: 5px;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.5px;
         }
         
-        .case-link-fusion::after {
+        .terminal-link::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--secondary), var(--cyber-blue));
-            transition: width 0.3s ease;
-            box-shadow: 0 0 5px var(--cyber-glow);
+            background: var(--accent);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px var(--accent);
         }
         
-        .case-link-fusion:hover::after {
+        .terminal-link:hover::after {
             width: 100%;
         }
         
         /* Contact Section */
-        .fusion-contact {
-            padding: 140px 0;
-            background-color: var(--light);
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
             position: relative;
+            overflow: hidden;
         }
         
-        .contact-container-fusion {
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 168, 232, 0.05) 50%, transparent 70%);
+            animation: scan 20s linear infinite;
+        }
+        
+        .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
         }
         
-        .contact-info-fusion {
-            padding: 40px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(10, 35, 66, 0.05);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(5px);
+        .contact-terminal {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: var(--border-radius-lg);
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .contact-title-fusion {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
+        .contact-terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 168, 232, 0.05) 50%, transparent 70%);
+            animation: scan 15s linear infinite;
+        }
+        
+        .contact-title {
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
         }
         
-        .contact-item-fusion {
+        .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 20px;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
         }
         
-        .contact-icon-fusion {
-            font-size: 1.5rem;
-            color: var(--cyber-blue);
+        .contact-item-icon {
+            font-size: 1.8rem;
+            color: var(--secondary);
             min-width: 40px;
-            padding-top: 5px;
-            text-shadow: 0 0 5px var(--cyber-glow);
+            text-shadow: 0 0 10px var(--secondary);
         }
         
-        .contact-details-fusion h3 {
+        .contact-item-content h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             color: var(--primary);
             margin-bottom: 8px;
         }
         
-        .contact-details-fusion p {
-            color: var(--gray);
+        .contact-item-content p {
+            color: var(--medium-gray);
         }
         
-        .contact-form-fusion {
-            padding: 40px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(10, 35, 66, 0.05);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(5px);
+        .cyber-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
         }
         
-        .form-group-fusion {
-            margin-bottom: 25px;
+        .form-group {
+            position: relative;
         }
         
-        .form-label-fusion {
+        .form-label {
             display: block;
             color: var(--primary);
             margin-bottom: 10px;
-            font-weight: 600;
-            font-size: 1rem;
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
         
-        .form-input-fusion {
+        .cyber-input {
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--border);
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: var(--border-radius);
             padding: 15px 20px;
             color: var(--dark);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
-        .form-input-fusion:focus {
+        .cyber-input:focus {
             outline: none;
-            border-color: var(--cyber-blue);
-            box-shadow: 0 0 0 3px var(--cyber-glow);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(0, 168, 232, 0.3);
         }
         
-        .form-input-fusion::placeholder {
-            color: var(--gray);
+        .cyber-input::placeholder {
+            color: var(--medium-gray);
         }
         
-        .form-select-fusion {
+        .cyber-select {
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--border);
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: var(--border-radius);
             padding: 15px 20px;
             color: var(--dark);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
             appearance: none;
             cursor: pointer;
@@ -758,119 +919,121 @@
             background-position: right 15px center;
         }
         
-        .form-select-fusion:focus {
+        .cyber-select:focus {
             outline: none;
-            border-color: var(--cyber-blue);
-            box-shadow: 0 0 0 3px var(--cyber-glow);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(0, 168, 232, 0.3);
         }
         
-        textarea.form-input-fusion {
+        textarea.cyber-input {
             min-height: 150px;
             resize: vertical;
         }
         
         /* Footer */
-        .fusion-footer {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
             color: white;
             padding: 80px 0 30px;
             position: relative;
             border-top: 1px solid rgba(0, 168, 232, 0.2);
         }
         
-        .footer-container-fusion {
+        .footer-container {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 50px;
             margin-bottom: 60px;
         }
         
-        .footer-column-fusion h3 {
+        .footer-column h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            color: var(--accent);
+            color: var(--secondary);
             margin-bottom: 25px;
-            text-shadow: 0 0 5px var(--accent-glow);
+            text-shadow: 0 0 10px var(--secondary);
         }
         
-        .footer-text-fusion {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
             margin-bottom: 25px;
         }
         
-        .footer-links-fusion {
+        .footer-links {
             list-style: none;
         }
         
-        .footer-links-fusion li {
+        .footer-links li {
             margin-bottom: 15px;
         }
         
-        .footer-links-fusion a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .footer-links-fusion a:hover {
-            color: var(--accent);
-            transform: translateX(5px);
-            text-shadow: 0 0 5px var(--accent-glow);
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(10px);
+            text-shadow: 0 0 10px var(--secondary);
         }
         
-        .footer-links-fusion i {
+        .footer-links i {
             font-size: 0.8rem;
-            color: var(--accent);
+            color: var(--secondary);
         }
         
-        .social-links-fusion {
+        .social-links {
             display: flex;
             gap: 15px;
             margin-top: 25px;
         }
         
-        .social-icon-fusion {
+        .social-icon {
             width: 45px;
             height: 45px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            background: rgba(0, 168, 232, 0.1);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--secondary);
             font-size: 1.2rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(193, 154, 107, 0.3);
+            transition: var(--transition);
         }
         
-        .social-icon-fusion:hover {
-            background-color: var(--accent);
-            color: var(--primary);
+        .social-icon:hover {
+            background: var(--secondary);
+            color: var(--dark);
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
         }
         
-        .copyright-fusion {
+        .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(0, 168, 232, 0.2);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
         
         /* Animations */
         @keyframes pulse {
             0%, 100% {
-                text-shadow: 0 0 10px var(--accent-glow);
+                text-shadow: 0 0 15px var(--secondary);
+                box-shadow: 0 0 20px rgba(0, 168, 232, 0.3);
             }
             50% {
-                text-shadow: 0 0 15px var(--accent-glow), 0 0 20px var(--accent-glow);
+                text-shadow: 0 0 25px var(--secondary), 0 0 35px var(--secondary);
+                box-shadow: 0 0 30px rgba(0, 168, 232, 0.5);
             }
         }
         
@@ -879,138 +1042,216 @@
                 transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-10px) rotate(5deg);
+                transform: translateY(-30px) rotate(180deg);
             }
         }
         
-        /* Particle Effect */
-        .particle {
-            position: absolute;
-            background-color: var(--cyber-blue);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
+        @keyframes scan {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
         }
         
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .hero-title-fusion {
-                font-size: 3.2rem;
-            }
-            
-            .services-grid-fusion, .cases-grid-fusion {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
-            
-            .footer-container-fusion {
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .footer-container {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 992px) {
-            .header-fusion {
-                position: relative;
+            .nav, .header-actions .btn:first-child {
+                display: none;
             }
             
-            .nav-fusion {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.98);
-                flex-direction: column;
-                padding: 30px;
-                gap: 25px;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.4s;
-                box-shadow: 0 10px 30px rgba(10, 35, 66, 0.1);
-                border-top: 1px solid var(--border);
-                backdrop-filter: blur(20px);
-                z-index: 999;
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             
-            .nav-fusion.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
+            .hero-title {
+                font-size: 3rem;
             }
             
-            .menu-toggle-fusion {
-                display: block;
-            }
-            
-            .hero-title-fusion {
-                font-size: 2.8rem;
-            }
-            
-            .hero-stats-fusion {
-                gap: 30px;
-            }
-            
-            .about-container-fusion {
+            .about-container {
                 grid-template-columns: 1fr;
             }
             
-            .contact-container-fusion {
+            .contact-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .cases-grid, .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .floating-elements {
+                display: none;
             }
         }
         
         @media (max-width: 768px) {
-            .hero-title-fusion {
-                font-size: 2.4rem;
+            .hero {
+                padding: 150px 0 100px;
+                background-attachment: scroll;
             }
             
-            .section-title-fusion, .about-title-fusion, .contact-title-fusion {
+            .hero-title {
                 font-size: 2.5rem;
             }
             
-            .services-grid-fusion, .cases-grid-fusion {
-                grid-template-columns: 1fr;
+            .hero-stats {
+                gap: 20px;
             }
             
-            .footer-container-fusion {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .section {
+                padding: 80px 0;
             }
             
-            .stat-number-fusion {
+            .section-title {
                 font-size: 2.5rem;
             }
             
-            .hero-stats-fusion {
-                justify-content: space-around;
-            }
-            
-            .about-stats-fusion {
+            .about-stats {
                 flex-direction: column;
                 gap: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
         
         @media (max-width: 576px) {
-            .container {
-                padding: 0 20px;
-            }
-            
-            .hero-title-fusion {
+            .hero-title {
                 font-size: 2rem;
             }
             
-            .section-title-fusion, .about-title-fusion, .contact-title-fusion {
+            .section-title {
                 font-size: 2rem;
             }
             
-            .service-card-fusion, .case-card-fusion, .contact-info-fusion, .contact-form-fusion {
-                padding: 30px;
+            .services-grid, .cases-grid {
+                grid-template-columns: 1fr;
             }
             
-            .fusion-button {
+            .contact-terminal, .about-terminal {
+                padding: 30px 20px;
+            }
+            
+            .btn {
                 padding: 12px 25px;
+                font-size: 0.95rem;
             }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(10, 35, 66, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: -5px 0 30px rgba(0, 168, 232, 0.2);
+            z-index: 1100;
+            transition: right 0.4s ease;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgba(0, 168, 232, 0.3);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 168, 232, 0.3);
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-close:hover {
+            background-color: rgba(0, 168, 232, 0.1);
+            box-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--secondary);
+            padding-left: 10px;
+            text-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Animation for elements on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -1018,291 +1259,339 @@
     <!-- Cyber Particles Background -->
     <div class="cyber-particles" id="cyberParticles"></div>
     
-    <!-- Fusion Header -->
-    <header class="fusion-header">
-        <div class="container header-fusion">
-            <div class="logo-fusion">
-                <div class="logo-icon-fusion">
-                    <i class="fas fa-balance-scale"></i>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Консультант. По праву.</h1>
+                        <p>Юридические услуги с гарантией результата</p>
+                    </div>
+                </a>
+                
+                <nav class="nav">
+                    <a href="#services">Услуги</a>
+                    <a href="#about">О нас</a>
+                    <a href="#cases">Кейсы</a>
+                    <a href="#contact">Контакты</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="#contact" class="btn btn-primary">Консультация</a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
-                <div class="logo-text-fusion">
-                    <h1>Консультант. По праву.</h1>
-                    <p>Юридические услуги с гарантией результата</p>
-                </div>
-            </div>
-            
-            <nav class="nav-fusion" id="mainNav">
-                <a href="#services">Услуги</a>
-                <a href="#about">О нас</a>
-                <a href="#cases">Кейсы</a>
-                <a href="#contact">Контакты</a>
-            </nav>
-            
-            <div class="header-cta-fusion">
-                <button class="fusion-button" onclick="location.href='#contact'">
-                    Получить консультацию
-                </button>
-                <button class="menu-toggle-fusion" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
         </div>
     </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.3rem;">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="logo-text">
+                    <h1 style="font-size: 1.3rem;">Консультант. По праву.</h1>
+                </div>
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <nav class="mobile-nav">
+            <a href="#services">Услуги</a>
+            <a href="#about">О нас</a>
+            <a href="#cases">Кейсы</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+        
+        <a href="#contact" class="btn btn-primary" style="margin-top: auto;">Получить консультацию</a>
+    </div>
 
     <!-- Hero Section -->
-    <section class="fusion-hero">
-        <div class="container hero-container-fusion">
-            <h1 class="hero-title-fusion">Профессиональная юридическая помощь</h1>
-            <p class="hero-subtitle-fusion">Комплексные юридические услуги для физических и юридических лиц. Защита ваших интересов в суде и за его пределами. Более 15 лет успешной практики.</p>
-            <button class="fusion-button" style="background: linear-gradient(135deg, var(--secondary), var(--cyber-blue));" onclick="location.href='#contact'">
-                Получить консультацию
-            </button>
-            
-            <div class="hero-stats-fusion">
-                <div class="stat-fusion">
-                    <span class="stat-number-fusion">15+</span>
-                    <span class="stat-label-fusion">Лет опыта</span>
-                </div>
-                <div class="stat-fusion">
-                    <span class="stat-number-fusion">2000+</span>
-                    <span class="stat-label-fusion">Довольных клиентов</span>
-                </div>
-                <div class="stat-fusion">
-                    <span class="stat-number-fusion">95%</span>
-                    <span class="stat-label-fusion">Успешных дел</span>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Профессиональная юридическая помощь</h1>
+                <p class="hero-subtitle">Комплексные юридические услуги для физических и юридических лиц. Защита ваших интересов в суде и за его пределами. Более 15 лет успешной практики.</p>
+                <a href="#contact" class="btn btn-secondary">Получить консультацию</a>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Лет опыта</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2000+</span>
+                        <span class="stat-label">Довольных клиентов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Успешных дел</span>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="hero-pattern-fusion"></div>
+        <!-- Floating Elements (как в диз.html) -->
+        <div class="floating-elements">
+            <div class="float-element float-1"></div>
+            <div class="float-element float-2"></div>
+            <div class="float-element float-3"></div>
+        </div>
     </section>
 
     <!-- Services Section -->
-    <section class="fusion-services" id="services">
+    <section class="section" id="services">
         <div class="container">
-            <div class="section-header-fusion">
-                <h2 class="section-title-fusion">Наши услуги</h2>
-                <p class="section-subtitle-fusion">Мы предоставляем полный спектр юридических услуг по различным направлениям права</p>
+            <div class="section-header fade-in">
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-subtitle">Мы предоставляем полный спектр юридических услуг по различным направлениям права</p>
             </div>
             
-            <div class="services-grid-fusion">
-                <div class="service-card-fusion">
-                    <div class="service-icon-fusion">
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-gavel"></i>
                     </div>
-                    <h3 class="service-title-fusion">Уголовное право</h3>
-                    <p class="service-text-fusion">Защита на следствии и в суде, обжалование приговоров, условно-досрочное освобождение, помощь осужденным.</p>
-                    <a href="#contact" class="service-link-fusion">Консультация <i class="fas fa-arrow-right"></i></a>
+                    <div class="service-content">
+                        <h3 class="service-title">Уголовное право</h3>
+                        <p class="service-text">Защита на следствии и в суде, обжалование приговоров, условно-досрочное освобождение, помощь осужденным.</p>
+                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 
-                <div class="service-card-fusion">
-                    <div class="service-icon-fusion">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="service-title-fusion">Жилищное право</h3>
-                    <p class="service-text-fusion">Споры с застройщиками, раздел имущества, выселение, признание права собственности, приватизация.</p>
-                    <a href="#contact" class="service-link-fusion">Консультация <i class="fas fa-arrow-right"></i></a>
+                    <div class="service-content">
+                        <h3 class="service-title">Жилищное право</h3>
+                        <p class="service-text">Споры с застройщиками, раздел имущества, выселение, признание права собственности, приватизация.</p>
+                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 
-                <div class="service-card-fusion">
-                    <div class="service-icon-fusion">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="service-title-fusion">Семейное право</h3>
-                    <p class="service-text-fusion">Расторжение брака, раздел имущества, алименты, определение порядка общения с детьми, брачные договоры.</p>
-                    <a href="#contact" class="service-link-fusion">Консультация <i class="fas fa-arrow-right"></i></a>
+                    <div class="service-content">
+                        <h3 class="service-title">Семейное право</h3>
+                        <p class="service-text">Расторжение брака, раздел имущества, алименты, определение порядка общения с детьми, брачные договоры.</p>
+                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 
-                <div class="service-card-fusion">
-                    <div class="service-icon-fusion">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-file-contract"></i>
                     </div>
-                    <h3 class="service-title-fusion">Гражданское право</h3>
-                    <p class="service-text-fusion">Договорные споры, защита прав потребителей, возмещение ущерба, наследственные дела, земельные споры.</p>
-                    <a href="#contact" class="service-link-fusion">Консультация <i class="fas fa-arrow-right"></i></a>
+                    <div class="service-content">
+                        <h3 class="service-title">Гражданское право</h3>
+                        <p class="service-text">Договорные споры, защита прав потребителей, возмещение ущерба, наследственные дела, земельные споры.</p>
+                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 
-                <div class="service-card-fusion">
-                    <div class="service-icon-fusion">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
-                    <h3 class="service-title-fusion">Арбитражные споры</h3>
-                    <p class="service-text-fusion">Банкротство, корпоративные споры, налоговые дела, защита в отношениях с контрагентами и госорганами.</p>
-                    <a href="#contact" class="service-link-fusion">Консультация <i class="fas fa-arrow-right"></i></a>
+                    <div class="service-content">
+                        <h3 class="service-title">Арбитражные споры</h3>
+                        <p class="service-text">Банкротство, корпоративные споры, налоговые дела, защита в отношениях с контрагентами и госорганами.</p>
+                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 
-                <div class="service-card-fusion">
-                    <div class="service-icon-fusion">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-passport"></i>
                     </div>
-                    <h3 class="service-title-fusion">Авторское право</h3>
-                    <p class="service-text-fusion">Защита интеллектуальной собственности, регистрация товарных знаков, патентование, лицензионные договоры.</p>
-                    <a href="#contact" class="service-link-fusion">Консультация <i class="fas fa-arrow-right"></i></a>
+                    <div class="service-content">
+                        <h3 class="service-title">Авторское право</h3>
+                        <p class="service-text">Защита интеллектуальной собственности, регистрация товарных знаков, патентование, лицензионные договоры.</p>
+                        <a href="#contact" class="service-link">Консультация <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="fusion-about" id="about">
-        <div class="container about-container-fusion">
-            <div class="about-content-fusion">
-                <h2 class="about-title-fusion">О нашей компании</h2>
-                <p class="about-text-fusion">Юридическая компания "Консультант. По праву." работает на рынке юридических услуг с 2008 года. За это время мы помогли тысячам клиентов решить их правовые проблемы.</p>
-                <p class="about-text-fusion">Наша команда состоит из опытных юристов и адвокатов, специализирующихся в различных областях права. Мы постоянно повышаем квалификацию и следим за изменениями в законодательстве.</p>
-                <p class="about-text-fusion">Мы гордимся нашим подходом к каждому клиенту - индивидуальное рассмотрение дела, разработка стратегии и сопровождение до получения результата.</p>
-                
-                <div class="about-stats-fusion">
-                    <div class="stat-box-fusion">
-                        <span class="stat-number-fusion-box">15+</span>
-                        <span class="stat-text-fusion-box">Лет опыта</span>
-                    </div>
-                    <div class="stat-box-fusion">
-                        <span class="stat-number-fusion-box">2000+</span>
-                        <span class="stat-text-fusion-box">Довольных клиентов</span>
-                    </div>
-                    <div class="stat-box-fusion">
-                        <span class="stat-number-fusion-box">95%</span>
-                        <span class="stat-text-fusion-box">Успешных дел</span>
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-terminal fade-in">
+                    <h2 class="about-title">О нашей компании</h2>
+                    <p class="about-text">Юридическая компания "Консультант. По праву." работает на рынке юридических услуг с 2008 года. За это время мы помогли тысячам клиентов решить их правовые проблемы.</p>
+                    <p class="about-text">Наша команда состоит из опытных юристов и адвокатов, специализирующихся в различных областях права. Мы постоянно повышаем квалификацию и следим за изменениями в законодательстве.</p>
+                    <p class="about-text">Мы гордимся нашим подходом к каждому клиенту - индивидуальное рассмотрение дела, разработка стратегии и сопровождение до получения результата.</p>
+                    
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="about-stat-number">15+</span>
+                            <span class="about-stat-text">Лет опыта</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">2000+</span>
+                            <span class="about-stat-text">Довольных клиентов</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">95%</span>
+                            <span class="about-stat-text">Успешных дел</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="about-image-container-fusion">
-                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Команда юристов" class="about-image-fusion">
-                <div class="image-overlay-fusion">
-                    <p>Наша команда — ваш надежный партнер в решении юридических вопросов</p>
+                
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Команда юристов">
+                    <div class="image-overlay">
+                        <p>Наша команда — ваш надежный партнер в решении юридических вопросов</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Cases Section -->
-    <section class="fusion-cases" id="cases">
+    <section class="section" id="cases">
         <div class="container">
-            <div class="section-header-fusion">
-                <h2 class="section-title-fusion">Кейсы из практики</h2>
-                <p class="section-subtitle-fusion">Реальные ситуации, в которых мы помогли нашим клиентам</p>
+            <div class="section-header fade-in">
+                <h2 class="section-title">Кейсы из практики</h2>
+                <p class="section-subtitle">Реальные ситуации, в которых мы помогли нашим клиентам</p>
             </div>
             
-            <div class="cases-grid-fusion">
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+            <div class="cases-grid">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-car"></i>
                     </div>
-                    <h3 class="case-title-fusion">Автоюрист: спор со страховой</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Автоюрист: спор со страховой</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> После ДТП страховая компания отказалась выплачивать полную сумму за поврежденный автомобиль, оценив ущерб значительно ниже рыночной стоимости ремонта.</p>
                         <p><strong>Решение:</strong> Мы собрали независимую экспертизу, подготовили исковое заявление и представляли интересы клиента в суде. В результате взыскали со страховой полную стоимость ремонта + неустойку + моральный вред.</p>
-                        <a href="#contact" class="case-link-fusion">Решить похожую ситуацию</a>
+                        <a href="#contact" class="terminal-link">Решить похожую ситуацию</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-credit-card"></i>
                     </div>
-                    <h3 class="case-title-fusion">Банкротство физического лица</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Банкротство физического лица</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Клиент накопил долги по кредитам на сумму 1,8 млн рублей. Зарплаты хватало только на проценты, коллекторы постоянно звонили родственникам.</p>
                         <p><strong>Решение:</strong> Подготовили документы для процедуры банкротства, полностью сопровождали дело в арбитражном суде. Через 8 месяцев долги в размере 1,5 млн рублей были списаны законно.</p>
-                        <a href="#contact" class="case-link-fusion">Консультация по банкротству</a>
+                        <a href="#contact" class="terminal-link">Консультация по банкротству</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="case-title-fusion">Спор с застройщиком</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Спор с застройщиком</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Застройщик переносил срок сдачи квартиры трижды. Клиент внёс 70% стоимости, но строительство практически остановилось.</p>
                         <p><strong>Решение:</strong> Направили претензию, а затем иск в суд. Добились не только возврата всей суммы с процентами, но и взыскания неустойки за каждый день просрочки.</p>
-                        <a href="#contact" class="case-link-fusion">Помощь с дольщиком</a>
+                        <a href="#contact" class="terminal-link">Помощь с дольщиком</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="case-title-fusion">Спор при разводе</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Спор при разводе</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Супруги при разводе не могли договориться о разделе квартиры, купленной в браке, и совместного бизнеса.</p>
                         <p><strong>Решение:</strong> Мы представляли интересы жены. В результате переговоров и судебных заседаний достигли соглашения: клиентка получила квартиру, а муж — бизнес с компенсацией разницы в стоимости.</p>
-                        <a href="#contact" class="case-link-fusion">Раздел имущества</a>
+                        <a href="#contact" class="terminal-link">Раздел имущества</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-user-tie"></i>
                     </div>
-                    <h3 class="case-title-fusion">Восстановление на работе</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Восстановление на работе</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Клиента уволили "по собственному желанию" под давлением работодателя, хотя он не писал заявление.</p>
                         <p><strong>Решение:</strong> Подготовили иск о восстановлении на работе и взыскании заработной платы за время вынужденного прогула. Суд признал увольнение незаконным — клиент восстановлен с выплатой компенсации.</p>
-                        <a href="#contact" class="case-link-fusion">Защита трудовых прав</a>
+                        <a href="#contact" class="terminal-link">Защита трудовых прав</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <h3 class="case-title-fusion">Спор с банком</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Спор с банком</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Банк начислял скрытые комиссии и страховки по потребительскому кредиту, увеличив переплату на 40%.</p>
                         <p><strong>Решение:</strong> Проанализировали договор, направили претензию, затем подали иск. Суд признал комиссии необоснованными и уменьшил сумму долга на 25%.</p>
-                        <a href="#contact" class="case-link-fusion">Оспорить условия кредита</a>
+                        <a href="#contact" class="terminal-link">Оспорить условия кредита</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3 class="case-title-fusion">Защита прав потребителей</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Защита прав потребителей</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Клиент купил дорогую бытовую технику, которая сломалась через неделю. Магазин отказался принимать товар, ссылаясь на "неправильную эксплуатацию".</p>
                         <p><strong>Решение:</strong> Провели независимую экспертизу, доказали производственный брак. Через суд обязали магазин принять товар, вернуть деньги и выплатить штраф в пользу клиента.</p>
-                        <a href="#contact" class="case-link-fusion">Защитить свои права</a>
+                        <a href="#contact" class="terminal-link">Защитить свои права</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fab fa-bitcoin"></i>
                     </div>
-                    <h3 class="case-title-fusion">Неосновательное обогащение при продаже криптовалюты</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Неосновательное обогащение при продаже криптовалюты</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Клиента, продавшего криптовалюту на бирже Binance, обвинили в неосновательном обогащении. Покупатель утверждал, что стал жертвой мошенников.</p>
                         <p><strong>Решение:</strong> Мы доказали, что сделка была законной: клиент получил оплату и сразу перевел покупателю криптовалюту. Суд установил встречное предоставление и отказал в иске полностью.</p>
-                        <a href="#contact" class="case-link-fusion">Защита в спорах по криптовалюте</a>
+                        <a href="#contact" class="terminal-link">Защита в спорах по криптовалюте</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-credit-card"></i>
                     </div>
-                    <h3 class="case-title-fusion">Блокировка карт по 115-ФЗ</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Блокировка карт по 115-ФЗ</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> У клиента были заблокированы карты и счета банком по подозрению в переводе средств в пользу сомнительных организаций. Банк требовал предоставить документы, подтверждающие происхождение средств.</p>
                         <p><strong>Решение:</strong> Мы подготовили полный пакет документов, объясняющих происхождение средств, и направили в банк. Также были поданы жалобы в ЦБ на неправомерные действия банка. В результате блокировка была снята, доступ к средствам восстановлен.</p>
-                        <a href="#contact" class="case-link-fusion">Снять блокировку карт</a>
+                        <a href="#contact" class="terminal-link">Снять блокировку карт</a>
                     </div>
                 </div>
                 
-                <div class="case-card-fusion">
-                    <div class="case-icon-fusion">
+                <div class="case-terminal fade-in">
+                    <div class="terminal-icon">
                         <i class="fas fa-file-contract"></i>
                     </div>
-                    <h3 class="case-title-fusion">Оспаривание закупки по 44-ФЗ</h3>
-                    <div class="case-content-fusion">
+                    <h3 class="terminal-title">Оспаривание закупки по 44-ФЗ</h3>
+                    <div class="terminal-content">
                         <p><strong>Ситуация:</strong> Заказчик допустил нарушения при проведении закупки, что привело к необоснованному отклонению заявки нашего клиента. Закупка была проведена с нарушением требований закона.</p>
                         <p><strong>Решение:</strong> Мы подготовили жалобу в Федеральную антимонопольную службу (ФАС) и доказали нарушения. ФАС признала жалобу обоснованной и обязала заказчика отменить результаты закупки и провести ее заново с соблюдением закона.</p>
-                        <a href="#contact" class="case-link-fusion">Оспорить закупку</a>
+                        <a href="#contact" class="terminal-link">Оспорить закупку</a>
                     </div>
                 </div>
             </div>
@@ -1310,115 +1599,124 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="fusion-contact" id="contact">
-        <div class="container contact-container-fusion">
-            <div class="contact-info-fusion">
-                <h2 class="contact-title-fusion">Наши контакты</h2>
-                
-                <div class="contact-item-fusion">
-                    <div class="contact-icon-fusion">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details-fusion">
-                        <h3>Адрес офиса</h3>
-                        <p>г. Ижевск, ул. Максима Горького, д. 43</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item-fusion">
-                    <div class="contact-icon-fusion">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details-fusion">
-                        <h3>Телефон</h3>
-                        <p>+7 (912) 767-55-53</p>
-                        <p>+7 (980) 042-81-09</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item-fusion">
-                    <div class="contact-icon-fusion">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details-fusion">
-                        <h3>Email</h3>
-                        <p>pravok18@list.ru</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item-fusion">
-                    <div class="contact-icon-fusion">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-details-fusion">
-                        <h3>График работы</h3>
-                        <p>Пн-Пт: 9:00 - 19:00</p>
-                        <p>Сб: 10:00 - 16:00 (по предварительной записи)</p>
-                    </div>
-                </div>
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title" style="color: white;">Свяжитесь с нами</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Запишитесь на консультацию к нашему юристу прямо сейчас</p>
             </div>
             
-            <div class="contact-form-fusion">
-                <form id="consultationForm">
-                    <div class="form-group-fusion">
-                        <label class="form-label-fusion" for="name">Ваше имя</label>
-                        <input type="text" id="name" class="form-input-fusion" placeholder="Введите ваше имя" required>
+            <div class="contact-container">
+                <div class="contact-terminal fade-in">
+                    <h2 class="contact-title">Наши контакты</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h3>Адрес офиса</h3>
+                            <p>г. Ижевск, ул. Максима Горького, д. 43</p>
+                        </div>
                     </div>
                     
-                    <div class="form-group-fusion">
-                        <label class="form-label-fusion" for="phone">Телефон</label>
-                        <input type="tel" id="phone" class="form-input-fusion" placeholder="Введите ваш телефон" required>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h3>Телефон</h3>
+                            <p>+7 (912) 767-55-53</p>
+                            <p>+7 (980) 042-81-09</p>
+                        </div>
                     </div>
                     
-                    <div class="form-group-fusion">
-                        <label class="form-label-fusion" for="email">Email</label>
-                        <input type="email" id="email" class="form-input-fusion" placeholder="Введите ваш email" required>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h3>Email</h3>
+                            <p>pravok18@list.ru</p>
+                        </div>
                     </div>
                     
-                    <div class="form-group-fusion">
-                        <label class="form-label-fusion" for="service">Интересующая услуга</label>
-                        <select id="service" class="form-select-fusion" required>
-                            <option value="">Выберите услугу</option>
-                            <option value="уголовное право">Уголовное право</option>
-                            <option value="жилищное право">Жилищное право</option>
-                            <option value="семейное право">Семейное право</option>
-                            <option value="гражданское право">Гражданское право</option>
-                            <option value="арбитражные споры">Арбитражные споры</option>
-                            <option value="авторское право">Авторское право</option>
-                            <option value="защита прав потребителей">Защита прав потребителей</option>
-                            <option value="другое">Другое</option>
-                        </select>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h3>График работы</h3>
+                            <p>Пн-Пт: 9:00 - 19:00</p>
+                            <p>Сб: 10:00 - 16:00 (по предварительной записи)</p>
+                        </div>
                     </div>
-                    
-                    <div class="form-group-fusion">
-                        <label class="form-label-fusion" for="message">Сообщение</label>
-                        <textarea id="message" class="form-input-fusion" placeholder="Опишите вашу ситуацию"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="fusion-button" style="width: 100%; padding: 18px; font-size: 1.1rem;">Отправить заявку</button>
-                </form>
+                </div>
+                
+                <div class="contact-terminal fade-in">
+                    <form id="consultationForm">
+                        <div class="cyber-form">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Ваше имя</label>
+                                <input type="text" id="name" class="cyber-input" placeholder="Введите ваше имя" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Телефон</label>
+                                <input type="tel" id="phone" class="cyber-input" placeholder="Введите ваш телефон" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" id="email" class="cyber-input" placeholder="Введите ваш email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="service">Интересующая услуга</label>
+                                <select id="service" class="cyber-select" required>
+                                    <option value="">Выберите услугу</option>
+                                    <option value="уголовное право">Уголовное право</option>
+                                    <option value="жилищное право">Жилищное право</option>
+                                    <option value="семейное право">Семейное право</option>
+                                    <option value="гражданское право">Гражданское право</option>
+                                    <option value="арбитражные споры">Арбитражные споры</option>
+                                    <option value="авторское право">Авторское право</option>
+                                    <option value="защита прав потребителей">Защита прав потребителей</option>
+                                    <option value="другое">Другое</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="message">Сообщение</label>
+                                <textarea id="message" class="cyber-input" placeholder="Опишите вашу ситуацию"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem;">Отправить заявку</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="fusion-footer">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-container-fusion">
-                <div class="footer-column-fusion">
+            <div class="footer-container">
+                <div class="footer-column">
                     <h3>Консультант. По праву.</h3>
-                    <p class="footer-text-fusion">Профессиональные юридические услуги для физических и юридических лиц. Защита ваших интересов - наша основная задача.</p>
-                    <div class="social-links-fusion">
-                        <a href="https://vk.com/ваша_страница" target="_blank" class="social-icon-fusion"><i class="fab fa-vk"></i></a>
-                        <a href="#" class="social-icon-fusion"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon-fusion"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-icon-fusion"><i class="fab fa-whatsapp"></i></a>
+                    <p class="footer-text">Профессиональные юридические услуги для физических и юридических лиц. Защита ваших интересов - наша основная задача.</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/ваша_страница" target="_blank" class="social-icon"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-column-fusion">
+                <div class="footer-column">
                     <h3>Услуги</h3>
-                    <ul class="footer-links-fusion">
+                    <ul class="footer-links">
                         <li><a href="#services"><i class="fas fa-arrow-right"></i> Уголовное право</a></li>
                         <li><a href="#services"><i class="fas fa-arrow-right"></i> Жилищное право</a></li>
                         <li><a href="#services"><i class="fas fa-arrow-right"></i> Семейное право</a></li>
@@ -1427,9 +1725,9 @@
                     </ul>
                 </div>
                 
-                <div class="footer-column-fusion">
+                <div class="footer-column">
                     <h3>Быстрые ссылки</h3>
-                    <ul class="footer-links-fusion">
+                    <ul class="footer-links">
                         <li><a href="#services"><i class="fas fa-arrow-right"></i> Услуги</a></li>
                         <li><a href="#about"><i class="fas fa-arrow-right"></i> О нас</a></li>
                         <li><a href="#cases"><i class="fas fa-arrow-right"></i> Кейсы</a></li>
@@ -1437,9 +1735,9 @@
                     </ul>
                 </div>
                 
-                <div class="footer-column-fusion">
+                <div class="footer-column">
                     <h3>Контакты</h3>
-                    <ul class="footer-links-fusion">
+                    <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> г. Ижевск, ул. Максима Горького, д. 43</a></li>
                         <li><a href="tel:+79127675553"><i class="fas fa-phone"></i> +7 (912) 767-55-53</a></li>
                         <li><a href="tel:+79800428109"><i class="fas fa-phone"></i> +7 (980) 042-81-09</a></li>
@@ -1448,7 +1746,7 @@
                 </div>
             </div>
             
-            <div class="copyright-fusion">
+            <div class="copyright">
                 <p>&copy; 2023 Юридическая компания "Консультант. По праву.". Все права защищены.</p>
             </div>
         </div>
@@ -1456,26 +1754,45 @@
 
     <script>
         // Мобильное меню
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            menuToggle.innerHTML = mainNav.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
         
         // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.nav-fusion a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Изменение шапки при скролле
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
         
         // Плавная прокрутка для ссылок меню
-        document.querySelectorAll('.nav-fusion a, .fusion-button, .service-link-fusion, .case-link-fusion').forEach(link => {
+        document.querySelectorAll('.nav a, .mobile-nav a, .btn, .service-link, .terminal-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
@@ -1485,7 +1802,7 @@
                     
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 100,
+                            top: targetElement.offsetTop - 90,
                             behavior: 'smooth'
                         });
                     }
@@ -1562,51 +1879,36 @@
         });
         
         // Анимация появления элементов при скролле
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        const fadeElements = document.querySelectorAll('.fade-in');
         
-        const observer = new IntersectionObserver((entries) => {
+        const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
-        
-        // Наблюдаем за всеми карточками
-        document.querySelectorAll('.service-card-fusion, .case-card-fusion, .about-content-fusion, .contact-info-fusion, .contact-form-fusion').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
         
-        // Эффект появления для заголовков секций
-        document.querySelectorAll('.section-header-fusion').forEach(header => {
-            header.style.opacity = '0';
-            header.style.transform = 'translateY(30px)';
-            header.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(header);
+        fadeElements.forEach(element => {
+            fadeObserver.observe(element);
         });
         
-        // Изменение шапки при скролле
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.fusion-header');
-            if (window.scrollY > 50) {
-                header.style.padding = '12px 0';
-                header.style.boxShadow = '0 5px 30px rgba(10, 35, 66, 0.15)';
-            } else {
-                header.style.padding = '18px 0';
-                header.style.boxShadow = '0 5px 30px rgba(10, 35, 66, 0.08)';
-            }
+        // Инициализация анимации для элементов, которые уже видны при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            fadeElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
         });
         
-        // Создание частиц
+        // Создание частиц (как в диз.html)
         const cyberParticles = document.getElementById('cyberParticles');
-        const colors = ['#00A8E8', '#8B5A2B', '#C19A6B'];
+        const colors = ['#00A8E8', '#FF6B35', '#D4AF37'];
         
         for (let i = 0; i < 50; i++) {
             const particle = document.createElement('div');
