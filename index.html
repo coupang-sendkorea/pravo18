@@ -6,7 +6,7 @@
     <title>Юридическая компания "Консультант. По праву." - профессиональные юридические услуги</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" Профессиональный юрист в Ижевске. Уголовные, семейные, жилищные дела. Защита в суде, банкротство, споры с банками. Бесплатная первая консультация. Опыт 15 лет. Звоните +7 (912) 767-55-53">
+    <meta name="description" content="Профессиональный юрист в Ижевске. Уголовные, семейные, жилищные дела. Защита в суде, банкротство, споры с банками. Бесплатная первая консультация. Опыт 15 лет. Звоните +7 (912) 767-55-53">
     <meta name="keywords" content="юрист Ижевск, адвокат Ижевск, юридические услуги Ижевск, юрист консультация Ижевск, адвокат по уголовным делам Ижевск, банкротство Ижевск, семейный юрист Ижевск, жилищный юрист Ижевск, автоюрист Ижевск, защита прав потребителей Ижевск, юрист бесплатная консультация Ижевск">
     <meta name="author" content="Юридическая компания Консультант. По праву.">
     
@@ -1070,15 +1070,6 @@
             box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(0, 168, 232, 0.2);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-        
         /* Animations */
         @keyframes pulse {
             0%, 100% {
@@ -1331,6 +1322,287 @@
             border: 1px solid #e74c3c;
             color: #e74c3c;
             display: block;
+        }
+        
+        /* Виджет юриста - АНИМИРОВАННЫЙ */
+        .lawyer-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            transition: all 8s ease-in-out;
+            pointer-events: auto;
+        }
+        
+        .lawyer-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 0 25px rgba(0, 168, 232, 0.6);
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            animation: lawyer-float 4s ease-in-out infinite;
+            overflow: hidden;
+        }
+        
+        .lawyer-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px var(--secondary);
+        }
+        
+        /* Анимация "хватается за голову" */
+        .lawyer-avatar.headache {
+            animation: lawyer-headache 0.8s ease-in-out 3;
+        }
+        
+        /* Анимация "поднимает большой палец" */
+        .lawyer-avatar.thumbs-up {
+            animation: lawyer-thumbs-up 1.5s ease-in-out;
+        }
+        
+        /* Анимированный человечек внутри аватара */
+        .lawyer-character {
+            position: relative;
+            width: 40px;
+            height: 60px;
+        }
+        
+        .lawyer-head {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            z-index: 3;
+            transition: all 0.3s ease;
+        }
+        
+        .lawyer-body {
+            position: absolute;
+            top: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 30px;
+            background: white;
+            border-radius: 10px;
+            z-index: 2;
+        }
+        
+        .lawyer-arm {
+            position: absolute;
+            background: white;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .left-arm {
+            top: 25px;
+            left: 5px;
+            width: 15px;
+            height: 6px;
+            transform-origin: right center;
+        }
+        
+        .right-arm {
+            top: 25px;
+            right: 5px;
+            width: 15px;
+            height: 6px;
+            transform-origin: left center;
+        }
+        
+        /* Поза "хватается за голову" */
+        .lawyer-avatar.headache .left-arm,
+        .lawyer-avatar.headache .right-arm {
+            top: 10px;
+            height: 8px;
+        }
+        
+        .lawyer-avatar.headache .left-arm {
+            left: 0;
+            width: 20px;
+            transform: rotate(45deg);
+        }
+        
+        .lawyer-avatar.headache .right-arm {
+            right: 0;
+            width: 20px;
+            transform: rotate(-45deg);
+        }
+        
+        /* Поза "большой палец вверх" */
+        .lawyer-avatar.thumbs-up .right-arm {
+            top: 15px;
+            right: 8px;
+            width: 6px;
+            height: 25px;
+            transform: rotate(0deg);
+        }
+        
+        .lawyer-thumb {
+            position: absolute;
+            top: 5px;
+            right: -3px;
+            width: 12px;
+            height: 10px;
+            background: white;
+            border-radius: 5px;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lawyer-avatar.thumbs-up .lawyer-thumb {
+            opacity: 1;
+        }
+        
+        .lawyer-avatar.thumbs-up .left-arm {
+            top: 30px;
+            left: 5px;
+            width: 15px;
+            height: 6px;
+            transform: rotate(0deg);
+        }
+        
+        .lawyer-avatar.normal .left-arm,
+        .lawyer-avatar.normal .right-arm {
+            animation: lawyer-walk-arms 2s ease-in-out infinite;
+        }
+        
+        .lawyer-message {
+            position: absolute;
+            bottom: 95px;
+            left: -180px;
+            width: 250px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--secondary);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0, 168, 232, 0.3);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .lawyer-message::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 90%;
+            transform: translateX(-50%);
+            border: 10px solid transparent;
+            border-top-color: var(--secondary);
+        }
+        
+        .lawyer-message.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .lawyer-message p {
+            margin: 0;
+            color: var(--dark);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .lawyer-message .answer {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 8px;
+            font-size: 0.85rem;
+        }
+        
+        @keyframes lawyer-float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes lawyer-headache {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-5px) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-5px) rotate(5deg);
+            }
+        }
+        
+        @keyframes lawyer-thumbs-up {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            30% {
+                transform: translateY(-15px) scale(1.1);
+            }
+            70% {
+                transform: translateY(-10px) scale(1.1);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes lawyer-walk-arms {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(10deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .lawyer-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .lawyer-avatar {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .lawyer-character {
+                width: 35px;
+                height: 50px;
+            }
+            
+            .lawyer-message {
+                left: -200px;
+                width: 220px;
+                bottom: 85px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .lawyer-widget {
+                display: none; /* Скрываем на очень маленьких экранах */
+            }
         }
     </style>
 </head>
@@ -1598,7 +1870,7 @@
                         <h3 class="terminal-title">Спор при разводе</h3>
                         <div class="terminal-content">
                             <p><strong>Ситуация:</strong> Супруги при разводе не могли договориться о разделе квартиры, купленной в браке, и совместного бизнеса.</p>
-                            <p><strong>Решение:</strong> Мы представляли интересы жены. В результате переговоров и судебных заседаний достигли соглашения: клиентка получила квартитиру, а муж — бизнес с компенсацией разницы в стоимости.</p>
+                            <p><strong>Решение:</strong> Мы представляли интересы жены. В результате переговоров и судебных заседаний достигли соглашения: клиентка получила квартиру, а муж — бизнес с компенсацией разницы в стоимости.</p>
                             <a href="#contact" class="terminal-link">Раздел имущества</a>
                         </div>
                     </article>
@@ -1776,6 +2048,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- Виджет юриста - АНИМИРОВАННЫЙ -->
+    <div class="lawyer-widget" id="lawyerWidget">
+        <div class="lawyer-message" id="lawyerMessage">
+            <p id="lawyerQuestion"></p>
+            <p class="answer" id="lawyerAnswer" style="display: none;"></p>
+        </div>
+        <div class="lawyer-avatar" id="lawyerAvatar" aria-label="Юрист-помощник">
+            <div class="lawyer-character">
+                <div class="lawyer-head"></div>
+                <div class="lawyer-body"></div>
+                <div class="lawyer-arm left-arm"></div>
+                <div class="lawyer-arm right-arm"></div>
+                <div class="lawyer-thumb"></div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Мобильное меню
@@ -2033,6 +2322,190 @@
                 value = '+7' + value.substring(1);
             }
             this.value = value;
+        });
+        
+        // ===== АНИМИРОВАННЫЙ ВИДЖЕТ ЮРИСТА =====
+        const lawyerWidget = document.getElementById('lawyerWidget');
+        const lawyerMessage = document.getElementById('lawyerMessage');
+        const lawyerQuestion = document.getElementById('lawyerQuestion');
+        const lawyerAnswer = document.getElementById('lawyerAnswer');
+        const lawyerAvatar = document.getElementById('lawyerAvatar');
+        
+        // Массив вопросов (более 30 вопросов)
+        const questions = [
+            "Что делать при ДТП?",
+            "Как взыскать алименты?",
+            "Как оформить наследство?",
+            "Как расторгнуть договор с застройщиком?",
+            "Как обжаловать решение суда?",
+            "Как защитить права потребителя?",
+            "Как разделить имущество при разводе?",
+            "Как оформить брачный договор?",
+            "Как признать сделку недействительной?",
+            "Как взыскать долг по расписке?",
+            "Как оформить земельный участок?",
+            "Как узаконить перепланировку?",
+            "Как обжаловать отказ в регистрации?",
+            "Как оформить ипотеку?",
+            "Как списать долги через банкротство?",
+            "Как защититься от коллекторов?",
+            "Как оформить договор аренды?",
+            "Как восстановить срок принятия наследства?",
+            "Как оформить дарственную?",
+            "Как разделить долги при разводе?",
+            "Как взыскать моральный вред?",
+            "Как обжаловать штраф ГИБДД?",
+            "Как оформить завещание?",
+            "Как признать гражданина недееспособным?",
+            "Как оформить усыновление?",
+            "Как взыскать заработную плату?",
+            "Как оформить трудовой договор?",
+            "Как уволиться без отработки?",
+            "Как получить компенсацию при увольнении?",
+            "Как оформить патент на изобретение?",
+            "Как расторгнуть договор аренды?",
+            "Как снизить размер алиментов?",
+            "Как оспорить завещание?",
+            "Как взыскать неустойку по договору?",
+            "Как признать право собственности?"
+        ];
+        
+        // Массив ответов (после каждых 3 вопросов)
+        const answers = [
+            "Для решения этого вопроса обратитесь к нам по телефону +7 (912) 767-55-53!",
+            "Нужна помощь? Звоните +7 (912) 767-55-53 для консультации с юристом.",
+            "Не знаете, как поступить? Наши юристы готовы помочь! Контакты: +7 (912) 767-55-53.",
+            "Решим вашу проблему профессионально! Обращайтесь по телефону +7 (912) 767-55-53.",
+            "Бесплатная первичная консультация! Звоните +7 (912) 767-55-53."
+        ];
+        
+        let questionCounter = 0;
+        let currentPosition = { x: 30, y: 30 };
+        let messageTimeout;
+        
+        // Функция для получения случайной позиции на экране
+        function getRandomPosition() {
+            const maxX = window.innerWidth - 100;
+            const maxY = window.innerHeight - 150;
+            
+            return {
+                x: Math.floor(Math.random() * maxX) + 30,
+                y: Math.floor(Math.random() * maxY) + 30
+            };
+        }
+        
+        // Функция для перемещения виджета
+        function moveWidget() {
+            const newPosition = getRandomPosition();
+            currentPosition = newPosition;
+            
+            lawyerWidget.style.left = `${newPosition.x}px`;
+            lawyerWidget.style.bottom = `${newPosition.y}px`;
+        }
+        
+        // Функция для сброса анимации юриста в нормальное состояние
+        function resetLawyerAnimation() {
+            lawyerAvatar.classList.remove('headache', 'thumbs-up');
+            lawyerAvatar.classList.add('normal');
+        }
+        
+        // Функция для показа вопроса
+        function showQuestion() {
+            // Очищаем предыдущий таймаут
+            if (messageTimeout) {
+                clearTimeout(messageTimeout);
+            }
+            
+            // Сбрасываем анимацию
+            resetLawyerAnimation();
+            
+            // Показываем анимацию "хватается за голову"
+            setTimeout(() => {
+                lawyerAvatar.classList.remove('normal');
+                lawyerAvatar.classList.add('headache');
+            }, 300);
+            
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            lawyerQuestion.textContent = questions[randomIndex];
+            lawyerAnswer.style.display = 'none';
+            lawyerMessage.classList.add('active');
+            
+            questionCounter++;
+            
+            // После 3 вопросов показываем ответ
+            if (questionCounter >= 3) {
+                // Через 4 секунды показываем ответ
+                setTimeout(() => {
+                    const answerIndex = Math.floor(Math.random() * answers.length);
+                    lawyerAnswer.textContent = answers[answerIndex];
+                    lawyerAnswer.style.display = 'block';
+                    
+                    // Меняем анимацию на "большой палец вверх"
+                    lawyerAvatar.classList.remove('headache');
+                    lawyerAvatar.classList.add('thumbs-up');
+                }, 4000);
+                
+                // Скрываем сообщение через 12 секунд (ответ показывается 8 секунд)
+                messageTimeout = setTimeout(() => {
+                    lawyerMessage.classList.remove('active');
+                    resetLawyerAnimation();
+                    questionCounter = 0;
+                }, 12000);
+            } else {
+                // Скрываем сообщение через 6 секунд (только вопрос)
+                messageTimeout = setTimeout(() => {
+                    lawyerMessage.classList.remove('active');
+                    resetLawyerAnimation();
+                }, 6000);
+            }
+        }
+        
+        // Функция для запуска цикла вопросов
+        function startQuestionCycle() {
+            // Первый вопрос через 5 секунд после загрузки
+            setTimeout(() => {
+                showQuestion();
+                moveWidget();
+            }, 5000);
+            
+            // Затем вопросы появляются с разными интервалами
+            setInterval(() => {
+                showQuestion();
+                moveWidget();
+            }, 18000); // Каждые 18 секунд
+            
+            // Перемещаем виджет каждые 25 секунд
+            setInterval(() => {
+                moveWidget();
+            }, 25000);
+        }
+        
+        // Обработчик клика по аватару
+        lawyerAvatar.addEventListener('click', () => {
+            showQuestion();
+            moveWidget();
+        });
+        
+        // Запускаем виджет при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            // Устанавливаем начальную позицию
+            lawyerAvatar.classList.add('normal');
+            
+            // Проверяем, не мобильное ли устройство
+            if (window.innerWidth > 576) {
+                startQuestionCycle();
+            }
+        });
+        
+        // Обработчик изменения размера окна
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 576) {
+                lawyerWidget.style.display = 'none';
+            } else {
+                lawyerWidget.style.display = 'block';
+                // Перемещаем виджет при изменении размера окна
+                moveWidget();
+            }
         });
     </script>
 </body>
