@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Юридическая компания "Консультант. По праву." - профессиональные юридические услуги</title>
+    <title>Юридическая компания "Ваш Юрист" - профессиональные юридические услуги</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Профессиональный юрист в Ижевске. Уголовные, семейные, жилищные дела. Защита в суде, банкротство, споры с банками. Бесплатная первая консультация. Опыт 15 лет. Звоните +7 (912) 767-55-53">
     <meta name="keywords" content="юрист Ижевск, адвокат Ижевск, юридические услуги Ижевск, юрист консультация Ижевск, адвокат по уголовным делам Ижевск, банкротство Ижевск, семейный юрист Ижевск, жилищный юрист Ижевск, автоюрист Ижевск, защита прав потребителей Ижевск, юрист бесплатная консультация Ижевск">
-    <meta name="author" content="Юридическая компания Консультант. По праву.">
+    <meta name="author" content="Юридическая компания "Ваш Юрист">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/000000/balance.png">
@@ -24,12 +24,12 @@
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
-      "name": "Юридическая компания 'Консультант. По праву.'",
+      "name": "Юридическая компания 'Ваш Юрист'",
       "description": "Профессиональные юридические услуги для физических и юридических лиц",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ижевск",
-        "streetAddress": "ул. Максима Горького, д. 43"
+        "streetAddress": "ул. Азина, 143/1"
       },
       "telephone": "+7 (912) 767-55-53",
       "email": "pravok18@list.ru",
@@ -1070,6 +1070,86 @@
             box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
         }
         
+        /* Виджет обратного звонка */
+        .callback-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+        
+        .callback-button {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent), #FF8C5A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 0 25px rgba(255, 107, 53, 0.5);
+            border: 2px solid white;
+            cursor: pointer;
+            transition: var(--transition);
+            animation: pulse-call 2s infinite;
+        }
+        
+        .callback-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px rgba(255, 107, 53, 0.7);
+        }
+        
+        .callback-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .callback-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .callback-modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            position: relative;
+            border: 1px solid var(--secondary);
+            box-shadow: 0 0 40px rgba(0, 168, 232, 0.3);
+        }
+        
+        .callback-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .callback-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+        
         /* Animations */
         @keyframes pulse {
             0%, 100% {
@@ -1079,6 +1159,15 @@
             50% {
                 text-shadow: 0 0 25px var(--secondary), 0 0 35px var(--secondary);
                 box-shadow: 0 0 30px rgba(0, 168, 232, 0.5);
+            }
+        }
+        
+        @keyframes pulse-call {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(255, 107, 53, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(255, 107, 53, 0.7), 0 0 45px rgba(255, 107, 53, 0.3);
             }
         }
         
@@ -1168,6 +1257,17 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+            
+            .callback-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .callback-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1183,13 +1283,19 @@
                 grid-template-columns: 1fr;
             }
             
-            .contact-terminal, .about-terminal {
+            .contact-terminal, .about-terminal, .callback-modal-content {
                 padding: 30px 20px;
             }
             
             .btn {
                 padding: 12px 25px;
                 font-size: 0.95rem;
+            }
+            
+            .callback-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
         }
         
@@ -1323,287 +1429,6 @@
             color: #e74c3c;
             display: block;
         }
-        
-        /* Виджет юриста - АНИМИРОВАННЫЙ */
-        .lawyer-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-            transition: all 8s ease-in-out;
-            pointer-events: auto;
-        }
-        
-        .lawyer-avatar {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            box-shadow: 0 0 25px rgba(0, 168, 232, 0.6);
-            border: 2px solid var(--secondary);
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            animation: lawyer-float 4s ease-in-out infinite;
-            overflow: hidden;
-        }
-        
-        .lawyer-avatar:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 35px var(--secondary);
-        }
-        
-        /* Анимация "хватается за голову" */
-        .lawyer-avatar.headache {
-            animation: lawyer-headache 0.8s ease-in-out 3;
-        }
-        
-        /* Анимация "поднимает большой палец" */
-        .lawyer-avatar.thumbs-up {
-            animation: lawyer-thumbs-up 1.5s ease-in-out;
-        }
-        
-        /* Анимированный человечек внутри аватара */
-        .lawyer-character {
-            position: relative;
-            width: 40px;
-            height: 60px;
-        }
-        
-        .lawyer-head {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 24px;
-            background: white;
-            border-radius: 50%;
-            z-index: 3;
-            transition: all 0.3s ease;
-        }
-        
-        .lawyer-body {
-            position: absolute;
-            top: 22px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 30px;
-            background: white;
-            border-radius: 10px;
-            z-index: 2;
-        }
-        
-        .lawyer-arm {
-            position: absolute;
-            background: white;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        .left-arm {
-            top: 25px;
-            left: 5px;
-            width: 15px;
-            height: 6px;
-            transform-origin: right center;
-        }
-        
-        .right-arm {
-            top: 25px;
-            right: 5px;
-            width: 15px;
-            height: 6px;
-            transform-origin: left center;
-        }
-        
-        /* Поза "хватается за голову" */
-        .lawyer-avatar.headache .left-arm,
-        .lawyer-avatar.headache .right-arm {
-            top: 10px;
-            height: 8px;
-        }
-        
-        .lawyer-avatar.headache .left-arm {
-            left: 0;
-            width: 20px;
-            transform: rotate(45deg);
-        }
-        
-        .lawyer-avatar.headache .right-arm {
-            right: 0;
-            width: 20px;
-            transform: rotate(-45deg);
-        }
-        
-        /* Поза "большой палец вверх" */
-        .lawyer-avatar.thumbs-up .right-arm {
-            top: 15px;
-            right: 8px;
-            width: 6px;
-            height: 25px;
-            transform: rotate(0deg);
-        }
-        
-        .lawyer-thumb {
-            position: absolute;
-            top: 5px;
-            right: -3px;
-            width: 12px;
-            height: 10px;
-            background: white;
-            border-radius: 5px;
-            transform: rotate(45deg);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .lawyer-avatar.thumbs-up .lawyer-thumb {
-            opacity: 1;
-        }
-        
-        .lawyer-avatar.thumbs-up .left-arm {
-            top: 30px;
-            left: 5px;
-            width: 15px;
-            height: 6px;
-            transform: rotate(0deg);
-        }
-        
-        .lawyer-avatar.normal .left-arm,
-        .lawyer-avatar.normal .right-arm {
-            animation: lawyer-walk-arms 2s ease-in-out infinite;
-        }
-        
-        .lawyer-message {
-            position: absolute;
-            bottom: 95px;
-            left: -180px;
-            width: 250px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid var(--secondary);
-            border-radius: var(--border-radius);
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0, 168, 232, 0.3);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .lawyer-message::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 90%;
-            transform: translateX(-50%);
-            border: 10px solid transparent;
-            border-top-color: var(--secondary);
-        }
-        
-        .lawyer-message.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .lawyer-message p {
-            margin: 0;
-            color: var(--dark);
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-        
-        .lawyer-message .answer {
-            color: var(--accent);
-            font-weight: 600;
-            margin-top: 8px;
-            font-size: 0.85rem;
-        }
-        
-        @keyframes lawyer-float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes lawyer-headache {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-5px) rotate(-5deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(0deg);
-            }
-            75% {
-                transform: translateY(-5px) rotate(5deg);
-            }
-        }
-        
-        @keyframes lawyer-thumbs-up {
-            0% {
-                transform: translateY(0) scale(1);
-            }
-            30% {
-                transform: translateY(-15px) scale(1.1);
-            }
-            70% {
-                transform: translateY(-10px) scale(1.1);
-            }
-            100% {
-                transform: translateY(0) scale(1);
-            }
-        }
-        
-        @keyframes lawyer-walk-arms {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            50% {
-                transform: rotate(10deg);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .lawyer-widget {
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .lawyer-avatar {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
-            }
-            
-            .lawyer-character {
-                width: 35px;
-                height: 50px;
-            }
-            
-            .lawyer-message {
-                left: -200px;
-                width: 220px;
-                bottom: 85px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .lawyer-widget {
-                display: none; /* Скрываем на очень маленьких экранах */
-            }
-        }
     </style>
 </head>
 <body itemscope itemtype="https://schema.org/LegalService">
@@ -1633,7 +1458,7 @@
                         <i class="fas fa-balance-scale" aria-hidden="true"></i>
                     </div>
                     <div class="logo-text">
-                        <h1>Консультант. По праву.</h1>
+                        <h1>Ваш Юрист</h1>
                         <p>Юридические услуги с гарантией результата</p>
                     </div>
                 </a>
@@ -1642,6 +1467,7 @@
                     <a href="#services">Услуги</a>
                     <a href="#about">О нас</a>
                     <a href="#cases">Кейсы</a>
+                    <a href="tools.html">Инструменты</a>
                     <a href="#contact">Контакты</a>
                 </nav>
                 
@@ -1666,7 +1492,7 @@
                     <i class="fas fa-balance-scale" aria-hidden="true"></i>
                 </div>
                 <div class="logo-text">
-                    <h1 style="font-size: 1.3rem;">Консультант. По праву.</h1>
+                    <h1 style="font-size: 1.3rem;">Ваш Юрист</h1>
                 </div>
             </div>
             <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
@@ -1678,6 +1504,7 @@
             <a href="#services">Услуги</a>
             <a href="#about">О нас</a>
             <a href="#cases">Кейсы</a>
+            <a href="tools.html">Инструменты</a>
             <a href="#contact">Контакты</a>
         </div>
         
@@ -1802,7 +1629,7 @@
                 <div class="about-container">
                     <div class="about-terminal fade-in">
                         <h2 class="about-title">О нашей компании</h2>
-                        <p class="about-text">Юридическая компания "Консультант. По праву." работает на рынке юридических услуг с 2008 года. За это время мы помогли тысячам клиентов решить их правовые проблемы.</p>
+                        <p class="about-text">Юридическая компания "Ваш Юрист" работает на рынке юридических услуг с 2008 года. За это время мы помогли тысячам клиентов решить их правовые проблемы.</p>
                         <p class="about-text">Наша команда состоит из опытных юристов и адвокатов, специализирующихся в различных областях права. Мы постоянно повышаем квалификацию и следим за изменениями в законодательстве.</p>
                         <p class="about-text">Мы гордимся нашим подходом к каждому клиенту - индивидуальное рассмотрение дела, разработка стратегии и сопровождение до получения результата.</p>
                         
@@ -1912,7 +1739,7 @@
                                 <h3>Адрес офиса</h3>
                                 <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                                     <span itemprop="addressLocality">г. Ижевск</span>, 
-                                    <span itemprop="streetAddress">ул. Максима Горького, д. 43</span>
+                                    <span itemprop="streetAddress">ул. Азина, 143/1</span>
                                 </p>
                             </div>
                         </div>
@@ -2015,7 +1842,7 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3>Консультант. По праву.</h3>
+                    <h3>Ваш Юрист</h3>
                     <p class="footer-text">Профессиональные юридические услуги для физических и юридических лиц. Защита ваших интересов - наша основная задача.</p>
                     <div class="social-links">
                         <a href="https://vk.com/ваша_страница" target="_blank" class="social-icon" aria-label="ВКонтакте"><i class="fab fa-vk" aria-hidden="true"></i></a>
@@ -2042,6 +1869,7 @@
                         <li><a href="#services"><i class="fas fa-arrow-right" aria-hidden="true"></i> Услуги</a></li>
                         <li><a href="#about"><i class="fas fa-arrow-right" aria-hidden="true"></i> О нас</a></li>
                         <li><a href="#cases"><i class="fas fa-arrow-right" aria-hidden="true"></i> Кейсы</a></li>
+                        <li><a href="tools.html"><i class="fas fa-arrow-right" aria-hidden="true"></i> Инструменты</a></li>
                         <li><a href="#contact"><i class="fas fa-arrow-right" aria-hidden="true"></i> Контакты</a></li>
                     </ul>
                 </div>
@@ -2049,7 +1877,7 @@
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> г. Ижевск, ул. Максима Горького, д. 43</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> г. Ижевск, ул. Азина, 143/1</a></li>
                         <li><a href="tel:+79127675553"><i class="fas fa-phone" aria-hidden="true"></i> +7 (912) 767-55-53</a></li>
                         <li><a href="tel:+79800428109"><i class="fas fa-phone" aria-hidden="true"></i> +7 (980) 042-81-09</a></li>
                         <li><a href="mailto:pravok18@list.ru"><i class="fas fa-envelope" aria-hidden="true"></i> pravok18@list.ru</a></li>
@@ -2058,25 +1886,69 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; <span id="currentYear">2023</span> Юридическая компания "Консультант. По праву.". Все права защищены.</p>
+                <p>&copy; <span id="currentYear">2023</span> Юридическая компания "Ваш Юрист". Все права защищены.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Виджет юриста - АНИМИРОВАННЫЙ -->
-    <div class="lawyer-widget" id="lawyerWidget">
-        <div class="lawyer-message" id="lawyerMessage">
-            <p id="lawyerQuestion"></p>
-            <p class="answer" id="lawyerAnswer" style="display: none;"></p>
-        </div>
-        <div class="lawyer-avatar" id="lawyerAvatar" aria-label="Юрист-помощник">
-            <div class="lawyer-character">
-                <div class="lawyer-head"></div>
-                <div class="lawyer-body"></div>
-                <div class="lawyer-arm left-arm"></div>
-                <div class="lawyer-arm right-arm"></div>
-                <div class="lawyer-thumb"></div>
-            </div>
+    <!-- Виджет обратного звонка -->
+    <div class="callback-widget">
+        <button class="callback-button" id="callbackButton" aria-label="Заказать обратный звонок">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- Модальное окно обратного звонка -->
+    <div class="callback-modal" id="callbackModal">
+        <div class="callback-modal-content">
+            <button class="callback-close" id="callbackClose" aria-label="Закрыть окно">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 25px;">Заказать обратный звонок</h2>
+            
+            <form id="callbackForm">
+                <div class="form-group">
+                    <label class="form-label" for="callbackName">Ваше имя *</label>
+                    <input type="text" id="callbackName" class="cyber-input" placeholder="Введите ваше имя" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="callbackPhone">Телефон *</label>
+                    <input type="tel" id="callbackPhone" class="cyber-input" placeholder="+7 (___) ___-__-__" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="callbackTime">Удобное время для звонка</label>
+                    <select id="callbackTime" class="cyber-select">
+                        <option value="">Выберите время</option>
+                        <option value="9-12">9:00 - 12:00</option>
+                        <option value="12-15">12:00 - 15:00</option>
+                        <option value="15-18">15:00 - 18:00</option>
+                        <option value="18-20">18:00 - 20:00</option>
+                        <option value="any">Любое время</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="callbackTopic">Тема обращения</label>
+                    <select id="callbackTopic" class="cyber-select">
+                        <option value="">Выберите тему</option>
+                        <option value="консультация">Консультация</option>
+                        <option value="дтп">Вопрос по ДТП</option>
+                        <option value="семейные споры">Семейные споры</option>
+                        <option value="жилищные вопросы">Жилищные вопросы</option>
+                        <option value="другое">Другое</option>
+                    </select>
+                </div>
+                
+                <div id="callbackMessage" class="form-message"></div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Заказать звонок
+                </button>
+                
+                <p style="color: var(--medium-gray); font-size: 0.85rem; margin-top: 15px; text-align: center;">
+                    Мы перезвоним в течение 30 минут в рабочее время
+                </p>
+            </form>
         </div>
     </div>
 
@@ -2127,6 +1999,7 @@
         // Плавная прокрутка для ссылок меню
         document.querySelectorAll('.nav a, .mobile-nav a, .btn, .service-link, .terminal-link').forEach(link => {
             link.addEventListener('click', function(e) {
+                // Проверяем, является ли ссылка якорной (начинается с #)
                 if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     
@@ -2146,6 +2019,7 @@
                         this.classList.add('active');
                     }
                 }
+                // Если ссылка ведет на tools.html, не прерываем стандартное поведение
             });
         });
         
@@ -2196,7 +2070,7 @@
             const timestamp = parseInt(document.getElementById('timestamp').value);
             const now = Date.now();
             if (now - timestamp < 3000) {
-                showFormMessage('Пожалуйста, подождите несколько секунд перед повторной отправкой', 'error');
+                showFormMessage('Пожалуйста, подождите несколько секунд перед повторной отправки', 'error');
                 return;
             }
             
@@ -2338,189 +2212,122 @@
             this.value = value;
         });
         
-        // ===== АНИМИРОВАННЫЙ ВИДЖЕТ ЮРИСТА =====
-        const lawyerWidget = document.getElementById('lawyerWidget');
-        const lawyerMessage = document.getElementById('lawyerMessage');
-        const lawyerQuestion = document.getElementById('lawyerQuestion');
-        const lawyerAnswer = document.getElementById('lawyerAnswer');
-        const lawyerAvatar = document.getElementById('lawyerAvatar');
+        // ===== ВИДЖЕТ ОБРАТНОГО ЗВОНКА =====
+        const callbackButton = document.getElementById('callbackButton');
+        const callbackModal = document.getElementById('callbackModal');
+        const callbackClose = document.getElementById('callbackClose');
+        const callbackForm = document.getElementById('callbackForm');
+        const callbackMessage = document.getElementById('callbackMessage');
+        const callbackPhoneInput = document.getElementById('callbackPhone');
         
-        // Массив вопросов (более 30 вопросов)
-        const questions = [
-            "Что делать при ДТП?",
-            "Как взыскать алименты?",
-            "Как оформить наследство?",
-            "Как расторгнуть договор с застройщиком?",
-            "Как обжаловать решение суда?",
-            "Как защитить права потребителя?",
-            "Как разделить имущество при разводе?",
-            "Как оформить брачный договор?",
-            "Как признать сделку недействительной?",
-            "Как взыскать долг по расписке?",
-            "Как оформить земельный участок?",
-            "Как узаконить перепланировку?",
-            "Как обжаловать отказ в регистрации?",
-            "Как оформить ипотеку?",
-            "Как списать долги через банкротство?",
-            "Как защититься от коллекторов?",
-            "Как оформить договор аренды?",
-            "Как восстановить срок принятия наследства?",
-            "Как оформить дарственную?",
-            "Как разделить долги при разводе?",
-            "Как взыскать моральный вред?",
-            "Как обжаловать штраф ГИБДД?",
-            "Как оформить завещание?",
-            "Как признать гражданина недееспособным?",
-            "Как оформить усыновление?",
-            "Как взыскать заработную плату?",
-            "Как оформить трудовой договор?",
-            "Как уволиться без отработки?",
-            "Как получить компенсацию при увольнении?",
-            "Как оформить патент на изобретение?",
-            "Как расторгнуть договор аренды?",
-            "Как снизить размер алиментов?",
-            "Как оспорить завещание?",
-            "Как взыскать неустойку по договору?",
-            "Как признать право собственности?"
-        ];
+        // Открытие модального окна
+        callbackButton.addEventListener('click', function() {
+            callbackModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
         
-        // Массив ответов (после каждых 3 вопросов)
-        const answers = [
-            "Для решения этого вопроса обратитесь к нам по телефону +7 (912) 767-55-53!",
-            "Нужна помощь? Звоните +7 (912) 767-55-53 для консультации с юристом.",
-            "Не знаете, как поступить? Наши юристы готовы помочь! Контакты: +7 (912) 767-55-53.",
-            "Решим вашу проблему профессионально! Обращайтесь по телефону +7 (912) 767-55-53.",
-            "Бесплатная первичная консультация! Звоните +7 (912) 767-55-53."
-        ];
+        // Закрытие модального окна
+        function closeCallbackModal() {
+            callbackModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
         
-        let questionCounter = 0;
-        let currentPosition = { x: 30, y: 30 };
-        let messageTimeout;
+        callbackClose.addEventListener('click', closeCallbackModal);
+        callbackModal.addEventListener('click', function(e) {
+            if (e.target === callbackModal) {
+                closeCallbackModal();
+            }
+        });
         
-        // Функция для получения случайной позиции на экране
-        function getRandomPosition() {
-            const maxX = window.innerWidth - 100;
-            const maxY = window.innerHeight - 150;
+        // Форматирование телефона в виджете обратного звонка
+        callbackPhoneInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                value = '+7' + value.substring(1);
+            }
+            this.value = value;
+        });
+        
+        // Обработка формы обратного звонка
+        callbackForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            return {
-                x: Math.floor(Math.random() * maxX) + 30,
-                y: Math.floor(Math.random() * maxY) + 30
-            };
-        }
-        
-        // Функция для перемещения виджета
-        function moveWidget() {
-            const newPosition = getRandomPosition();
-            currentPosition = newPosition;
+            const name = document.getElementById('callbackName').value.trim();
+            const phone = document.getElementById('callbackPhone').value.trim();
+            const time = document.getElementById('callbackTime').value;
+            const topic = document.getElementById('callbackTopic').value;
             
-            lawyerWidget.style.left = `${newPosition.x}px`;
-            lawyerWidget.style.bottom = `${newPosition.y}px`;
-        }
-        
-        // Функция для сброса анимации юриста в нормальное состояние
-        function resetLawyerAnimation() {
-            lawyerAvatar.classList.remove('headache', 'thumbs-up');
-            lawyerAvatar.classList.add('normal');
-        }
-        
-        // Функция для показа вопроса
-        function showQuestion() {
-            // Очищаем предыдущий таймаут
-            if (messageTimeout) {
-                clearTimeout(messageTimeout);
+            if (!name || !phone) {
+                showCallbackMessage('Пожалуйста, заполните обязательные поля', 'error');
+                return;
             }
             
-            // Сбрасываем анимацию
-            resetLawyerAnimation();
+            // Показываем сообщение о загрузке
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Отправка...';
+            submitButton.disabled = true;
             
-            // Показываем анимацию "хватается за голову"
-            setTimeout(() => {
-                lawyerAvatar.classList.remove('normal');
-                lawyerAvatar.classList.add('headache');
-            }, 300);
+            // Формируем сообщение для Telegram
+            const text = `📞 *Запрос обратного звонка*\n\n` +
+                         `👤 *Имя:* ${name}\n` +
+                         `📞 *Телефон:* ${phone}\n` +
+                         `⏰ *Удобное время:* ${time || 'Не указано'}\n` +
+                         `📋 *Тема:* ${topic || 'Не указана'}\n\n` +
+                         `⏰ *Получено:* ${new Date().toLocaleString('ru-RU')}`;
             
-            const randomIndex = Math.floor(Math.random() * questions.length);
-            lawyerQuestion.textContent = questions[randomIndex];
-            lawyerAnswer.style.display = 'none';
-            lawyerMessage.classList.add('active');
-            
-            questionCounter++;
-            
-            // После 3 вопросов показываем ответ
-            if (questionCounter >= 3) {
-                // Через 4 секунды показываем ответ
-                setTimeout(() => {
-                    const answerIndex = Math.floor(Math.random() * answers.length);
-                    lawyerAnswer.textContent = answers[answerIndex];
-                    lawyerAnswer.style.display = 'block';
-                    
-                    // Меняем анимацию на "большой палец вверх"
-                    lawyerAvatar.classList.remove('headache');
-                    lawyerAvatar.classList.add('thumbs-up');
-                }, 4000);
+            try {
+                // Отправляем сообщение в группу
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: GROUP_CHAT_ID,
+                        text: text,
+                        parse_mode: 'Markdown'
+                    })
+                });
                 
-                // Скрываем сообщение через 12 секунд (ответ показывается 8 секунд)
-                messageTimeout = setTimeout(() => {
-                    lawyerMessage.classList.remove('active');
-                    resetLawyerAnimation();
-                    questionCounter = 0;
-                }, 12000);
-            } else {
-                // Скрываем сообщение через 6 секунд (только вопрос)
-                messageTimeout = setTimeout(() => {
-                    lawyerMessage.classList.remove('active');
-                    resetLawyerAnimation();
-                }, 6000);
+                const result = await response.json();
+                
+                if (response.ok && result.ok) {
+                    // Успешная отправка
+                    showCallbackMessage(`✅ Спасибо, ${name}! Мы перезвоним вам в ближайшее время.`, 'success');
+                    callbackForm.reset();
+                    setTimeout(closeCallbackModal, 3000);
+                } else {
+                    // Ошибка от Telegram API
+                    throw new Error(result.description || 'Ошибка отправки в Telegram');
+                }
+            } catch (error) {
+                console.error('Ошибка при отправке в Telegram:', error);
+                showCallbackMessage('⚠️ Ошибка при отправке запроса. Пожалуйста, позвоните нам напрямую: +7 (912) 767-55-53', 'error');
+            } finally {
+                // Восстанавливаем кнопку
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
             }
+        });
+        
+        // Функция для показа сообщений в виджете обратного звонка
+        function showCallbackMessage(message, type) {
+            callbackMessage.textContent = message;
+            callbackMessage.className = `form-message ${type}`;
+            callbackMessage.style.display = 'block';
         }
         
-        // Функция для запуска цикла вопросов
-        function startQuestionCycle() {
-            // Первый вопрос через 5 секунд после загрузки
-            setTimeout(() => {
-                showQuestion();
-                moveWidget();
-            }, 5000);
-            
-            // Затем вопросы появляются с разными интервалами
-            setInterval(() => {
-                showQuestion();
-                moveWidget();
-            }, 18000); // Каждые 18 секунд
-            
-            // Перемещаем виджет каждые 25 секунд
-            setInterval(() => {
-                moveWidget();
-            }, 25000);
-        }
-        
-        // Обработчик клика по аватару
-        lawyerAvatar.addEventListener('click', () => {
-            showQuestion();
-            moveWidget();
-        });
-        
-        // Запускаем виджет при загрузке страницы
-        document.addEventListener('DOMContentLoaded', () => {
-            // Устанавливаем начальную позицию
-            lawyerAvatar.classList.add('normal');
-            
-            // Проверяем, не мобильное ли устройство
-            if (window.innerWidth > 576) {
-                startQuestionCycle();
+        // Автоматическое открытие виджета обратного звонка через 30 секунд
+        setTimeout(() => {
+            if (!localStorage.getItem('callbackShown')) {
+                const isScrolled = window.scrollY > 500;
+                if (isScrolled) {
+                    callbackButton.click();
+                    localStorage.setItem('callbackShown', 'true');
+                }
             }
-        });
-        
-        // Обработчик изменения размера окна
-        window.addEventListener('resize', () => {
-            if (window.innerWidth <= 576) {
-                lawyerWidget.style.display = 'none';
-            } else {
-                lawyerWidget.style.display = 'block';
-                // Перемещаем виджет при изменении размера окна
-                moveWidget();
-            }
-        });
+        }, 30000);
     </script>
 </body>
 </html>
