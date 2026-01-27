@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструменты и калькуляторы | Юридическая компания "Консультант. По праву."</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Бесплатные юридические калькуляторы и инструменты: расчет госпошлины, сроков, пеней и других юридических параметров">
+    <meta name="keywords" content="калькулятор госпошлины, юридические калькуляторы, расчет судебных расходов, инструменты для юристов">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/000000/balance.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Используем стили из основного файла с небольшими изменениями */
+        :root {
+            --primary: #0A2342;
+            --secondary: #00A8E8;
+            --accent: #FF6B35;
+            --light: #F8F9FA;
+            --medium-gray: #6C757D;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 35, 66, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 168, 232, 0.2);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 0 30px rgba(0, 168, 232, 0.1);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), #1A365D);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: var(--secondary);
+        }
+        
+        .tools-section {
+            padding: 150px 0 80px;
+            min-height: 100vh;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0, 168, 232, 0.2);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 168, 232, 0.2);
+        }
+        
+        .tool-icon {
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), #1A365D);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .tool-content {
+            padding: 30px;
+        }
+        
+        .tool-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .tool-description {
+            color: var(--medium-gray);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--secondary), #00C8FF);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            gap: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 50px;
+        }
+        
+        .back-link:hover {
+            color: var(--accent);
+            gap: 15px;
+        }
+        
+        .footer {
+            background: #0A0A0A;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-section {
+                padding: 120px 0 60px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .tool-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Консультант. По праву.</h1>
+                    </div>
+                </a>
+                
+                <nav class="nav">
+                    <a href="index.html#services">Услуги</a>
+                    <a href="index.html#about">О нас</a>
+                    <a href="index.html#cases">Кейсы</a>
+                    <a href="tools.html" style="color: var(--secondary);">Инструменты</a>
+                    <a href="index.html#contact">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">Юридические инструменты и калькуляторы</h1>
+                <p class="section-subtitle">Бесплатные онлайн-инструменты для расчета юридических параметров и судебных расходов</p>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- Калькулятор госпошлины -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h2 class="tool-title">Калькулятор госпошлины 2026</h2>
+                        <p class="tool-description">
+                            Расчет государственной пошлины по новой редакции ст. 333.19 и 333.21 НК РФ 
+                            (в редакции от 08.08.2024, действует с 08.09.2024). Учитывает все изменения 
+                            для судов общей юрисдикции и арбитражных судов.
+                        </p>
+                        <a href="court-fee-calculator.html" target="_blank" class="btn">
+                            Открыть калькулятор <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Заглушки для будущих инструментов -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h2 class="tool-title">Калькулятор сроков</h2>
+                        <p class="tool-description">
+                            Расчет процессуальных сроков, сроков исковой давности, 
+                            сроков выполнения работ и услуг. Учитывает выходные и праздничные дни.
+                        </p>
+                        <a href="#" class="btn" style="background: var(--medium-gray);">
+                            Скоро будет <i class="fas fa-hourglass-half"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h2 class="tool-title">Калькулятор пеней и неустоек</h2>
+                        <p class="tool-description">
+                            Расчет неустоек, пеней и процентов за пользование чужими денежными средствами 
+                            согласно ст. 395 ГК РФ и условиям договоров.
+                        </p>
+                        <a href="#" class="btn" style="background: var(--medium-gray);">
+                            Скоро будет <i class="fas fa-hourglass-half"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Вернуться на главную страницу
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear">2024</span> Юридическая компания "Консультант. По праву.". Все права защищены.</p>
+            <p style="margin-top: 10px; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                г. Ижевск, ул. Максима Горького, д. 43 | Телефон: +7 (912) 767-55-53
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Обновление года в футере
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Простая проверка меню при скролле
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 0 40px rgba(0, 168, 232, 0.2)';
+            } else {
+                header.style.boxShadow = '0 0 30px rgba(0, 168, 232, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

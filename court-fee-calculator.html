@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор госпошлины 2026 (по новой редакции) | Консультант. По праву.</title>
+    <meta name="description" content="Расчет госпошлины по новой редакции ст. 333.19 и 333.21 НК РФ (в редакции от 08.08.2024, действует с 08.09.2024)">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0A2342;
+            --secondary: #00A8E8;
+            --accent: #FF6B35;
+            --light: #F8F9FA;
+            --medium-gray: #6C757D;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .widget-header {
+            background: linear-gradient(135deg, var(--primary), #1A365D);
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .widget-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 168, 232, 0.1) 50%, transparent 70%);
+            animation: scan 15s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .widget-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .widget-header .important-note {
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            font-size: 0.95rem;
+        }
+        
+        .calculator-container {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 168, 232, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            border-bottom: 2px solid rgba(0, 168, 232, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+        }
+        
+        .form-hint {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            margin-top: 5px;
+        }
+        
+        .cyber-input, .cyber-select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-input:focus, .cyber-select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(0, 168, 232, 0.3);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .calculator-result {
+            background: rgba(0, 168, 232, 0.05);
+            border: 2px solid var(--secondary);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 40px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+            position: relative;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .result-main {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            border: 1px solid rgba(0, 168, 232, 0.2);
+        }
+        
+        .result-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 15px 0;
+            text-shadow: 0 0 10px rgba(0, 168, 232, 0.3);
+        }
+        
+        .result-details {
+            background: rgba(248, 249, 250, 0.7);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .result-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--secondary), #00C8FF);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent), #FF8C5A);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .info-section {
+            background: rgba(0, 168, 232, 0.05);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            margin-top: 40px;
+            border: 1px solid rgba(0, 168, 232, 0.2);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0, 168, 232, 0.2);
+        }
+        
+        .info-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .warning-box {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 168, 232, 0.2);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .back-link:hover {
+            color: var(--accent);
+            gap: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .widget-header {
+                padding: 30px 20px;
+            }
+            
+            .widget-header h1 {
+                font-size: 2rem;
+            }
+            
+            .calculator-container {
+                padding: 25px 20px;
+            }
+            
+            .result-amount {
+                font-size: 2.5rem;
+            }
+            
+            .result-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        .calculation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        
+        .calculation-table th,
+        .calculation-table td {
+            border: 1px solid rgba(0, 168, 232, 0.2);
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .calculation-table th {
+            background: rgba(0, 168, 232, 0.1);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .calculation-table tr:nth-child(even) {
+            background: rgba(248, 249, 250, 0.5);
+        }
+        
+        .bankruptcy-option {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 168, 232, 0.05);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0, 168, 232, 0.2);
+        }
+        
+        .bankruptcy-option label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .bankruptcy-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .benefit-section {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .benefit-warning {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            border-radius: var(--border-radius);
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget-header">
+        <h1><i class="fas fa-calculator"></i> Калькулятор госпошлины 2026</h1>
+        <p>Расчет по новой редакции ст. 333.19 и 333.21 НК РФ</p>
+        <div class="important-note">
+            <i class="fas fa-exclamation-circle"></i>
+            <strong>Внимание!</strong> Применяется к делам, возбужденным в суде на основании заявлений и жалоб, направленных в суд после 08.09.2024
+        </div>
+    </div>
+    
+    <div class="calculator-container">
+        <form id="courtFeeCalculator">
+            <!-- Секция 1: Выбор суда и типа заявителя -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-balance-scale"></i> Основные параметры</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="courtType">Тип суда *</label>
+                        <select id="courtType" class="cyber-select" required>
+                            <option value="">Выберите тип суда</option>
+                            <option value="general">Суд общей юрисдикции (ст. 333.19 НК РФ)</option>
+                            <option value="arbitration">Арбитражный суд (ст. 333.21 НК РФ)</option>
+                        </select>
+                        <div class="form-hint">Выберите суд, в который подаете заявление</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="applicantType">Тип заявителя *</label>
+                        <select id="applicantType" class="cyber-select" required>
+                            <option value="">Выберите тип заявителя</option>
+                            <option value="individual">Физическое лицо</option>
+                            <option value="organization">Организация (юр. лицо)</option>
+                            <option value="entrepreneur">Индивидуальный предприниматель</option>
+                        </select>
+                        <div class="form-hint">Важно для расчета неимущественных исков</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Секция 2: Тип заявления -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-file-contract"></i> Вид заявления</h2>
+                
+                <div class="form-group">
+                    <label class="form-label" for="claimType">Тип заявления *</label>
+                    <select id="claimType" class="cyber-select" required>
+                        <option value="">Выберите тип заявления</option>
+                        <!-- Общие для всех судов -->
+                        <option value="property">Имущественное исковое заявление (подлежащее оценке)</option>
+                        <option value="property_non_assessable">Имущественное исковое заявление (не подлежащее оценке)</option>
+                        <option value="non_property">Неимущественное исковое заявление</option>
+                        <option value="contract_dispute">Споры при заключении/изменении/расторжении договоров</option>
+                        <option value="transaction_invalid">Оспаривание сделок (без последствий)</option>
+                        <option value="appeal">Апелляционная жалоба</option>
+                        <option value="cassation">Кассационная жалоба</option>
+                        <option value="supervision">Надзорная жалоба в Верховный Суд РФ</option>
+                        
+                        <!-- Для судов общей юрисдикции -->
+                        <option value="divorce" class="court-general">Расторжение брака</option>
+                        <option value="alimony" class="court-general">Взыскание алиментов</option>
+                        <option value="special_proceedings" class="court-general">Заявление по делам особого производства</option>
+                        <option value="succession" class="court-general">Правопреемство (кроме универсального)</option>
+                        <option value="court_order" class="court-general">Заявление о вынесении судебного приказа</option>
+                        <option value="reinstatement" class="court-general">Восстановление срока</option>
+                        <option value="revision" class="court-general">Пересмотр по новым обстоятельствам</option>
+                        <option value="security" class="court-general">Обеспечение иска</option>
+                        <option value="compensation" class="court-general">Компенсация за нарушение сроков</option>
+                        <option value="challenge_acts" class="court-general">Оспаривание нормативных правовых актов</option>
+                        <option value="challenge_non_normative" class="court-general">Оспаривание ненормативных актов и решений</option>
+                        
+                        <!-- Для арбитражных судов -->
+                        <option value="bankruptcy" class="court-arbitration">Заявление о признании банкротом</option>
+                        <option value="bankruptcy_creditor" class="court-arbitration">Требования в деле о банкротстве</option>
+                        <option value="facts" class="court-arbitration">Установление фактов</option>
+                        <option value="intellectual" class="court-arbitration">Споры в области интеллектуальной собственности</option>
+                        <option value="challenge_arbitration" class="court-arbitration">Оспаривание актов в сфере интеллектуальной собственности</option>
+                        <option value="arbitration_award" class="court-arbitration">Исполнение решений третейских судов</option>
+                        <option value="arbitration_cancel" class="court-arbitration">Отмена решения третейского суда</option>
+                        <option value="challenge_non_normative_arb" class="court-arbitration">Оспаривание ненормативных актов (арбитражный суд)</option>
+                    </select>
+                    <div class="form-hint">Выберите вид процессуального документа</div>
+                </div>
+                
+                <div class="form-group" id="amountGroup">
+                    <label class="form-label" for="claimAmount">Цена иска / Сумма (руб.) *</label>
+                    <input type="number" id="claimAmount" class="cyber-input" placeholder="Введите сумму" min="0" step="1000" value="100000">
+                    <div class="form-hint">Только для имущественных требований, подлежащих оценке</div>
+                </div>
+                
+                <!-- Опция для банкротства -->
+                <div id="bankruptcyOption" class="bankruptcy-option">
+                    <label>
+                        <input type="checkbox" id="debtorBankruptcy">
+                        <span><strong>Должник подает заявление о своем банкротстве</strong></span>
+                    </label>
+                    <div class="form-hint">Согласно п. 8 ст. 333.21 НК РФ должник освобождается от уплаты госпошлины</div>
+                </div>
+            </div>
+            
+            <!-- Секция 3: Льготы -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-percent"></i> Льготы по уплате госпошлины</h2>
+                
+                <div class="form-group">
+                    <label class="form-label" for="benefitType">Тип льготы</label>
+                    <select id="benefitType" class="cyber-select">
+                        <option value="none">Нет льгот</option>
+                        <option value="full_exemption">Полное освобождение от уплаты (ст. 333.36 НК РФ)</option>
+                        <option value="partial_exemption">Частичное освобождение (70% при защите жилья)</option>
+                        <option value="reduction">Уменьшение размера (50% для отдельных категорий)</option>
+                        <option value="special_operation">Участники специальной военной операции (ст. 333.36 п.1.24)</option>
+                    </select>
+                    <div class="form-hint">Выберите applicable льготу, если она у вас есть</div>
+                </div>
+                
+                <div class="benefit-section" id="benefitDetails" style="display: none;">
+                    <h4><i class="fas fa-info-circle"></i> Информация о льготе</h4>
+                    <div id="benefitDescription"></div>
+                    <div class="benefit-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Внимание:</strong> Для применения льготы необходимо предоставить подтверждающие документы
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Секция 4: Дополнительные опции -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-cogs"></i> Дополнительные параметры</h2>
+                
+                <div class="form-group">
+                    <label class="form-label" for="multipleClaims">Несколько требований</label>
+                    <select id="multipleClaims" class="cyber-select">
+                        <option value="single">Одно требование</option>
+                        <option value="multiple">Несколько требований (объединенных)</option>
+                    </select>
+                    <div class="form-hint">При объединении нескольких требований в одном заявлении</div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn" style="width: 100%; padding: 18px; font-size: 1.1rem;">
+                <i class="fas fa-calculator"></i> Рассчитать госпошлину
+            </button>
+        </form>
+        
+        <!-- Результаты расчета -->
+        <div id="feeResult" class="calculator-result">
+            <div class="result-header">
+                <h3 style="color: var(--primary);">
+                    <i class="fas fa-file-invoice-dollar"></i> Результат расчета
+                </h3>
+                <p id="resultDescription" style="color: var(--medium-gray); margin-top: 5px;"></p>
+            </div>
+            
+            <div class="result-main">
+                <div style="font-size: 1.1rem; color: var(--medium-gray);">Размер государственной пошлины</div>
+                <div class="result-amount" id="feeAmount">0 ₽</div>
+            </div>
+            
+            <div class="result-details">
+                <h4 style="color: var(--primary); margin-bottom: 15px;">
+                    <i class="fas fa-calculator"></i> Детали расчета
+                </h4>
+                <div id="calculationDetails"></div>
+                <div id="calculationFormula" style="margin-top: 15px; font-family: 'Courier New', monospace; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 5px;"></div>
+            </div>
+            
+            <div class="warning-box">
+                <h4 style="color: var(--accent); margin-bottom: 10px;">
+                    <i class="fas fa-exclamation-triangle"></i> Важная информация
+                </h4>
+                <p style="margin-bottom: 10px;">
+                    <strong>Применяется:</strong> К делам, возбужденным на основании заявлений и жалоб, направленных в суд после 08.09.2024
+                </p>
+                <p style="font-size: 0.9rem; color: var(--medium-gray);">
+                    Расчет является справочным. Точную сумму уточняйте при подаче документов. Рекомендуется проконсультироваться с юристом.
+                </p>
+            </div>
+            
+            <div class="result-actions">
+                <button id="resetCalculator" class="btn btn-secondary">
+                    <i class="fas fa-redo"></i> Новый расчет
+                </button>
+                <button id="printResult" class="btn">
+                    <i class="fas fa-print"></i> Распечатать
+                </button>
+                <button id="saveCalculation" class="btn btn-outline">
+                    <i class="fas fa-save"></i> Сохранить
+                </button>
+                <button id="shareCalculation" class="btn btn-outline">
+                    <i class="fas fa-share-alt"></i> Поделиться
+                </button>
+            </div>
+        </div>
+        
+        <!-- Справочная информация -->
+        <div class="info-section">
+            <h3 style="color: var(--primary); margin-bottom: 20px;">
+                <i class="fas fa-book"></i> Справочная информация
+            </h3>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><i class="fas fa-scale-balanced"></i> Суды общей юрисдикции</h4>
+                    <p><strong>Новая редакция ст. 333.19 НК РФ</strong> (с 08.09.2024):</p>
+                    <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.9rem;">
+                        <li>Имущественные иски: от 4 000 ₽ до 900 000 ₽</li>
+                        <li>Расторжение брака: 5 000 ₽</li>
+                        <li>Алименты: 150 ₽</li>
+                        <li>Апелляция: 3 000 ₽ (физ.лица)</li>
+                        <li>Кассация: 5 000 ₽ (физ.лица)</li>
+                        <li>Надзор в ВС РФ: 7 000 ₽ (физ.лица)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-gavel"></i> Арбитражные суды</h4>
+                    <p><strong>Новая редакция ст. 333.21 НК РФ</strong> (с 08.09.2024):</p>
+                    <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.9rem;">
+                        <li>Имущественные иски: от 10 000 ₽ до 10 000 000 ₽</li>
+                        <li>Банкротство: 100 000 ₽ (организации)</li>
+                        <li>Неимущественные: 50 000 ₽ (организации)</li>
+                        <li>Апелляция: 30 000 ₽ (организации)</li>
+                        <li>Кассация: 50 000 ₽ (организации)</li>
+                        <li>Надзор в ВС РФ: 80 000 ₽ (организации)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-info-circle"></i> Новые льготы (ст. 333.36)</h4>
+                    <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.9rem;">
+                        <li>Участники специальной военной операции</li>
+                        <li>Лица, принимавшие участие в боевых действиях в ДНР/ЛНР</li>
+                        <li>Инвалиды боевых действий</li>
+                        <li>Ветераны боевых действий</li>
+                        <li>Члены семей участников СВО</li>
+                        <li>Лица из числа детей-сирот и детей без попечения</li>
+                        <li>Защита единственного жилья (70% освобождение)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="../tools.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Все инструменты
+        </a>
+        
+        <a href="../index.html" class="btn">
+            <i class="fas fa-home"></i>
+            На главную
+        </a>
+    </div>
+    
+    <script>
+        // Элементы DOM
+        const courtTypeSelect = document.getElementById('courtType');
+        const claimTypeSelect = document.getElementById('claimType');
+        const applicantTypeSelect = document.getElementById('applicantType');
+        const amountGroup = document.getElementById('amountGroup');
+        const claimAmountInput = document.getElementById('claimAmount');
+        const multipleClaimsSelect = document.getElementById('multipleClaims');
+        const bankruptcyOption = document.getElementById('bankruptcyOption');
+        const debtorBankruptcyCheckbox = document.getElementById('debtorBankruptcy');
+        const benefitTypeSelect = document.getElementById('benefitType');
+        const benefitDetails = document.getElementById('benefitDetails');
+        const benefitDescription = document.getElementById('benefitDescription');
+        const courtFeeCalculator = document.getElementById('courtFeeCalculator');
+        const feeResult = document.getElementById('feeResult');
+        const feeAmount = document.getElementById('feeAmount');
+        const resultDescription = document.getElementById('resultDescription');
+        const calculationDetails = document.getElementById('calculationDetails');
+        const calculationFormula = document.getElementById('calculationFormula');
+        const resetCalculator = document.getElementById('resetCalculator');
+        const printResult = document.getElementById('printResult');
+        const saveCalculation = document.getElementById('saveCalculation');
+        const shareCalculation = document.getElementById('shareCalculation');
+        
+        // Описания льгот
+        const benefitDescriptions = {
+            'full_exemption': 'Полное освобождение от уплаты госпошлины согласно ст. 333.36 НК РФ (взыскание алиментов, заработной платы, возмещение вреда здоровью, инвалиды I и II группы и др.)',
+            'partial_exemption': 'Освобождение от 70% госпошлины по искам о защите прав на жилое помещение, которое является единственным пригодным для проживания (п. 23 ст. 333.36 НК РФ)',
+            'reduction': 'Уменьшение размера госпошлины на 50% для отдельных категорий (инвалиды, ветераны и др.) при цене иска до 1 000 000 ₽ (п. 3 ст. 333.36 НК РФ)',
+            'special_operation': 'Льгота для участников специальной военной операции, лиц, принимавших участие в боевых действиях в ДНР/ЛНР, инвалидов боевых действий, ветеранов боевых действий и членов их семей (п. 24 ст. 333.36 НК РФ)'
+        };
+        
+        // Обработчик изменения типа льготы
+        benefitTypeSelect.addEventListener('change', function() {
+            const benefitType = this.value;
+            if (benefitType === 'none') {
+                benefitDetails.style.display = 'none';
+            } else {
+                benefitDetails.style.display = 'block';
+                benefitDescription.textContent = benefitDescriptions[benefitType] || '';
+            }
+        });
+        
+        // Фильтрация типов заявлений по выбранному суду
+        courtTypeSelect.addEventListener('change', function() {
+            const courtType = this.value;
+            const options = claimTypeSelect.options;
+            
+            // Показываем/скрываем поле суммы
+            if (courtType) {
+                amountGroup.style.display = 'block';
+            }
+            
+            // Скрываем все опции
+            for (let i = 0; i < options.length; i++) {
+                options[i].style.display = 'block';
+            }
+            
+            // Показываем только релевантные опции
+            if (courtType === 'general') {
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].classList.contains('court-arbitration')) {
+                        options[i].style.display = 'none';
+                    }
+                }
+            } else if (courtType === 'arbitration') {
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].classList.contains('court-general')) {
+                        options[i].style.display = 'none';
+                    }
+                }
+            }
+            
+            // Сбрасываем выбор
+            claimTypeSelect.value = '';
+            bankruptcyOption.style.display = 'none';
+        });
+        
+        // Показ/скрытие поля суммы и опции банкротства
+        claimTypeSelect.addEventListener('change', function() {
+            const claimType = this.value;
+            const courtType = courtTypeSelect.value;
+            const propertyClaims = ['property', 'court_order', 'bankruptcy_creditor', 'arbitration_award', 'arbitration_cancel'];
+            
+            // Управление видимостью поля суммы
+            if (propertyClaims.includes(claimType)) {
+                amountGroup.style.display = 'block';
+                claimAmountInput.required = true;
+            } else {
+                amountGroup.style.display = 'none';
+                claimAmountInput.required = false;
+            }
+            
+            // Управление видимостью опции банкротства
+            if (courtType === 'arbitration' && claimType === 'bankruptcy') {
+                bankruptcyOption.style.display = 'block';
+            } else {
+                bankruptcyOption.style.display = 'none';
+                debtorBankruptcyCheckbox.checked = false;
+            }
+        });
+        
+        // Форматирование чисел
+        function formatNumber(num) {
+            return new Intl.NumberFormat('ru-RU').format(num);
+        }
+        
+        // Расчет госпошлины для судов общей юрисдикции (ст. 333.19) - НОВАЯ РЕДАКЦИЯ
+        function calculateGeneralCourtFee(claimType, amount, applicantType) {
+            let fee = 0;
+            let formula = '';
+            let details = '';
+            
+            switch(claimType) {
+                case 'property':
+                    // Имущественные иски, подлежащие оценке (п.1 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    if (amount <= 100000) {
+                        fee = 4000;
+                        formula = `До 100 000 ₽: фиксированная сумма 4 000 ₽`;
+                    } else if (amount <= 300000) {
+                        fee = 4000 + (amount - 100000) * 0.03;
+                        formula = `4 000 ₽ + 3% от суммы, превышающей 100 000 ₽`;
+                    } else if (amount <= 500000) {
+                        fee = 10000 + (amount - 300000) * 0.025;
+                        formula = `10 000 ₽ + 2,5% от суммы, превышающей 300 000 ₽`;
+                    } else if (amount <= 1000000) {
+                        fee = 15000 + (amount - 500000) * 0.02;
+                        formula = `15 000 ₽ + 2% от суммы, превышающей 500 000 ₽`;
+                    } else if (amount <= 3000000) {
+                        fee = 25000 + (amount - 1000000) * 0.01;
+                        formula = `25 000 ₽ + 1% от суммы, превышающей 1 000 000 ₽`;
+                    } else if (amount <= 8000000) {
+                        fee = 45000 + (amount - 3000000) * 0.007;
+                        formula = `45 000 ₽ + 0,7% от суммы, превышающей 3 000 000 ₽`;
+                    } else if (amount <= 24000000) {
+                        fee = 80000 + (amount - 8000000) * 0.0035;
+                        formula = `80 000 ₽ + 0,35% от суммы, превышающей 8 000 000 ₽`;
+                    } else if (amount <= 50000000) {
+                        fee = 136000 + (amount - 24000000) * 0.003;
+                        formula = `136 000 ₽ + 0,3% от суммы, превышающей 24 000 000 ₽`;
+                    } else if (amount <= 100000000) {
+                        fee = 214000 + (amount - 50000000) * 0.002;
+                        formula = `214 000 ₽ + 0,2% от суммы, превышающей 50 000 000 ₽`;
+                    } else {
+                        fee = 314000 + (amount - 100000000) * 0.0015;
+                        if (fee > 900000) fee = 900000;
+                        formula = `314 000 ₽ + 0,15% от суммы, превышающей 100 000 000 ₽, но не более 900 000 ₽`;
+                    }
+                    details = `Имущественный иск на сумму ${formatNumber(amount)} ₽`;
+                    break;
+                    
+                case 'court_order':
+                    // Судебный приказ - 50% от имущественного иска (п.2 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    const propertyFee = calculateGeneralCourtFee('property', amount, applicantType).fee;
+                    fee = Math.round(propertyFee * 0.5);
+                    formula = `50% от госпошлины по имущественному иску`;
+                    details = `Заявление о вынесении судебного приказа на сумму ${formatNumber(amount)} ₽`;
+                    break;
+                    
+                case 'property_non_assessable':
+                    // Имущественные иски, не подлежащие оценке (п.3 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 3000 : 20000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 3 000 ₽` 
+                        : `Для организаций: 20 000 ₽`;
+                    details = `Имущественное исковое заявление, не подлежащее оценке`;
+                    break;
+                    
+                case 'non_property':
+                    // Неимущественные иски (п.3 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 3000 : 20000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 3 000 ₽` 
+                        : `Для организаций: 20 000 ₽`;
+                    details = `Неимущественное исковое заявление`;
+                    break;
+                    
+                case 'contract_dispute':
+                case 'transaction_invalid':
+                    // Споры по договорам и оспаривание сделок (п.4 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 3000 : 20000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 3 000 ₽` 
+                        : `Для организаций: 20 000 ₽`;
+                    details = claimType === 'contract_dispute' 
+                        ? `Споры при заключении/изменении/расторжении договоров` 
+                        : `Оспаривание сделок (без требования о последствиях)`;
+                    break;
+                    
+                case 'divorce':
+                    // Расторжение брака (п.5 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = 5000;
+                    formula = `Фиксированная сумма: 5 000 ₽`;
+                    details = `Исковое заявление о расторжении брака`;
+                    break;
+                    
+                case 'alimony':
+                    // Алименты (п.16 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = 150;
+                    formula = `Фиксированная сумма: 150 ₽`;
+                    details = `Заявление о взыскании алиментов`;
+                    break;
+                    
+                case 'special_proceedings':
+                    // Особое производство (п.8 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = 3000;
+                    formula = `Фиксированная сумма: 3 000 ₽`;
+                    details = `Заявление по делам особого производства`;
+                    break;
+                    
+                case 'succession':
+                    // Правопреемство (п.9 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 2000 : 15000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 2 000 ₽` 
+                        : `Для организаций: 15 000 ₽`;
+                    details = `Заявление о правопреемстве (кроме универсального)`;
+                    break;
+                    
+                case 'appeal':
+                    // Апелляционная жалоба (п.19 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 3000 : 15000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 3 000 ₽` 
+                        : `Для организаций: 15 000 ₽`;
+                    details = `Апелляционная жалоба`;
+                    break;
+                    
+                case 'cassation':
+                    // Кассационная жалоба (п.20 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 5000 : 20000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 5 000 ₽` 
+                        : `Для организаций: 20 000 ₽`;
+                    details = `Кассационная жалоба`;
+                    break;
+                    
+                case 'supervision':
+                    // Надзорная жалоба в ВС РФ (п.21 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 7000 : 25000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 7 000 ₽` 
+                        : `Для организаций: 25 000 ₽`;
+                    details = `Надзорная жалоба в Верховный Суд РФ`;
+                    break;
+                    
+                case 'challenge_acts':
+                    // Оспаривание нормативных актов (п.6 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 4000 : 20000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 4 000 ₽` 
+                        : `Для организаций: 20 000 ₽`;
+                    details = `Административное исковое заявление об оспаривании нормативных правовых актов`;
+                    break;
+                    
+                case 'challenge_non_normative':
+                    // Оспаривание ненормативных актов (п.7 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 3000 : 15000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 3 000 ₽` 
+                        : `Для организаций: 15 000 ₽`;
+                    details = `Административное исковое заявление о признании ненормативного акта недействительным`;
+                    break;
+                    
+                case 'reinstatement':
+                    // Восстановление срока (п.13 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = 3000;
+                    formula = `Фиксированная сумма: 3 000 ₽`;
+                    details = `Восстановление пропущенного срока`;
+                    break;
+                    
+                case 'revision':
+                    // Пересмотр по новым обстоятельствам (п.14 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = 10000;
+                    formula = `Фиксированная сумма: 10 000 ₽`;
+                    details = `Пересмотр судебных постановлений по новым или вновь открывшимся обстоятельствам`;
+                    break;
+                    
+                case 'security':
+                    // Обеспечение иска (п.15 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = 10000;
+                    formula = `Фиксированная сумма: 10 000 ₽`;
+                    details = `Заявление об обеспечении иска`;
+                    break;
+                    
+                case 'compensation':
+                    // Компенсация за нарушение сроков (п.17 ст.333.19) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 300 : 6000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 300 ₽` 
+                        : `Для организаций: 6 000 ₽`;
+                    details = `Заявление о присуждении компенсации за нарушение срока`;
+                    break;
+                    
+                default:
+                    fee = 3000;
+                    formula = `Базовая сумма: 3 000 ₽`;
+                    details = getClaimTypeDescription(claimType);
+            }
+            
+            return {
+                fee: Math.round(fee),
+                formula,
+                details,
+                basis: 'Статья 333.19 НК РФ (в ред. от 08.08.2024)'
+            };
+        }
+        
+        // Расчет госпошлины для арбитражных судов (ст. 333.21) - НОВАЯ РЕДАКЦИЯ
+        function calculateArbitrationCourtFee(claimType, amount, applicantType, isDebtorBankruptcy = false) {
+            let fee = 0;
+            let formula = '';
+            let details = '';
+            
+            // Освобождение для должника-банкрота согласно п. 8 ст. 333.21 НК РФ
+            if (claimType === 'bankruptcy' && isDebtorBankruptcy) {
+                return {
+                    fee: 0,
+                    formula: 'Должник освобождается от уплаты госпошлины',
+                    details: 'Заявление должника о признании себя банкротом',
+                    basis: 'Статья 333.21 НК РФ, п. 8 (в ред. от 08.08.2024)'
+                };
+            }
+            
+            switch(claimType) {
+                case 'property':
+                    // Имущественные иски, подлежащие оценке (п.1 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    if (amount <= 100000) {
+                        fee = 10000;
+                        formula = `До 100 000 ₽: фиксированная сумма 10 000 ₽`;
+                    } else if (amount <= 1000000) {
+                        fee = 10000 + (amount - 100000) * 0.05;
+                        formula = `10 000 ₽ + 5% от суммы, превышающей 100 000 ₽`;
+                    } else if (amount <= 10000000) {
+                        fee = 55000 + (amount - 1000000) * 0.03;
+                        formula = `55 000 ₽ + 3% от суммы, превышающей 1 000 000 ₽`;
+                    } else if (amount <= 50000000) {
+                        fee = 325000 + (amount - 10000000) * 0.01;
+                        formula = `325 000 ₽ + 1% от суммы, превышающей 10 000 000 ₽`;
+                    } else {
+                        fee = 725000 + (amount - 50000000) * 0.005;
+                        if (fee > 10000000) fee = 10000000;
+                        formula = `725 000 ₽ + 0,5% от суммы, превышающей 50 000 000 ₽, но не более 10 000 000 ₽`;
+                    }
+                    details = `Имущественный иск в арбитражный суд на сумму ${formatNumber(amount)} ₽`;
+                    break;
+                    
+                case 'court_order':
+                    // Судебный приказ - 50% от имущественного иска, но не менее 8000 ₽ (п.3 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    const propertyFee = calculateArbitrationCourtFee('property', amount, applicantType).fee;
+                    fee = Math.max(Math.round(propertyFee * 0.5), 8000);
+                    formula = `50% от госпошлины по имущественному иску, но не менее 8 000 ₽`;
+                    details = `Заявление о вынесении судебного приказа на сумму ${formatNumber(amount)} ₽`;
+                    break;
+                    
+                case 'property_non_assessable':
+                case 'non_property':
+                    // Имущественные (не подлежащие оценке) и неимущественные иски (п.4 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 15000 : 50000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 15 000 ₽` 
+                        : `Для организаций: 50 000 ₽`;
+                    details = claimType === 'property_non_assessable' 
+                        ? `Имущественное исковое заявление, не подлежащее оценке` 
+                        : `Неимущественное исковое заявление`;
+                    break;
+                    
+                case 'contract_dispute':
+                case 'transaction_invalid':
+                    // Споры по договорам и оспаривание сделок (п.2 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 15000 : 50000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 15 000 ₽` 
+                        : `Для организаций: 50 000 ₽`;
+                    details = claimType === 'contract_dispute' 
+                        ? `Споры при заключении/изменении/расторжении договоров` 
+                        : `Оспаривание сделок (без требования о последствиях)`;
+                    break;
+                    
+                case 'bankruptcy':
+                    // Банкротство (для кредиторов и третьих лиц) (п.8 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 10000 : 100000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 10 000 ₽` 
+                        : `Для организаций: 100 000 ₽`;
+                    details = `Заявление о признании должника несостоятельным (банкротом)`;
+                    break;
+                    
+                case 'bankruptcy_creditor':
+                    // Требования в деле о банкротстве - 50% от обычной пошлины (п.9 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    const baseFee = calculateArbitrationCourtFee('property', amount, applicantType).fee;
+                    fee = Math.round(baseFee * 0.5);
+                    formula = `50% от госпошлины по соответствующему требованию`;
+                    details = `Требование в деле о банкротстве на сумму ${formatNumber(amount)} ₽`;
+                    break;
+                    
+                case 'facts':
+                    // Установление фактов (п.10 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = 30000;
+                    formula = `Фиксированная сумма: 30 000 ₽`;
+                    details = `Заявление об установлении фактов, имеющих юридическое значение`;
+                    break;
+                    
+                case 'intellectual':
+                    // Интеллектуальная собственность (п.5 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 10000 : 60000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 10 000 ₽` 
+                        : `Для организаций: 60 000 ₽`;
+                    details = `Споры в области интеллектуальной собственности`;
+                    break;
+                    
+                case 'challenge_arbitration':
+                    // Оспаривание актов в сфере интеллектуальной собственности (п.6 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 10000 : 60000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 10 000 ₽` 
+                        : `Для организаций: 60 000 ₽`;
+                    details = `Заявление об оспаривании актов в сфере интеллектуальной собственности`;
+                    break;
+                    
+                case 'challenge_non_normative_arb':
+                    // Оспаривание ненормативных актов (п.7 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 10000 : 50000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 10 000 ₽` 
+                        : `Для организаций: 50 000 ₽`;
+                    details = `Заявление о признании ненормативного правового акта недействительным`;
+                    break;
+                    
+                case 'succession':
+                    // Правопреемство (п.12 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 5000 : 25000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 5 000 ₽` 
+                        : `Для организаций: 25 000 ₽`;
+                    details = `Заявление о правопреемстве (кроме универсального)`;
+                    break;
+                    
+                case 'arbitration_award':
+                    // Исполнение решений третейских судов (п.13 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = Math.round(calculateArbitrationCourtFee('property', amount, applicantType).fee * 0.3);
+                    formula = `30% от госпошлины по имущественному иску`;
+                    details = `Заявление о выдаче исполнительных листов на принудительное исполнение решений третейского суда`;
+                    break;
+                    
+                case 'arbitration_cancel':
+                    // Отмена решения третейского суда (п.14 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = calculateArbitrationCourtFee('property', amount, applicantType).fee;
+                    formula = `Госпошлина, исчисленная по правилам имущественного иска`;
+                    details = `Заявление об отмене решения третейского суда`;
+                    break;
+                    
+                case 'appeal':
+                    // Апелляционная жалоба (п.19 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 10000 : 30000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 10 000 ₽` 
+                        : `Для организаций: 30 000 ₽`;
+                    details = `Апелляционная жалоба`;
+                    break;
+                    
+                case 'cassation':
+                    // Кассационная жалоба (п.20 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 20000 : 50000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 20 000 ₽` 
+                        : `Для организаций: 50 000 ₽`;
+                    details = `Кассационная жалоба`;
+                    break;
+                    
+                case 'supervision':
+                    // Надзорная жалоба в ВС РФ (п.21 ст.333.21) - НОВАЯ РЕДАКЦИЯ
+                    fee = applicantType === 'individual' ? 30000 : 80000;
+                    formula = applicantType === 'individual' 
+                        ? `Для физических лиц: 30 000 ₽` 
+                        : `Для организаций: 80 000 ₽`;
+                    details = `Надзорная жалоба в Верховный Суд РФ`;
+                    break;
+                    
+                default:
+                    fee = 15000;
+                    formula = `Базовая сумма: 15 000 ₽`;
+                    details = getClaimTypeDescription(claimType);
+            }
+            
+            return {
+                fee: Math.round(fee),
+                formula,
+                details,
+                basis: 'Статья 333.21 НК РФ (в ред. от 08.08.2024)'
+            };
+        }
+        
+        // Применение льгот - ОБНОВЛЕНО С УЧЕТОМ НОВЫХ ЛЬГОТ
+        function applyBenefits(baseFee, benefitType, claimType, amount, applicantType) {
+            let fee = baseFee;
+            let benefitApplied = false;
+            let benefitText = '';
+            
+            switch(benefitType) {
+                case 'full_exemption':
+                    // Полное освобождение (ст. 333.36) - ОБНОВЛЕНО
+                    if (isEligibleForFullExemption(claimType, applicantType)) {
+                        fee = 0;
+                        benefitApplied = true;
+                        benefitText = ' (льгота: полное освобождение по ст. 333.36 НК РФ)';
+                    }
+                    break;
+                    
+                case 'partial_exemption':
+                    // Частичное освобождение 70% (п.23 ст.333.36) - ОБНОВЛЕНО
+                    if (claimType === 'property' && isResidentialPropertyClaim()) {
+                        fee = Math.round(fee * 0.3);
+                        benefitApplied = true;
+                        benefitText = ' (льгота: освобождение от 70% по п.23 ст.333.36 НК РФ)';
+                    }
+                    break;
+                    
+                case 'reduction':
+                    // Уменьшение на 50% (п.3 ст.333.36) - ОБНОВЛЕНО
+                    if (isEligibleForReduction(applicantType) && amount <= 1000000) {
+                        fee = Math.round(fee * 0.5);
+                        benefitApplied = true;
+                        benefitText = ' (льгота: уменьшение на 50% по п.3 ст.333.36 НК РФ)';
+                    }
+                    break;
+                    
+                case 'special_operation':
+                    // Льгота для участников СВО (п.24 ст.333.36) - НОВАЯ ЛЬГОТА
+                    if (isEligibleForSpecialOperation(claimType, applicantType)) {
+                        // Для дел особого производства и пенсионных дел - полное освобождение
+                        if (claimType === 'special_proceedings' || isPensionCase(claimType)) {
+                            fee = 0;
+                            benefitApplied = true;
+                            benefitText = ' (льгота: полное освобождение для участников СВО по п.24 ст.333.36 НК РФ)';
+                        }
+                        // Для других дел - 50% скидка
+                        else if (amount <= 1000000) {
+                            fee = Math.round(fee * 0.5);
+                            benefitApplied = true;
+                            benefitText = ' (льгота: 50% скидка для участников СВО по п.24 ст.333.36 НК РФ)';
+                        }
+                    }
+                    break;
+            }
+            
+            return {
+                fee: Math.round(fee),
+                benefitApplied,
+                benefitText
+            };
+        }
+        
+        // Проверка на полное освобождение - ОБНОВЛЕНО
+        function isEligibleForFullExemption(claimType, applicantType) {
+            const exemptClaims = [
+                'alimony', // Взыскание алиментов
+                'property' // Но только для определенных категорий
+            ];
+            
+            // Здесь можно добавить логику проверки категории заявителя
+            // Например: инвалиды I, II группы, ветераны и т.д.
+            
+            return exemptClaims.includes(claimType);
+        }
+        
+        // Проверка на уменьшение на 50% - ОБНОВЛЕНО
+        function isEligibleForReduction(applicantType) {
+            // Здесь можно добавить логику проверки категории заявителя
+            // Например: инвалиды I, II группы, дети-инвалиды, инвалиды с детства
+            // В реальном приложении здесь должна быть более сложная логика
+            
+            return applicantType === 'individual'; // Упрощенная проверка
+        }
+        
+        // Проверка на иск о защите жилья
+        function isResidentialPropertyClaim() {
+            // В реальном приложении здесь должна быть логика определения типа иска
+            return false;
+        }
+        
+        // Проверка на льготу для участников СВО - НОВАЯ ФУНКЦИЯ
+        function isEligibleForSpecialOperation(claimType, applicantType) {
+            // В реальном приложении здесь должна быть проверка документов
+            // Пока возвращаем true для тестирования
+            return applicantType === 'individual';
+        }
+        
+        // Проверка на пенсионное дело - НОВАЯ ФУНКЦИЯ
+        function isPensionCase(claimType) {
+            // Здесь должна быть логика определения пенсионного дела
+            return false;
+        }
+        
+        // Получение описания типа заявления
+        function getClaimTypeDescription(claimType) {
+            const descriptions = {
+                'property': 'Имущественное исковое заявление (подлежащее оценке)',
+                'property_non_assessable': 'Имущественное исковое заявление (не подлежащее оценке)',
+                'non_property': 'Неимущественное исковое заявление',
+                'contract_dispute': 'Споры при заключении/изменении/расторжении договоров',
+                'transaction_invalid': 'Оспаривание сделок',
+                'divorce': 'Расторжение брака',
+                'alimony': 'Взыскание алиментов',
+                'special_proceedings': 'Заявление по делам особого производства',
+                'succession': 'Заявление о правопреемстве',
+                'court_order': 'Заявление о вынесении судебного приказа',
+                'reinstatement': 'Восстановление пропущенного срока',
+                'revision': 'Пересмотр по новым или вновь открывшимся обстоятельствам',
+                'security': 'Обеспечение иска',
+                'compensation': 'Компенсация за нарушение права на судопроизводство',
+                'challenge_acts': 'Оспаривание нормативных правовых актов',
+                'challenge_non_normative': 'Оспаривание ненормативных актов и решений',
+                'challenge_non_normative_arb': 'Оспаривание ненормативных актов (арбитражный суд)',
+                'bankruptcy': 'Заявление о признании банкротом',
+                'bankruptcy_creditor': 'Требование в деле о банкротстве',
+                'facts': 'Установление фактов',
+                'intellectual': 'Споры в области интеллектуальной собственности',
+                'challenge_arbitration': 'Оспаривание актов в сфере интеллектуальной собственности',
+                'arbitration_award': 'Исполнение решений третейских судов',
+                'arbitration_cancel': 'Отмена решения третейского суда',
+                'appeal': 'Апелляционная жалоба',
+                'cassation': 'Кассационная жалоба',
+                'supervision': 'Надзорная жалоба в Верховный Суд РФ'
+            };
+            
+            return descriptions[claimType] || 'Исковое заявление';
+        }
+        
+        // Основной расчет
+        courtFeeCalculator.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const courtType = courtTypeSelect.value;
+            const claimType = claimTypeSelect.value;
+            const applicantType = applicantTypeSelect.value;
+            const amount = parseFloat(claimAmountInput.value) || 0;
+            const multipleClaims = multipleClaimsSelect.value;
+            const isDebtorBankruptcy = debtorBankruptcyCheckbox.checked;
+            const benefitType = benefitTypeSelect.value;
+            
+            if (!courtType || !claimType || !applicantType) {
+                alert('Пожалуйста, заполните все обязательные поля');
+                return;
+            }
+            
+            // Проверка суммы для имущественных исков
+            const propertyClaims = ['property', 'court_order', 'bankruptcy_creditor', 'arbitration_award', 'arbitration_cancel'];
+            if (propertyClaims.includes(claimType) && amount <= 0) {
+                alert('Пожалуйста, введите сумму иска');
+                return;
+            }
+            
+            let result;
+            
+            if (courtType === 'general') {
+                result = calculateGeneralCourtFee(claimType, amount, applicantType);
+            } else if (courtType === 'arbitration') {
+                result = calculateArbitrationCourtFee(claimType, amount, applicantType, isDebtorBankruptcy);
+            } else {
+                alert('Пожалуйста, выберите тип суда');
+                return;
+            }
+            
+            // Учет нескольких требований
+            let finalFee = result.fee;
+            if (multipleClaims === 'multiple' && finalFee > 0 && !(claimType === 'bankruptcy' && isDebtorBankruptcy)) {
+                finalFee = Math.round(finalFee * 2);
+                result.formula = `Несколько объединенных требований: ${result.formula} × 2`;
+            }
+            
+            // Применение льгот
+            const benefitResult = applyBenefits(finalFee, benefitType, claimType, amount, applicantType);
+            finalFee = benefitResult.fee;
+            if (benefitResult.benefitApplied) {
+                result.formula += benefitResult.benefitText;
+            }
+            
+            // Отображение результатов
+            feeAmount.textContent = `${formatNumber(finalFee)} ₽`;
+            resultDescription.textContent = result.details;
+            
+            calculationDetails.innerHTML = `
+                <p><strong>Тип суда:</strong> ${courtTypeSelect.options[courtTypeSelect.selectedIndex].text}</p>
+                <p><strong>Тип заявителя:</strong> ${applicantTypeSelect.options[applicantTypeSelect.selectedIndex].text}</p>
+                <p><strong>Вид заявления:</strong> ${claimTypeSelect.options[claimTypeSelect.selectedIndex].text}</p>
+                ${propertyClaims.includes(claimType) ? `<p><strong>Сумма иска:</strong> ${formatNumber(amount)} ₽</p>` : ''}
+                <p><strong>Количество требований:</strong> ${multipleClaimsSelect.options[multipleClaimsSelect.selectedIndex].text}</p>
+                ${benefitType !== 'none' ? `<p><strong>Примененная льгота:</strong> ${benefitTypeSelect.options[benefitTypeSelect.selectedIndex].text}</p>` : ''}
+                ${isDebtorBankruptcy ? `<p><strong>Особое условие:</strong> Должник подает заявление о своем банкротстве</p>` : ''}
+                <p><strong>Правовое основание:</strong> ${result.basis}</p>
+            `;
+            
+            calculationFormula.textContent = result.formula;
+            
+            feeResult.style.display = 'block';
+            feeResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Сохранение в localStorage
+            saveToHistory({
+                courtType,
+                claimType,
+                applicantType,
+                amount,
+                multipleClaims,
+                benefitType,
+                isDebtorBankruptcy,
+                fee: finalFee,
+                date: new Date().toLocaleString('ru-RU'),
+                formula: result.formula
+            });
+        });
+        
+        // Сохранение расчета в историю
+        function saveToHistory(data) {
+            let history = JSON.parse(localStorage.getItem('courtFeeHistory') || '[]');
+            history.unshift(data);
+            if (history.length > 10) history = history.slice(0, 10);
+            localStorage.setItem('courtFeeHistory', JSON.stringify(history));
+        }
+        
+        // Сброс калькулятора
+        resetCalculator.addEventListener('click', function() {
+            courtFeeCalculator.reset();
+            feeResult.style.display = 'none';
+            amountGroup.style.display = 'block';
+            bankruptcyOption.style.display = 'none';
+            benefitDetails.style.display = 'none';
+            debtorBankruptcyCheckbox.checked = false;
+        });
+        
+        // Печать результатов
+        printResult.addEventListener('click', function() {
+            const printContent = `
+                <html>
+                    <head>
+                        <title>Расчет госпошлины</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+                            h1 { color: #0A2342; text-align: center; }
+                            .result { font-size: 28px; color: #00A8E8; font-weight: bold; text-align: center; margin: 20px 0; }
+                            .info { margin: 15px 0; padding: 10px; background: #f8f9fa; border-radius: 5px; }
+                            .footer { margin-top: 30px; font-size: 12px; color: #666; text-align: center; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Расчет государственной пошлины</h1>
+                        <div class="info">
+                            <p><strong>Дата расчета:</strong> ${new Date().toLocaleDateString('ru-RU')}</p>
+                            <p><strong>Тип суда:</strong> ${courtTypeSelect.options[courtTypeSelect.selectedIndex].text}</p>
+                            <p><strong>Вид заявления:</strong> ${claimTypeSelect.options[claimTypeSelect.selectedIndex].text}</p>
+                            <p><strong>Заявитель:</strong> ${applicantTypeSelect.options[applicantTypeSelect.selectedIndex].text}</p>
+                        </div>
+                        <div class="result">${feeAmount.textContent}</div>
+                        <div class="info">
+                            <p><strong>Формула расчета:</strong> ${calculationFormula.textContent}</p>
+                            <p><strong>Основание:</strong> ${calculationDetails.querySelector('p:nth-child(6)')?.textContent || ''}</p>
+                        </div>
+                        <div class="footer">
+                            Рассчитано на сайте pravo-18.ru с использованием калькулятора госпошлины.<br>
+                            Расчет является справочным. Актуально для заявлений, поданных после 08.09.2024.
+                        </div>
+                    </body>
+                </html>
+            `;
+            
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+            printWindow.print();
+        });
+        
+        // Сохранение расчета
+        saveCalculation.addEventListener('click', function() {
+            const data = {
+                court: courtTypeSelect.options[courtTypeSelect.selectedIndex].text,
+                claim: claimTypeSelect.options[claimTypeSelect.selectedIndex].text,
+                applicant: applicantTypeSelect.options[applicantTypeSelect.selectedIndex].text,
+                amount: claimAmountInput.value ? `${formatNumber(parseFloat(claimAmountInput.value))} ₽` : 'Не указана',
+                fee: feeAmount.textContent,
+                date: new Date().toLocaleString('ru-RU')
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `госпошлина_${new Date().toISOString().slice(0,10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert('Расчет сохранен в файл');
+        });
+        
+        // Поделиться расчетом
+        shareCalculation.addEventListener('click', function() {
+            const text = `Расчет госпошлины: ${feeAmount.textContent}. ${resultDescription.textContent}. Рассчитано на pravo-18.ru`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Расчет госпошлины',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Расчет скопирован в буфер обмена!');
+                });
+            }
+        });
+        
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            // Показываем поле суммы по умолчанию
+            amountGroup.style.display = 'block';
+            
+            // Скрываем опцию банкротства
+            bankruptcyOption.style.display = 'none';
+            
+            // Скрываем детали льгот
+            benefitDetails.style.display = 'none';
+            
+            // Скрываем опции для других судов
+            courtTypeSelect.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>
