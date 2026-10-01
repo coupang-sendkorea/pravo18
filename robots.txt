@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
 
 Sitemap: https://www.pravo-18.ru/sitemap.xml
-Host: https://www.pravo-18.ru
