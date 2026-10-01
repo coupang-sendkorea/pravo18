@@ -34,7 +34,7 @@ a { color: inherit; }
   backdrop-filter: blur(10px);
 }
 .header-inner {
-  min-height: 104px;
+  min-height: 118px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,8 +47,8 @@ a { color: inherit; }
   line-height: 0;
 }
 .brand-logo {
-  width: 180px;
-  height: auto;
+  height: 92px;
+  width: auto;
   display: block;
   border-radius: 2px;
 }
@@ -221,8 +221,8 @@ h3 { margin: 0 0 10px; font-size: 20px; }
 
 @media (max-width: 600px) {
   .container { width: min(100% - 28px, 1160px); }
-  .header-inner { min-height: 88px; }
-  .brand-logo { width: 145px; }
+  .header-inner { min-height: 92px; }
+  .brand-logo { height: 68px; width: auto; }
   h1 { font-size: 40px; }
   .hero-subtitle { font-size: 16px; }
   .lead { font-size: 18px; }
