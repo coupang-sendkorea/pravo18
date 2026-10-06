@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='utf-8'?>
+<yml_catalog>
+  <shop>
+    <categories>
+      <category id="101">Банкротство физических лиц</category>
+      <category id="102">Консультации/Поиск лучшего решения</category>
+      <category id="103">Абонентское обслуживание</category>
+      <category id="104">Разрешение корпоративных споров</category>
+      <category id="105">Разрешение экономических споров</category>
+      <category id="106">Разрешение договорных споров</category>
+      <category id="107">Административные споры</category>
+      <category id="108">Суд общей юрисдикции</category>
+      <category id="109">Арбитражное судопроизводство</category>
+    </categories>
+    <offers>
+      <offer id="svc-001">
+        <name>Судебное банкротство физических лиц</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>150000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>101</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Этот вариант подходит, если ситуация сложнее: долг больше, есть имущество, несколько кредиторов, открытые исполнительные производства, споры с банками или МФЦ не принимает заявление.
+
+🏛 Дело рассматривает арбитражный суд. В процедуре участвует финансовый управляющий, а суд проверяет доходы, имущество, сделки и причины возникновения задолженности.</description>
+      </offer>
+      <offer id="svc-002">
+        <name>Юридическое консультирование (в т.ч. анализ действующего законодательства, нормативно-правовой базы, базы судебных решений), выдача рекомендаций</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>1500</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>102</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Юридическое консультирование (в т.ч. анализ действующего законодательства, нормативно-правовой базы, базы судебных решений), выдача рекомендаций</description>
+      </offer>
+      <offer id="svc-003">
+        <name>Комплексное абонентское юридическое обслуживание организаций (пакет «Базовый»)</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>15000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>103</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Комплексное абонентское юридическое обслуживание организаций (пакет «Базовый»):
+Подготовка и рассмотрение проектов документов (договоров, соглашений , пр.) за исключением кадровых документов – общее количество не более 10/мес
+Ведение деловой переписки (оферты, ответы, пр.)
+Устное консультирование
+Ведение претензионной работы (претензии, возражения), Подготовка проектов исковых заявлений – общее количество не более 5/мес</description>
+      </offer>
+      <offer id="svc-004">
+        <name>Комплексное абонентское юридическое обслуживание организаций (пакет «Стандарт»)</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>30000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>103</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Комплексное абонентское юридическое обслуживание организаций (пакет «Стандарт»)
+Подготовка и рассмотрение проектов документов (договоров, соглашений , пр.) в т.ч. кадровых документов – общее количество не более 20/мес.
+Ведение деловой переписки (оферты, ответы, пр.)
+Устное консультирование
+Ведение претензионной работы (претензии, возражения), Подготовка проектов исковых заявлений – общее количество не более 10/мес.</description>
+      </offer>
+      <offer id="svc-005">
+        <name>Комплексное абонентское юридическое обслуживание организаций (пакет «Полный»)</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>70000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>103</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Комплексное абонентское юридическое обслуживание организаций (пакет «Полный»)
+Подготовка и рассмотрение проектов документов (договоров, соглашений , пр.) в т.ч. кадровых документов
+Рассмотрение , подготовка документов и согласование условий с контрагентами (договоров, соглашений , пр.)
+Разработка внутренних локальных актов
+Подготовка корпоративных документов (в т.ч. связанных с внесением изменений в учредительные документы)
+Ведение деловой переписки (оферты, ответы, пр.)
+Ведение претензионной работы (претензии, возражения), подготовка исковых заявлений
+Участие в рассмотрении дел в судах</description>
+      </offer>
+      <offer id="svc-006">
+        <name>Комплексное сопровождение разрешения спора во внесудебном порядке (консультация, подготовка документов, участие в собраниях, т.п)</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>25000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>104</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Комплексное сопровождение разрешения спора во внесудебном порядке (консультация, подготовка документов, участие в собраниях, т.п)</description>
+      </offer>
+      <offer id="svc-007">
+        <name>Анализ документации, выработка стратегии, сбор доказательств и участие в переговорах, составление расчетов, контррасчетов</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>105</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Анализ документации, выработка стратегии, сбор доказательств и участие в переговорах, составление расчетов, контррасчетов</description>
+      </offer>
+      <offer id="svc-008">
+        <name>Составление проектов договоров, отстаивание позиции на стадии согласования разногласий</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>3000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>106</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Составление проектов договоров, отстаивание позиции на стадии согласования разногласий</description>
+      </offer>
+      <offer id="svc-009">
+        <name>ведение дела об административном правонарушении на стадии привлечения к административной ответственности</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>107</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела об административном правонарушении на стадии привлечения к административной ответственности</description>
+      </offer>
+      <offer id="svc-010">
+        <name>ведение дела об административном правонарушении на стадии обжалования привлечения (отказа в привлечении) к административной ответственности</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>107</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела об административном правонарушении на стадии обжалования привлечения (отказа в привлечении) к административной ответственности</description>
+      </offer>
+      <offer id="svc-011">
+        <name>составление заявления о привлечении к административной ответственности</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>3000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>107</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление заявления о привлечении к административной ответственности</description>
+      </offer>
+      <offer id="svc-012">
+        <name>представительство интересов доверителя при рассмотрении дела о привлечении к административной ответственности</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>3000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>107</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представительство интересов доверителя при рассмотрении дела о привлечении к административной ответственности</description>
+      </offer>
+      <offer id="svc-013">
+        <name>составление жалобы на постановление о привлечении (отказе в привлечении) к административной ответственности</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>107</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление жалобы на постановление о привлечении (отказе в привлечении) к административной ответственности</description>
+      </offer>
+      <offer id="svc-014">
+        <name>представление интересов доверителя при исполнении постановления по делу об административном правонарушении</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>107</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представление интересов доверителя при исполнении постановления по делу об административном правонарушении</description>
+      </offer>
+      <offer id="svc-015">
+        <name>Комплексное сопровождение разрешения спора (консультация, подготовка документов, участие в собраниях, т.п) , подготовка искового заявления, иных документов (уточнений, ходатайств и пр.) на стадии судебного разбирательства , участие представителя в ра</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>50000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>104</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>Комплексное сопровождение разрешения спора (консультация, подготовка документов, участие в собраниях, т.п) , подготовка искового заявления, иных документов (уточнений, ходатайств и пр.) на стадии судебного разбирательства , участие представителя в рассмотрении дела в суде</description>
+      </offer>
+      <offer id="svc-016">
+        <name>ведение дела, в гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом первой инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>40000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела, в гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом первой инстанции</description>
+      </offer>
+      <offer id="svc-017">
+        <name>ведение дела, в гражданском/ административном судопроизводстве на стадии рассмотрения дела судом апелляционной или кассационной инстанций</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>40000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела, в гражданском/ административном судопроизводстве на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
+      </offer>
+      <offer id="svc-018">
+        <name>ведение дела, в гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом апелляционной или кассационной инстанций</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>40000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела, в гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
+      </offer>
+      <offer id="svc-019">
+        <name>составление претензии , если досудебное урегулирование предусмотрено в соответствии с действующим законодательством или договором</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление претензии , если досудебное урегулирование предусмотрено в соответствии с действующим законодательством или договором</description>
+      </offer>
+      <offer id="svc-020">
+        <name>составление искового заявления/ административного искового заявления (заявления, жалобы) и отзыва (возражений) на исковое заявление/ административное исковое заявления (заявление, жалобу)</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>7000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление искового заявления/ административного искового заявления (заявления, жалобы) и отзыва (возражений) на исковое заявление/ административное исковое заявления (заявление, жалобу)</description>
+      </offer>
+      <offer id="svc-021">
+        <name>участие в судебных заседаниях в суде первой инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>участие в судебных заседаниях в суде первой инстанции</description>
+      </offer>
+      <offer id="svc-022">
+        <name>составление ходатайств, заявлений</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>3000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление ходатайств, заявлений</description>
+      </offer>
+      <offer id="svc-023">
+        <name>ознакомление с материалами дела</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>2000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ознакомление с материалами дела</description>
+      </offer>
+      <offer id="svc-024">
+        <name>ознакомление с протоколом судебных заседаний</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>1500</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ознакомление с протоколом судебных заседаний</description>
+      </offer>
+      <offer id="svc-025">
+        <name>составление замечаний на протокол судебного заседания</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>3000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление замечаний на протокол судебного заседания</description>
+      </offer>
+      <offer id="svc-026">
+        <name>составление частной жалобы</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление частной жалобы</description>
+      </offer>
+      <offer id="svc-027">
+        <name>составление апелляционной жалобы на решение суда</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление апелляционной жалобы на решение суда:</description>
+      </offer>
+      <offer id="svc-028">
+        <name>представительство интересов доверителя в суде апелляционной инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представительство интересов доверителя в суде апелляционной инстанции</description>
+      </offer>
+      <offer id="svc-029">
+        <name>составление кассационной/надзорной жалобы</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление кассационной/надзорной жалобы</description>
+      </offer>
+      <offer id="svc-030">
+        <name>составление заявления о пересмотре судебных постановлений по вновь открывшимся или новым обстоятельствам</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление заявления о пересмотре судебных постановлений по вновь открывшимся или новым обстоятельствам</description>
+      </offer>
+      <offer id="svc-031">
+        <name>представительство интересов доверителя в суде кассационной/надзорной инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представительство интересов доверителя в суде кассационной/надзорной инстанции</description>
+      </offer>
+      <offer id="svc-032">
+        <name>представительство интересов доверителя в исполнительном производстве</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>4000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>108</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представительство интересов доверителя в исполнительном производстве</description>
+      </offer>
+      <offer id="svc-033">
+        <name>ведение дела, в арбитражном суде в гражданском/ административном судопроизводстве на стадии рассмотрения дела судом первой инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>40000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела, в арбитражном суде в гражданском/ административном судопроизводстве на стадии рассмотрения дела судом первой инстанции</description>
+      </offer>
+      <offer id="svc-034">
+        <name>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом первой инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>20000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом первой инстанции</description>
+      </offer>
+      <offer id="svc-035">
+        <name>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве на стадии рассмотрения дела судом апелляционной или кассационной инстанций</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>30000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
+      </offer>
+      <offer id="svc-036">
+        <name>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом апелляционной или кассационной инстанций</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>20000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
+      </offer>
+      <offer id="svc-037">
+        <name>составление претензии, если досудебное урегулирование предусмотрено в соответствии с действующим законодательством или договором</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление претензии, если досудебное урегулирование предусмотрено в соответствии с действующим законодательством или договором</description>
+      </offer>
+      <offer id="svc-038">
+        <name>составление искового заявления/ административного искового заявления (заявления, жалобы) и отзыва (возражений) на исковое заявление/ административное исковое заявления (заявление, жалобу)</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>8000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление искового заявления/ административного искового заявления (заявления, жалобы) и отзыва (возражений) на исковое заявление/ административное исковое заявления (заявление, жалобу)</description>
+      </offer>
+      <offer id="svc-039">
+        <name>подача искового заявления/ административного искового заявления (заявления, жалобы)</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>2000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>подача искового заявления/ административного искового заявления (заявления, жалобы)</description>
+      </offer>
+      <offer id="svc-040">
+        <name>участие в судебных заседаниях в суде первой инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>участие в судебных заседаниях в суде первой инстанции</description>
+      </offer>
+      <offer id="svc-041">
+        <name>составление ходатайств, заявлений</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>4000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление ходатайств, заявлений</description>
+      </offer>
+      <offer id="svc-042">
+        <name>ознакомление с материалами дела</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>2000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ознакомление с материалами дела</description>
+      </offer>
+      <offer id="svc-043">
+        <name>ознакомление с протоколом судебных заседаний</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>3000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>ознакомление с протоколом судебных заседаний</description>
+      </offer>
+      <offer id="svc-044">
+        <name>составление замечаний на протокол судебного заседания</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>3000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление замечаний на протокол судебного заседания</description>
+      </offer>
+      <offer id="svc-045">
+        <name>составление частной жалобы</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>4000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление частной жалобы</description>
+      </offer>
+      <offer id="svc-046">
+        <name>составление апелляционной жалобы на решение суда</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление апелляционной жалобы на решение суда</description>
+      </offer>
+      <offer id="svc-047">
+        <name>представительство интересов доверителя в суде апелляционной инстанций</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>8000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представительство интересов доверителя в суде апелляционной инстанций</description>
+      </offer>
+      <offer id="svc-048">
+        <name>составление кассационной/надзорной жалобы</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление кассационной/надзорной жалобы</description>
+      </offer>
+      <offer id="svc-049">
+        <name>составление заявления о пересмотре судебных постановлений по вновь открывшимся или новым обстоятельствам</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>составление заявления о пересмотре судебных постановлений по вновь открывшимся или новым обстоятельствам</description>
+      </offer>
+      <offer id="svc-050">
+        <name>представительство интересов доверителя в суде кассационной/надзорной инстанции</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>10000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представительство интересов доверителя в суде кассационной/надзорной инстанции</description>
+      </offer>
+      <offer id="svc-051">
+        <name>представительство интересов доверителя в исполнительном производстве</name>
+        <vendor>Ваш Юрист</vendor>
+        <price>5000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>109</categoryId>
+        <url>https://www.pravo-18.ru/</url>
+        <description>представительство интересов доверителя в исполнительном производстве</description>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>
