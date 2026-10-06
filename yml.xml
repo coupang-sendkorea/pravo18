@@ -20,6 +20,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>101</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/bankruptcy.jpg</picture>
         <description>Этот вариант подходит, если ситуация сложнее: долг больше, есть имущество, несколько кредиторов, открытые исполнительные производства, споры с банками или МФЦ не принимает заявление.
 
 🏛 Дело рассматривает арбитражный суд. В процедуре участвует финансовый управляющий, а суд проверяет доходы, имущество, сделки и причины возникновения задолженности.</description>
@@ -31,6 +32,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>102</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/consultation.jpg</picture>
         <description>Юридическое консультирование (в т.ч. анализ действующего законодательства, нормативно-правовой базы, базы судебных решений), выдача рекомендаций</description>
       </offer>
       <offer id="svc-003">
@@ -40,6 +42,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>103</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/subscription-service.jpg</picture>
         <description>Комплексное абонентское юридическое обслуживание организаций (пакет «Базовый»):
 Подготовка и рассмотрение проектов документов (договоров, соглашений , пр.) за исключением кадровых документов – общее количество не более 10/мес
 Ведение деловой переписки (оферты, ответы, пр.)
@@ -53,6 +56,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>103</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/subscription-service.jpg</picture>
         <description>Комплексное абонентское юридическое обслуживание организаций (пакет «Стандарт»)
 Подготовка и рассмотрение проектов документов (договоров, соглашений , пр.) в т.ч. кадровых документов – общее количество не более 20/мес.
 Ведение деловой переписки (оферты, ответы, пр.)
@@ -66,6 +70,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>103</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/subscription-service.jpg</picture>
         <description>Комплексное абонентское юридическое обслуживание организаций (пакет «Полный»)
 Подготовка и рассмотрение проектов документов (договоров, соглашений , пр.) в т.ч. кадровых документов
 Рассмотрение , подготовка документов и согласование условий с контрагентами (договоров, соглашений , пр.)
@@ -82,6 +87,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>104</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/corporate-disputes.jpg</picture>
         <description>Комплексное сопровождение разрешения спора во внесудебном порядке (консультация, подготовка документов, участие в собраниях, т.п)</description>
       </offer>
       <offer id="svc-007">
@@ -91,6 +97,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>105</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/economic-disputes.jpg</picture>
         <description>Анализ документации, выработка стратегии, сбор доказательств и участие в переговорах, составление расчетов, контррасчетов</description>
       </offer>
       <offer id="svc-008">
@@ -100,6 +107,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>106</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/contract-disputes.jpg</picture>
         <description>Составление проектов договоров, отстаивание позиции на стадии согласования разногласий</description>
       </offer>
       <offer id="svc-009">
@@ -109,6 +117,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>107</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/administrative-disputes.jpg</picture>
         <description>ведение дела об административном правонарушении на стадии привлечения к административной ответственности</description>
       </offer>
       <offer id="svc-010">
@@ -118,6 +127,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>107</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/administrative-disputes.jpg</picture>
         <description>ведение дела об административном правонарушении на стадии обжалования привлечения (отказа в привлечении) к административной ответственности</description>
       </offer>
       <offer id="svc-011">
@@ -127,6 +137,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>107</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/administrative-disputes.jpg</picture>
         <description>составление заявления о привлечении к административной ответственности</description>
       </offer>
       <offer id="svc-012">
@@ -136,6 +147,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>107</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/administrative-disputes.jpg</picture>
         <description>представительство интересов доверителя при рассмотрении дела о привлечении к административной ответственности</description>
       </offer>
       <offer id="svc-013">
@@ -145,6 +157,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>107</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/administrative-disputes.jpg</picture>
         <description>составление жалобы на постановление о привлечении (отказе в привлечении) к административной ответственности</description>
       </offer>
       <offer id="svc-014">
@@ -154,6 +167,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>107</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/administrative-disputes.jpg</picture>
         <description>представление интересов доверителя при исполнении постановления по делу об административном правонарушении</description>
       </offer>
       <offer id="svc-015">
@@ -163,6 +177,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>104</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/corporate-disputes.jpg</picture>
         <description>Комплексное сопровождение разрешения спора (консультация, подготовка документов, участие в собраниях, т.п) , подготовка искового заявления, иных документов (уточнений, ходатайств и пр.) на стадии судебного разбирательства , участие представителя в рассмотрении дела в суде</description>
       </offer>
       <offer id="svc-016">
@@ -172,6 +187,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>ведение дела, в гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом первой инстанции</description>
       </offer>
       <offer id="svc-017">
@@ -181,6 +197,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>ведение дела, в гражданском/ административном судопроизводстве на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
       </offer>
       <offer id="svc-018">
@@ -190,6 +207,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>ведение дела, в гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
       </offer>
       <offer id="svc-019">
@@ -199,6 +217,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление претензии , если досудебное урегулирование предусмотрено в соответствии с действующим законодательством или договором</description>
       </offer>
       <offer id="svc-020">
@@ -208,6 +227,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление искового заявления/ административного искового заявления (заявления, жалобы) и отзыва (возражений) на исковое заявление/ административное исковое заявления (заявление, жалобу)</description>
       </offer>
       <offer id="svc-021">
@@ -217,6 +237,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>участие в судебных заседаниях в суде первой инстанции</description>
       </offer>
       <offer id="svc-022">
@@ -226,6 +247,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление ходатайств, заявлений</description>
       </offer>
       <offer id="svc-023">
@@ -235,6 +257,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>ознакомление с материалами дела</description>
       </offer>
       <offer id="svc-024">
@@ -244,6 +267,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>ознакомление с протоколом судебных заседаний</description>
       </offer>
       <offer id="svc-025">
@@ -253,6 +277,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление замечаний на протокол судебного заседания</description>
       </offer>
       <offer id="svc-026">
@@ -262,6 +287,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление частной жалобы</description>
       </offer>
       <offer id="svc-027">
@@ -271,6 +297,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление апелляционной жалобы на решение суда:</description>
       </offer>
       <offer id="svc-028">
@@ -280,6 +307,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>представительство интересов доверителя в суде апелляционной инстанции</description>
       </offer>
       <offer id="svc-029">
@@ -289,6 +317,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление кассационной/надзорной жалобы</description>
       </offer>
       <offer id="svc-030">
@@ -298,6 +327,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>составление заявления о пересмотре судебных постановлений по вновь открывшимся или новым обстоятельствам</description>
       </offer>
       <offer id="svc-031">
@@ -307,6 +337,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>представительство интересов доверителя в суде кассационной/надзорной инстанции</description>
       </offer>
       <offer id="svc-032">
@@ -316,6 +347,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>108</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/general-court.jpg</picture>
         <description>представительство интересов доверителя в исполнительном производстве</description>
       </offer>
       <offer id="svc-033">
@@ -325,6 +357,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>ведение дела, в арбитражном суде в гражданском/ административном судопроизводстве на стадии рассмотрения дела судом первой инстанции</description>
       </offer>
       <offer id="svc-034">
@@ -334,6 +367,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом первой инстанции</description>
       </offer>
       <offer id="svc-035">
@@ -343,6 +377,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
       </offer>
       <offer id="svc-036">
@@ -352,6 +387,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>ведение дела, в арбитражном/ гражданском/ административном судопроизводстве, рассматриваемого в порядке упрощенного производства на стадии рассмотрения дела судом апелляционной или кассационной инстанций</description>
       </offer>
       <offer id="svc-037">
@@ -361,6 +397,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление претензии, если досудебное урегулирование предусмотрено в соответствии с действующим законодательством или договором</description>
       </offer>
       <offer id="svc-038">
@@ -370,6 +407,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление искового заявления/ административного искового заявления (заявления, жалобы) и отзыва (возражений) на исковое заявление/ административное исковое заявления (заявление, жалобу)</description>
       </offer>
       <offer id="svc-039">
@@ -379,6 +417,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>подача искового заявления/ административного искового заявления (заявления, жалобы)</description>
       </offer>
       <offer id="svc-040">
@@ -388,6 +427,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>участие в судебных заседаниях в суде первой инстанции</description>
       </offer>
       <offer id="svc-041">
@@ -397,6 +437,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление ходатайств, заявлений</description>
       </offer>
       <offer id="svc-042">
@@ -406,6 +447,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>ознакомление с материалами дела</description>
       </offer>
       <offer id="svc-043">
@@ -415,6 +457,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>ознакомление с протоколом судебных заседаний</description>
       </offer>
       <offer id="svc-044">
@@ -424,6 +467,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление замечаний на протокол судебного заседания</description>
       </offer>
       <offer id="svc-045">
@@ -433,6 +477,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление частной жалобы</description>
       </offer>
       <offer id="svc-046">
@@ -442,6 +487,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление апелляционной жалобы на решение суда</description>
       </offer>
       <offer id="svc-047">
@@ -451,6 +497,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>представительство интересов доверителя в суде апелляционной инстанций</description>
       </offer>
       <offer id="svc-048">
@@ -460,6 +507,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление кассационной/надзорной жалобы</description>
       </offer>
       <offer id="svc-049">
@@ -469,6 +517,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>составление заявления о пересмотре судебных постановлений по вновь открывшимся или новым обстоятельствам</description>
       </offer>
       <offer id="svc-050">
@@ -478,6 +527,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>представительство интересов доверителя в суде кассационной/надзорной инстанции</description>
       </offer>
       <offer id="svc-051">
@@ -487,6 +537,7 @@
         <currencyId>RUB</currencyId>
         <categoryId>109</categoryId>
         <url>https://www.pravo-18.ru/</url>
+        <picture>https://www.pravo-18.ru/images/services/arbitration.jpg</picture>
         <description>представительство интересов доверителя в исполнительном производстве</description>
       </offer>
     </offers>
