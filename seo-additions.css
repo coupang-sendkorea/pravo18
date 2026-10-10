@@ -1,0 +1,81 @@
+/* SEO-дополнения к существующему style.css, без изменения фирменной шапки */
+.seo-hero-actions{margin-top:28px}
+.seo-hero-actions .button{max-width:100%;text-align:center;gap:10px;line-height:1.3;padding:14px 22px}
+.service-card-featured{background:linear-gradient(165deg,#fffdf2,#faf7e6);border-color:#e9d58a}
+.service-card-badge{display:inline-block;padding:5px 10px;border-radius:30px;background:#f9eebf;color:#06163d;font-size:12px;font-weight:700;margin-bottom:12px}
+.service-card-featured p{margin-bottom:14px}
+.text-link{display:inline-block;color:#09265b;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.price-service a{text-decoration:underline;text-decoration-color:#dbb34d;text-underline-offset:4px}
+.landing-page .site-header{position:sticky}
+.landing-hero{background:radial-gradient(circle at top right,rgba(240,207,86,.12),transparent 36%),linear-gradient(135deg,#06163d,#0b235d);color:white;padding:23px 0 72px}
+.breadcrumbs{display:flex;align-items:center;gap:12px;margin:8px 0 45px;color:#dbe3f0;font-size:13px}
+.breadcrumbs a{text-decoration:underline;text-underline-offset:3px}
+.landing-hero-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.68fr);gap:40px;align-items:center}
+.landing-copy h1{font-size:clamp(42px,5vw,66px);color:#f0cf56;text-transform:none;max-width:760px}
+.landing-copy .eyebrow{color:#f7e79b}
+.landing-lead{font-size:19px;line-height:1.7;color:#e4eaf3;max-width:700px}
+.landing-hero .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:15px;margin:25px 0 28px}
+.phone-info{background:rgba(255,255,255,.09);border:1px solid rgba(240,207,86,.35);border-radius:14px;padding:18px 22px;max-width:580px}
+.phone-info strong{display:block;color:#f7e79b;margin-bottom:9px}
+.phone-info-numbers{display:flex;flex-wrap:wrap;gap:8px 20px;font-weight:750;color:#fff;font-size:16px}
+/* Единственное исправление относительно утверждённой версии 3: читаемая кнопка */
+.landing-hero a.btn-secondary,
+.landing-hero a.btn-secondary:visited{display:inline-flex;align-items:center;justify-content:center;border:2px solid #f0cf56;border-radius:10px;background:#fff;color:#06163d;text-decoration:none;font-weight:750;padding:12px 17px;transition:background-color .2s ease, color .2s ease, box-shadow .2s ease}
+.landing-hero a.btn-secondary:hover,
+.landing-hero a.btn-secondary:focus-visible{background:#f0cf56;color:#06163d;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.proof-line{display:flex;gap:14px;flex-wrap:wrap;color:#e0e6ef;font-size:13px}
+.proof-line span::before{content:'✓';color:#f0cf56;margin-right:7px}
+.price-panel{background:#fff;border:1px solid #e3ddc9;box-shadow:0 18px 45px #03102a50;border-radius:18px;color:#17202a;padding:32px}
+.panel-label{font-weight:800;color:#806313;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.big-number{color:#06163d;font-weight:850;font-size:clamp(34px,3.4vw,44px);margin:13px 0}
+.price-panel p{font-size:14px;color:#53606f}
+.price-panel hr{border:0;border-top:1px solid #dee4ea;margin:20px 0}
+.price-panel .price-note{background:#fbf7e5;border:1px solid #eadb8d;border-radius:10px;padding:12px}
+.price-panel .text-link{margin-top:10px}
+.landing-page .section-heading .eyebrow{color:#8c6b14}
+.landing-page .section{padding:78px 0}
+.landing-page .section h2{font-size:clamp(30px,3.6vw,43px)}
+.section-intro{color:#52616d;max-width:790px}
+.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.info-card,.step-card,.feature-list>div{background:white;border:1px solid #d9e1e8;border-radius:15px;padding:24px}
+.info-icon{font-weight:850;color:#0b235d;background:#fbf2c9;border-radius:9px;padding:7px 12px;display:inline-block;margin-bottom:16px}
+.info-card p,.step-card p,.feature-list p{color:#5c6875;margin-bottom:0}
+.text-note{margin-top:25px;background:#fbf7e5;border-left:4px solid #f0cf56;padding:18px 22px;border-radius:6px;font-size:15px}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step-number{color:#8c711f;font-weight:900;display:block;font-size:34px;margin-bottom:13px}
+.narrow-content{max-width:920px}
+.feature-list{display:grid;gap:17px}
+.statute{color:#657383;font-size:13px;margin-top:22px}
+.faq-list{display:grid;gap:10px}
+.faq-list details{background:white;border:1px solid #d9e1e8;border-radius:12px;padding:0 22px}
+.faq-list summary{cursor:pointer;list-style:none;font-weight:750;padding:20px 0;display:flex;justify-content:space-between;gap:15px}
+.faq-list summary::after{content:'+';font-size:22px;color:#806313}
+.faq-list details[open] summary::after{content:'−'}
+.faq-list details p{border-top:1px solid #edf0f3;padding:17px 0 21px;color:#5c6875;margin:0}
+.cta-panel{background:linear-gradient(130deg,#06163d,#0b235d);color:white;padding:36px 42px;border-radius:19px}
+.cta-panel h2{color:#f0cf56}
+.cta-panel p{color:#e2eaf3}
+.cta-contacts{display:flex;gap:10px 25px;flex-wrap:wrap;font-weight:750;color:#fff}
+.cta-panel .muted-small{font-size:13px}
+.landing-page .footer a{text-decoration:underline}
+.preview-ribbon{display:none}
+.is-preview .preview-ribbon{display:block;text-align:center;background:#fff1d5;color:#604720;font-size:13px;padding:8px 12px;border-bottom:1px solid #e5c787}
+@media(max-width:900px){.landing-hero-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.seo-hero-actions .button{width:100%;font-size:14px}.landing-hero{padding:18px 0 50px}.breadcrumbs{margin-bottom:28px}.landing-page .section{padding:57px 0}.landing-copy h1{font-size:40px}.info-grid,.steps-grid{grid-template-columns:1fr}.price-panel{padding:23px}.cta-panel{padding:24px}.faq-list details{padding:0 16px}.phone-info-numbers{display:grid;gap:4px}}
+
+/* Пояснение к стоимости банкротства в прайс-листе */
+.bankruptcy-price-explanation{display:block;margin-top:7px;font-size:12px;line-height:1.6;font-weight:400;color:#637185;max-width:600px}
+
+/* v7: отдельный пункт «Банкротство» в верхней навигации обеих страниц.
+   При узком экране меню остаётся доступным в горизонтальной строке. */
+.site-header .nav a[aria-current="page"] { color: #f0cf56; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
+@media (max-width: 1080px) {
+  .site-header .header-inner { flex-wrap: wrap; gap: 7px 20px; padding-top: 9px; padding-bottom: 6px; }
+  .site-header .nav { display: flex; flex: 1 0 100%; width: 100%; max-width: 100%; flex-wrap: nowrap; overflow-x: auto; gap: 20px; padding: 4px 0 12px; scrollbar-width: thin; }
+  .site-header .nav a { white-space: nowrap; flex: 0 0 auto; }
+}
+
+/* На телефонах показываем все пункты, при необходимости в две строки, без обрезки. */
+@media (max-width: 600px) {
+  .site-header .nav { flex-wrap: wrap; overflow-x: visible; column-gap: 12px; row-gap: 6px; padding-bottom: 9px; }
+}
